@@ -1,6 +1,31 @@
 import { resultSuccess, resultError, getRequestToken, requestParams } from '../_util';
 import { MockMethod } from 'vite-plugin-mock';
 import { createFakeUserList } from './user';
+const testRoute = {
+  path: '/test',
+  name: 'test',
+  component: 'LAYOUT',
+  redirect: '/test/tc',
+  meta: {
+    title: 'aaaa',
+    hideChildrenInMenu: true,
+    icon: 'bx:bx-home',
+  },
+  children: [
+    {
+      path: 'tc',
+      name: 'tc',
+      component: '/demo/test/index',
+      meta: {
+        hideMenu: true,
+        hideBreadcrumb: true,
+        title: 'aaa',
+        currentActiveMenu: '/test/tc',
+        icon: 'bx:bx-home',
+      },
+    },
+  ],
+};
 
 // single
 const dashboardRoute = {
@@ -22,7 +47,7 @@ const dashboardRoute = {
         hideMenu: true,
         hideBreadcrumb: true,
         title: 'routes.dashboard.analysis',
-        currentActiveMenu: '/dashboard',
+        currentActiveMenu: '/dashboard/analysis',
         icon: 'bx:bx-home',
       },
     },
@@ -254,11 +279,11 @@ export default [
       switch (id) {
         case '1':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[0].path;
-          menu = [dashboardRoute, authRoute, levelRoute, sysRoute, linkRoute];
+          menu = [dashboardRoute, authRoute, levelRoute, sysRoute, linkRoute, testRoute];
           break;
         case '2':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[1].path;
-          menu = [dashboardRoute, authRoute, levelRoute, linkRoute];
+          menu = [dashboardRoute, authRoute, levelRoute, linkRoute, testRoute];
           break;
         default:
           menu = [];

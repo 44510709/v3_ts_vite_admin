@@ -181,7 +181,7 @@ export const usePermissionStore = defineStore({
           break;
 
         // 路由映射， 默认进入该case
-        case PermissionModeEnum.ROUTE_MAPPING:
+        case PermissionModeEnum.BACK:
           // 对非一级路由进行过滤
           routes = filter(asyncRoutes, routeFilter);
           // 对一级路由再次根据角色权限过滤
@@ -207,7 +207,7 @@ export const usePermissionStore = defineStore({
 
         //  If you are sure that you do not need to do background dynamic permissions, please comment the entire judgment below
         //  如果确定不需要做后台动态权限，请在下方注释整个判断
-        case PermissionModeEnum.BACK:
+        case PermissionModeEnum.ROUTE_MAPPING:
           const { createMessage } = useMessage();
 
           createMessage.loading({
@@ -226,23 +226,13 @@ export const usePermissionStore = defineStore({
           } catch (error) {
             console.error(error);
           }
-
-          // Dynamically introduce components
           // 动态引入组件
           routeList = transformObjToRoute(routeList);
-
-          //  Background routing to menu structure
-          //  后台路由到菜单结构
-          const backMenuList = transformRouteToMenu(routeList);
-          this.setBackMenuList(backMenuList);
-
-          // remove meta.ignoreRoute item
-          // 删除 meta.ignoreRoute 项
-          routeList = filter(routeList, routeRemoveIgnoreFilter);
-          routeList = routeList.filter(routeRemoveIgnoreFilter);
-
-          routeList = flatMultiLevelRoutes(routeList);
-          routes = [PAGE_NOT_FOUND_ROUTE, ...routeList];
+          // 将路由转换成菜单
+          const menuLists = transformRouteToMenu(routeList, true);
+          // 设置菜单列表
+          this.setFrontMenuList(menuLists);
+          routes = flatMultiLevelRoutes(routeList);
           break;
       }
 
