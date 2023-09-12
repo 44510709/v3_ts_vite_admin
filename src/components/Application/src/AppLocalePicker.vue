@@ -34,7 +34,7 @@
     /**
      * Whether to refresh the interface when changing
      */
-    reload: { type: Boolean },
+    reload: { type: Boolean }
   });
 
   const selectedKeys = ref<string[]>([]);

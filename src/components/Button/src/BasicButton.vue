@@ -18,7 +18,7 @@
   defineOptions({
     name: 'AButton',
     extends: Button,
-    inheritAttrs: false,
+    inheritAttrs: false
   });
 
   const props = defineProps(buttonProps);
@@ -29,8 +29,8 @@
     return [
       {
         [`ant-btn-${color}`]: !!color,
-        [`is-disabled`]: disabled,
-      },
+        [`is-disabled`]: disabled
+      }
     ];
   });
 

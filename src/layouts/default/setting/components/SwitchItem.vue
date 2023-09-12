@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-    <span> {{ title }}</span>
+    <span>{{ title }}</span>
     <Switch
       v-bind="getBindValue"
       @change="handleChange"
@@ -24,17 +24,17 @@
     components: { Switch },
     props: {
       event: {
-        type: Number as PropType<HandlerEnum>,
+        type: Number as PropType<HandlerEnum>
       },
       disabled: {
-        type: Boolean,
+        type: Boolean
       },
       title: {
-        type: String,
+        type: String
       },
       def: {
-        type: Boolean,
-      },
+        type: Boolean
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('setting-switch-item');
@@ -50,9 +50,9 @@
         prefixCls,
         t,
         handleChange,
-        getBindValue,
+        getBindValue
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

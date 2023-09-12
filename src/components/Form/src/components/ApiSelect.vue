@@ -37,7 +37,7 @@
     name: 'ApiSelect',
     components: {
       Select,
-      LoadingOutlined,
+      LoadingOutlined
     },
     inheritAttrs: false,
     props: {
@@ -45,7 +45,7 @@
       numberToString: propTypes.bool,
       api: {
         type: Function as PropType<(arg?: any) => Promise<OptionsItem[]>>,
-        default: null,
+        default: null
       },
       // api params
       params: propTypes.any.def({}),
@@ -55,7 +55,7 @@
       valueField: propTypes.string.def('value'),
       immediate: propTypes.bool.def(true),
       alwaysLoad: propTypes.bool.def(false),
-      options: propTypes.array.def([]),
+      options: propTypes.array.def([])
     },
     emits: ['options-change', 'change', 'update:value'],
     setup(props, { emit }) {
@@ -78,7 +78,7 @@
             prev.push({
               ...omit(next, [labelField, valueField]),
               label: get(next, labelField),
-              value: numberToString ? `${value}` : value,
+              value: numberToString ? `${value}` : value
             });
           }
           return prev;
@@ -94,7 +94,7 @@
         () => state.value,
         (v) => {
           emit('update:value', v);
-        },
+        }
       );
 
       watch(
@@ -102,7 +102,7 @@
         () => {
           !unref(isFirstLoad) && fetch();
         },
-        { deep: true },
+        { deep: true }
       );
 
       async function fetch() {
@@ -148,6 +148,6 @@
       }
 
       return { state, attrs, getOptions, loading, t, handleFetch, handleChange };
-    },
+    }
   });
 </script>

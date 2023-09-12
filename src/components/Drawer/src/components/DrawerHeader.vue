@@ -32,7 +32,7 @@
     props: {
       isDetail: propTypes.bool,
       showDetailBack: propTypes.bool,
-      title: propTypes.string,
+      title: propTypes.string
     },
     emits: ['close'],
     setup(_, { emit }) {
@@ -43,7 +43,7 @@
       }
 
       return { prefixCls, handleClose };
-    },
+    }
   });
 </script>
 

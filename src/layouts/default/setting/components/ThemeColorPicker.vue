@@ -6,8 +6,8 @@
         :class="[
           `${prefixCls}__item`,
           {
-            [`${prefixCls}__item--active`]: def === color,
-          },
+            [`${prefixCls}__item--active`]: def === color
+          }
         ]"
         :style="{ background: color }"
       >
@@ -31,14 +31,14 @@
     props: {
       colorList: {
         type: Array as PropType<string[]>,
-        default: () => [],
+        default: () => []
       },
       event: {
-        type: Number as PropType<HandlerEnum>,
+        type: Number as PropType<HandlerEnum>
       },
       def: {
-        type: String,
-      },
+        type: String
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('setting-theme-picker');
@@ -48,9 +48,9 @@
       }
       return {
         prefixCls,
-        handleClick,
+        handleClick
       };
-    },
+    }
   });
 </script>
 <style lang="less">

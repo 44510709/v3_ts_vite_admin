@@ -17,20 +17,20 @@
     props: {
       prefix: {
         type: String,
-        default: 'icon',
+        default: 'icon'
       },
       name: {
         type: String,
-        required: true,
+        required: true
       },
       size: {
         type: [Number, String],
-        default: 16,
+        default: 16
       },
       spin: {
         type: Boolean,
-        default: false,
-      },
+        default: false
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('svg-icon');
@@ -42,11 +42,11 @@
         s = `${s.replace('px', '')}px`;
         return {
           width: s,
-          height: s,
+          height: s
         };
       });
       return { symbolId, prefixCls, getStyle };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

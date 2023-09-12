@@ -4,7 +4,7 @@ import {
   createEditRender,
   createCellRender,
   createFormItemRender,
-  createExportMethod,
+  createExportMethod
 } from './common';
 
 function matchCascaderData(index: number, list: any[], values: any[], labels: any[]) {
@@ -21,7 +21,7 @@ function matchCascaderData(index: number, list: any[], values: any[], labels: an
 
 function getCascaderCellValue(
   renderOpts: VxeGlobalRendererHandles.RenderOptions,
-  params: VxeGlobalRendererHandles.RenderCellParams,
+  params: VxeGlobalRendererHandles.RenderCellParams
 ) {
   const { props = {} } = renderOpts;
   const { row, column } = params;
@@ -38,5 +38,5 @@ export default {
   renderEdit: createEditRender(),
   renderCell: createCellRender(getCascaderCellValue),
   renderItemContent: createFormItemRender(),
-  exportMethod: createExportMethod(getCascaderCellValue),
+  exportMethod: createExportMethod(getCascaderCellValue)
 };

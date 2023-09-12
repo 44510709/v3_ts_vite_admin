@@ -8,8 +8,8 @@
       getMenuTheme,
       {
         open: openMenu,
-        mini: getCollapsed,
-      },
+        mini: getCollapsed
+      }
     ]"
     v-bind="getMenuEvents"
   >
@@ -23,8 +23,8 @@
           :class="[
             `${prefixCls}-module__item `,
             {
-              [`${prefixCls}-module__item--active`]: item.path === activePath,
-            },
+              [`${prefixCls}-module__item--active`]: item.path === activePath
+            }
           ]"
           v-bind="getItemEvents(item)"
           v-for="item in menuModules"
@@ -49,11 +49,11 @@
         :class="[
           `${prefixCls}-menu-list__title`,
           {
-            show: openMenu,
-          },
+            show: openMenu
+          }
         ]"
       >
-        <span class="text"> {{ title }}</span>
+        <span class="text">{{ title }}</span>
         <Icon
           :size="16"
           :icon="getMixSideFixed ? 'ri:pushpin-2-fill' : 'ri:pushpin-2-line'"
@@ -107,10 +107,10 @@
       SimpleMenu,
       Icon,
       LayoutTrigger,
-      SimpleMenuTag,
+      SimpleMenuTag
     },
     directives: {
-      clickOutside,
+      clickOutside
     },
     setup() {
       let menuModules = ref<Menu[]>([]);
@@ -135,7 +135,7 @@
         mixSideHasChildren,
         setMenuSetting,
         getIsMixSidebar,
-        getCollapsed,
+        getCollapsed
       } = useMenuSetting();
 
       const { title } = useGlobSetting();
@@ -146,7 +146,7 @@
       const getMenuStyle = computed((): CSSProperties => {
         return {
           width: unref(openMenu) ? `${unref(getMenuWidth)}px` : 0,
-          left: `${unref(getMixSideWidth)}px`,
+          left: `${unref(getMixSideWidth)}px`
         };
       });
 
@@ -182,7 +182,7 @@
               onMouseleave: () => {
                 setActive(true);
                 closeMenu();
-              },
+              }
             }
           : {};
       });
@@ -200,8 +200,8 @@
           menuModules.value = await getShallowMenus();
         },
         {
-          immediate: true,
-        },
+          immediate: true
+        }
       );
 
       listenerRouteChange((route) => {
@@ -217,7 +217,7 @@
           width,
           maxWidth: width,
           minWidth: width,
-          flex: `0 0 ${width}`,
+          flex: `0 0 ${width}`
         };
       }
 
@@ -294,17 +294,17 @@
             onClick: async () => {
               const children = await getChildrenMenus(item.path);
               if (item.path && (!children || children.length === 0)) go(item.path);
-            },
+            }
           };
         }
         return {
-          onClick: () => handleModuleClick(item.path),
+          onClick: () => handleModuleClick(item.path)
         };
       }
 
       function handleFixedMenu() {
         setMenuSetting({
-          mixSideFixed: !unref(getIsFixed),
+          mixSideFixed: !unref(getIsFixed)
         });
       }
 
@@ -337,9 +337,9 @@
         handleFixedMenu,
         getMixSideFixed,
         getWrapStyle,
-        getCollapsed,
+        getCollapsed
       };
-    },
+    }
   });
 </script>
 <style lang="less">

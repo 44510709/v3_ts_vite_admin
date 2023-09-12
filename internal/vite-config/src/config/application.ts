@@ -29,7 +29,7 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
       root,
       enableAnalyze: VITE_ENABLE_ANALYZE === 'true',
       enableMock: VITE_USE_MOCK === 'true',
-      compress: VITE_BUILD_COMPRESS,
+      compress: VITE_BUILD_COMPRESS
     });
 
     const pathResolve = (pathname: string) => resolve(root, '.', pathname);
@@ -39,29 +39,29 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
         alias: [
           {
             find: 'vue-i18n',
-            replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+            replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
           },
           // /@/xxxx => src/xxxx
           {
             find: /\/@\//,
-            replacement: pathResolve('src') + '/',
+            replacement: pathResolve('src') + '/'
           },
           // /#/xxxx => types/xxxx
           {
             find: /\/#\//,
-            replacement: pathResolve('types') + '/',
+            replacement: pathResolve('types') + '/'
           },
           // @/xxxx => src/xxxx
           {
             find: /@\//,
-            replacement: pathResolve('src') + '/',
+            replacement: pathResolve('src') + '/'
           },
           // #/xxxx => types/xxxx
           {
             find: /#\//,
-            replacement: pathResolve('types') + '/',
-          },
-        ],
+            replacement: pathResolve('types') + '/'
+          }
+        ]
       },
       define: defineData,
       build: {
@@ -73,20 +73,20 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
             entryFileNames: 'assets/[name].js',
             manualChunks: {
               vue: ['vue', 'pinia', 'vue-router'],
-              antd: ['ant-design-vue', '@ant-design/icons-vue'],
-            },
-          },
-        },
+              antd: ['ant-design-vue', '@ant-design/icons-vue']
+            }
+          }
+        }
       },
       css: {
         preprocessorOptions: {
           less: {
             modifyVars: generateModifyVars(),
-            javascriptEnabled: true,
-          },
-        },
+            javascriptEnabled: true
+          }
+        }
       },
-      plugins,
+      plugins
     };
 
     const mergedConfig = mergeConfig(commonConfig(mode), applicationConfig);
@@ -102,10 +102,10 @@ async function createDefineData(root: string) {
 
     const __APP_INFO__ = {
       pkg: { dependencies, devDependencies, name, version },
-      lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+      lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss')
     };
     return {
-      __APP_INFO__: JSON.stringify(__APP_INFO__),
+      __APP_INFO__: JSON.stringify(__APP_INFO__)
     };
   } catch (error) {
     return {};

@@ -2,7 +2,8 @@
   <PageWrapper contentBackground title="按钮权限控制" contentClass="p-4">
     <CurrentPermissionMode />
     <p>
-      当前拥有的code列表: <a> {{ permissionStore.getPermCodeList }} </a>
+      当前拥有的code列表:
+      <a>{{ permissionStore.getPermCodeList }}</a>
     </p>
     <Divider />
     <Alert
@@ -22,15 +23,15 @@
     <template v-if="isBackPermissionMode">
       <Divider>组件方式判断权限</Divider>
       <Authority :value="'1000'">
-        <a-button type="primary" class="mx-4"> 拥有code ['1000']权限可见 </a-button>
+        <a-button type="primary" class="mx-4">拥有code ['1000']权限可见</a-button>
       </Authority>
 
       <Authority :value="'2000'">
-        <a-button color="success" class="mx-4"> 拥有code ['2000']权限可见 </a-button>
+        <a-button color="success" class="mx-4">拥有code ['2000']权限可见</a-button>
       </Authority>
 
       <Authority :value="['1000', '2000']">
-        <a-button color="error" class="mx-4"> 拥有code ['1000','2000']角色权限可见 </a-button>
+        <a-button color="error" class="mx-4">拥有code ['1000','2000']角色权限可见</a-button>
       </Authority>
 
       <Divider>函数方式方式判断权限</Divider>
@@ -47,9 +48,9 @@
       </a-button>
 
       <Divider>指令方式方式判断权限(该方式不能动态修改权限.)</Divider>
-      <a-button v-auth="'1000'" type="primary" class="mx-4"> 拥有code ['1000']权限可见 </a-button>
+      <a-button v-auth="'1000'" type="primary" class="mx-4">拥有code ['1000']权限可见</a-button>
 
-      <a-button v-auth="'2000'" color="success" class="mx-4"> 拥有code ['2000']权限可见 </a-button>
+      <a-button v-auth="'2000'" color="success" class="mx-4">拥有code ['2000']权限可见</a-button>
 
       <a-button v-auth="['1000', '2000']" color="error" class="mx-4">
         拥有code ['1000','2000']角色权限可见
@@ -78,7 +79,7 @@
       const userStore = useUserStore();
 
       const isBackPermissionMode = computed(
-        () => appStore.getProjectConfig.permissionMode === PermissionModeEnum.BACK,
+        () => appStore.getProjectConfig.permissionMode === PermissionModeEnum.BACK
       );
 
       async function switchToken(userId: number) {
@@ -95,9 +96,9 @@
         hasPermission,
         permissionStore,
         switchToken,
-        isBackPermissionMode,
+        isBackPermissionMode
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

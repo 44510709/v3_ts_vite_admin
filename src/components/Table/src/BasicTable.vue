@@ -43,7 +43,7 @@
     BasicTableProps,
     TableActionType,
     SizeType,
-    ColumnChangeParam,
+    ColumnChangeParam
   } from './types/table';
 
   import { defineComponent, ref, computed, unref, toRaw, inject, watchEffect } from 'vue';
@@ -79,7 +79,7 @@
     components: {
       Table,
       BasicForm,
-      HeaderCell,
+      HeaderCell
     },
     props: basicProps,
     emits: [
@@ -98,7 +98,7 @@
       'edit-change',
       'expanded-rows-change',
       'change',
-      'columns-change',
+      'columns-change'
     ],
     setup(props, { attrs, emit, slots, expose }) {
       const tableElRef = ref(null);
@@ -120,7 +120,7 @@
         unref(isFixedHeightPage) &&
           props.canResize &&
           warn(
-            "'canResize' of BasicTable may not work in PageWrapper with 'fixedHeight' (especially in hot updates)",
+            "'canResize' of BasicTable may not work in PageWrapper with 'fixedHeight' (especially in hot updates)"
           );
       });
 
@@ -130,7 +130,7 @@
         getPagination,
         setPagination,
         setShowPagination,
-        getShowPagination,
+        getShowPagination
       } = usePagination(getProps);
 
       const {
@@ -141,7 +141,7 @@
         clearSelectedRowKeys,
         getSelectRowKeys,
         deleteSelectRowByKey,
-        setSelectedRowKeys,
+        setSelectedRowKeys
       } = useRowSelection(getProps, tableData, emit);
 
       const {
@@ -158,7 +158,7 @@
         getRowKey,
         reload,
         getAutoCreateKey,
-        updateTableData,
+        updateTableData
       } = useDataSource(
         getProps,
         {
@@ -167,9 +167,9 @@
           setLoading,
           setPagination,
           getFieldsValue: formActions.getFieldsValue,
-          clearSelectedRowKeys,
+          clearSelectedRowKeys
         },
-        emit,
+        emit
       );
 
       function handleTableChange(...args) {
@@ -187,7 +187,7 @@
         setCacheColumns,
         setColumns,
         getColumnsRef,
-        getCacheColumns,
+        getCacheColumns
       } = useColumns(getProps, getPaginationInfo);
 
       const { getScrollRef, redoHeight } = useTableScroll(
@@ -197,7 +197,7 @@
         getRowSelectionRef,
         getDataSourceRef,
         wrapRef,
-        formRef,
+        formRef
       );
 
       const { scrollTo } = useTableScrollTo(tableElRef, getDataSourceRef);
@@ -207,7 +207,7 @@
         getSelectRowKeys,
         clearSelectedRowKeys,
         getAutoCreateKey,
-        emit,
+        emit
       });
 
       const { getRowClassName } = useTableStyle(getProps, prefixCls);
@@ -215,7 +215,7 @@
       const { getExpandOption, expandAll, expandRows, collapseAll } = useTableExpand(
         getProps,
         tableData,
-        emit,
+        emit
       );
 
       const handlers: InnerHandlers = {
@@ -223,7 +223,7 @@
           emit('columns-change', data);
           // support useTable
           unref(getProps).onColumnsChange?.(data);
-        },
+        }
       };
 
       const { getHeaderProps } = useTableHeader(getProps, slots, handlers);
@@ -232,7 +232,7 @@
         getProps,
         getScrollRef,
         tableElRef,
-        getDataSourceRef,
+        getDataSourceRef
       );
 
       const { getFormProps, replaceFormSlotKey, getFormSlotKeys, handleSearchInfoChange } =
@@ -254,7 +254,7 @@
           pagination: toRaw(unref(getPaginationInfo)),
           dataSource,
           footer: unref(getFooterProps),
-          ...unref(getExpandOption),
+          ...unref(getExpandOption)
         };
         // if (slots.expandedRowRender) {
         //   propsData = omit(propsData, 'scroll');
@@ -271,8 +271,8 @@
           attrs.class,
           {
             [`${prefixCls}-form-container`]: values.useSearchForm,
-            [`${prefixCls}--inset`]: values.inset,
-          },
+            [`${prefixCls}--inset`]: values.inset
+          }
         ];
       });
 
@@ -324,7 +324,7 @@
         getSize: () => {
           return unref(getBindValues).size as SizeType;
         },
-        setCacheColumns,
+        setCacheColumns
       };
       createTableContext({ ...tableAction, wrapRef, getBindValues });
 
@@ -349,9 +349,9 @@
         replaceFormSlotKey,
         getFormSlotKeys,
         getWrapperClass,
-        columns: getViewColumns,
+        columns: getViewColumns
       };
-    },
+    }
   });
 </script>
 <style lang="less">

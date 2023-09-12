@@ -8,7 +8,8 @@
     <CurrentPermissionMode />
 
     <p>
-      当前角色: <a> {{ userStore.getRoleList }} </a>
+      当前角色:
+      <a>{{ userStore.getRoleList }}</a>
     </p>
     <Alert class="mt-4" type="info" message="点击后请查看左侧菜单变化" show-icon />
 
@@ -45,9 +46,9 @@
         RoleEnum,
         isSuper: computed(() => userStore.getRoleList.includes(RoleEnum.SUPER)),
         isTest: computed(() => userStore.getRoleList.includes(RoleEnum.TEST)),
-        changeRole,
+        changeRole
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

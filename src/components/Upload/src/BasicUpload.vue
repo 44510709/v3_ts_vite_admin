@@ -80,7 +80,7 @@
         (value = []) => {
           fileList.value = isArray(value) ? value : [];
         },
-        { immediate: true },
+        { immediate: true }
       );
 
       // 上传modal保存操作
@@ -117,8 +117,8 @@
         bindValue,
         handleDelete,
         handlePreviewDelete,
-        t,
+        t
       };
-    },
+    }
   });
 </script>

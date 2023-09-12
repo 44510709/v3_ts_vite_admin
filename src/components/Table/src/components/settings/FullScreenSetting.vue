@@ -20,7 +20,7 @@
     components: {
       FullscreenExitOutlined,
       FullscreenOutlined,
-      Tooltip,
+      Tooltip
     },
 
     setup() {
@@ -31,8 +31,8 @@
       return {
         toggle,
         isFullscreen,
-        t,
+        t
       };
-    },
+    }
   });
 </script>

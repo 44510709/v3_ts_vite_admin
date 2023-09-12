@@ -7,7 +7,7 @@ import {
   createEvents,
   createDefaultFilterRender,
   createFormItemRender,
-  getComponent,
+  getComponent
 } from './common';
 
 export default {
@@ -22,7 +22,7 @@ export default {
       h(
         'div',
         {
-          class: 'vxe-table--filter-antd-wrapper',
+          class: 'vxe-table--filter-antd-wrapper'
         },
         column.filters.map((option, oIndex) => {
           const optionValue = option.data;
@@ -41,13 +41,13 @@ export default {
                 // 处理 change 事件相关逻辑
                 const { $panel } = params;
                 $panel.changeOption(null, XEUtils.isBoolean(option.data), option);
-              },
-            ),
+              }
+            )
           });
-        }),
-      ),
+        })
+      )
     ];
   },
   defaultFilterMethod: createDefaultFilterRender(),
-  renderItemContent: createFormItemRender(),
+  renderItemContent: createFormItemRender()
 };

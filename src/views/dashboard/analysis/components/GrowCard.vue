@@ -33,7 +33,7 @@
 
   defineProps({
     loading: {
-      type: Boolean,
-    },
+      type: Boolean
+    }
   });
 </script>

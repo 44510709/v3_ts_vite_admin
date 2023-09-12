@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-    <span> {{ title }}</span>
+    <span>{{ title }}</span>
     <InputNumber
       v-bind="$attrs"
       size="small"
@@ -22,11 +22,11 @@
     components: { InputNumber },
     props: {
       event: {
-        type: Number as PropType<HandlerEnum>,
+        type: Number as PropType<HandlerEnum>
       },
       title: {
-        type: String,
-      },
+        type: String
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('setting-input-number-item');
@@ -36,9 +36,9 @@
       }
       return {
         prefixCls,
-        handleChange,
+        handleChange
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

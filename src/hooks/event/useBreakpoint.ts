@@ -24,7 +24,7 @@ export function useBreakpoint() {
     screenRef: computed(() => unref(globalScreenRef)),
     widthRef: globalWidthRef,
     screenEnum,
-    realWidthRef: globalRealWidthRef,
+    realWidthRef: globalRealWidthRef
   };
 }
 
@@ -63,7 +63,7 @@ export function createBreakpointListen(fn?: (opt: CreateCallbackParams) => void)
     listener: () => {
       getWindowWidth();
       resizeFn();
-    },
+    }
     // wait: 100,
   });
 
@@ -79,7 +79,7 @@ export function createBreakpointListen(fn?: (opt: CreateCallbackParams) => void)
       realWidth: globalRealWidthRef,
       screenEnum,
       screenMap,
-      sizeEnum,
+      sizeEnum
     });
   }
 
@@ -88,6 +88,6 @@ export function createBreakpointListen(fn?: (opt: CreateCallbackParams) => void)
     screenRef: globalScreenRef,
     screenEnum,
     widthRef: globalWidthRef,
-    realWidthRef: globalRealWidthRef,
+    realWidthRef: globalRealWidthRef
   };
 }

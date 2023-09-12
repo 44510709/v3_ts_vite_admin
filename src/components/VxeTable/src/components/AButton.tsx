@@ -2,7 +2,7 @@ import { h } from 'vue';
 import {
   FormItemContentRenderParams,
   FormItemRenderOptions,
-  VxeGlobalRendererHandles,
+  VxeGlobalRendererHandles
 } from 'vxe-table';
 import XEUtils from 'xe-utils';
 import { cellText, createEvents, createProps, getComponent } from './common';
@@ -12,7 +12,7 @@ const COMPONENT_NAME = 'AButton';
 export function createEditRender() {
   return function (
     renderOpts: VxeGlobalRendererHandles.RenderEditOptions,
-    params: VxeGlobalRendererHandles.RenderEditParams,
+    params: VxeGlobalRendererHandles.RenderEditParams
   ) {
     const { attrs } = renderOpts;
     const Component = getComponent(COMPONENT_NAME);
@@ -21,8 +21,8 @@ export function createEditRender() {
       h(Component, {
         ...attrs,
         ...createProps(renderOpts, null),
-        ...createEvents(renderOpts, params),
-      }),
+        ...createEvents(renderOpts, params)
+      })
     ];
   };
 }
@@ -30,7 +30,7 @@ export function createEditRender() {
 export function createDefaultRender() {
   return function (
     renderOpts: VxeGlobalRendererHandles.RenderEditOptions,
-    params: VxeGlobalRendererHandles.RenderEditParams,
+    params: VxeGlobalRendererHandles.RenderEditParams
   ) {
     const { attrs } = renderOpts;
     const Component = getComponent(COMPONENT_NAME);
@@ -41,10 +41,10 @@ export function createDefaultRender() {
         {
           ...attrs,
           ...createProps(renderOpts, null),
-          ...createEvents(renderOpts, params),
+          ...createEvents(renderOpts, params)
         },
-        cellText(renderOpts.content),
-      ),
+        cellText(renderOpts.content)
+      )
     ];
   };
 }
@@ -73,15 +73,15 @@ export function createFormItemRender() {
               // 处理 change 事件相关逻辑
               $form.updateStatus({
                 ...params,
-                field: property,
+                field: property
               });
-            },
-          ),
+            }
+          )
         },
         {
-          default: () => cellText(content || props.content),
-        },
-      ),
+          default: () => cellText(content || props.content)
+        }
+      )
     ];
   };
 }
@@ -89,7 +89,7 @@ export function createFormItemRender() {
 function createToolbarButtonRender() {
   return function (
     renderOpts: VxeGlobalRendererHandles.RenderToolOptions,
-    params: VxeGlobalRendererHandles.RenderButtonParams,
+    params: VxeGlobalRendererHandles.RenderButtonParams
   ) {
     const { attrs } = renderOpts;
     const { button } = params;
@@ -102,12 +102,12 @@ function createToolbarButtonRender() {
         {
           ...attrs,
           ...props,
-          ...createEvents(renderOpts, params),
+          ...createEvents(renderOpts, params)
         },
         {
-          default: () => cellText(button?.content || props.content),
-        },
-      ),
+          default: () => cellText(button?.content || props.content)
+        }
+      )
     ];
   };
 }
@@ -116,5 +116,5 @@ export default {
   renderEdit: createEditRender(),
   renderDefault: createDefaultRender(),
   renderItemContent: createFormItemRender(),
-  renderToolbarButton: createToolbarButtonRender(),
+  renderToolbarButton: createToolbarButtonRender()
 };

@@ -8,8 +8,8 @@
             `${prefixCls}__item`,
             `${prefixCls}__item--${item.type}`,
             {
-              [`${prefixCls}__item--active`]: def === item.type,
-            },
+              [`${prefixCls}__item--active`]: def === item.type
+            }
           ]"
         >
           <div class="mix-sidebar"></div>
@@ -32,24 +32,24 @@
     props: {
       menuTypeList: {
         type: Array as PropType<typeof menuTypeList>,
-        default: () => [],
+        default: () => []
       },
       handler: {
         type: Function,
-        default: () => ({}),
+        default: () => ({})
       },
       def: {
         type: String,
-        default: '',
-      },
+        default: ''
+      }
     },
     setup() {
       const { prefixCls } = useDesign('setting-menu-type-picker');
 
       return {
-        prefixCls,
+        prefixCls
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

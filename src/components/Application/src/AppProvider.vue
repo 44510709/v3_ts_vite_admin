@@ -10,7 +10,7 @@
     /**
      * class style prefix
      */
-    prefixCls: { type: String, default: prefixCls },
+    prefixCls: { type: String, default: prefixCls }
   };
 
   export default defineComponent({
@@ -49,15 +49,15 @@
                 type: menuType,
                 mode: menuMode,
                 collapsed: menuCollapsed,
-                split: menuSplit,
-              },
+                split: menuSplit
+              }
             } = appStore.getProjectConfig;
             appStore.setProjectConfig({
               menuSetting: {
                 type: MenuTypeEnum.SIDEBAR,
                 mode: MenuModeEnum.INLINE,
-                split: false,
-              },
+                split: false
+              }
             });
             appStore.setBeforeMiniInfo({ menuMode, menuCollapsed, menuType, menuSplit });
           }
@@ -70,13 +70,13 @@
                 type: menuType,
                 mode: menuMode,
                 collapsed: menuCollapsed,
-                split: menuSplit,
-              },
+                split: menuSplit
+              }
             });
           }
         }
       }
       return () => slots.default?.();
-    },
+    }
   });
 </script>

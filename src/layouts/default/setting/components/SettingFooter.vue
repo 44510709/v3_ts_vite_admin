@@ -50,12 +50,12 @@
 
       function handleCopy() {
         const { isSuccessRef } = useCopyToClipboard(
-          JSON.stringify(unref(appStore.getProjectConfig), null, 2),
+          JSON.stringify(unref(appStore.getProjectConfig), null, 2)
         );
         unref(isSuccessRef) &&
           createSuccessModal({
             title: t('layout.setting.operatingTitle'),
-            content: t('layout.setting.operatingContent'),
+            content: t('layout.setting.operatingContent')
           });
       }
       function handleResetSetting() {
@@ -84,9 +84,9 @@
         t,
         handleCopy,
         handleResetSetting,
-        handleClearAndRedo,
+        handleClearAndRedo
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

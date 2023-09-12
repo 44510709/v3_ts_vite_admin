@@ -19,12 +19,12 @@
     replace({
       name: _path,
       query,
-      params: JSON.parse((params._origin_params as string) ?? '{}'),
+      params: JSON.parse((params._origin_params as string) ?? '{}')
     });
   } else {
     replace({
       path: _path.startsWith('/') ? _path : '/' + _path,
-      query,
+      query
     });
   }
 </script>

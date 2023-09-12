@@ -37,8 +37,8 @@
       ...footerProps,
       height: {
         type: String,
-        default: '60px',
-      },
+        default: '60px'
+      }
     },
     emits: ['ok', 'close'],
     setup(props, { emit }) {
@@ -48,7 +48,7 @@
         const heightStr = `${props.height}`;
         return {
           height: heightStr,
-          lineHeight: `calc(${heightStr} - 1px)`,
+          lineHeight: `calc(${heightStr} - 1px)`
         };
       });
 
@@ -60,7 +60,7 @@
         emit('close');
       }
       return { handleOk, prefixCls, handleClose, getStyle };
-    },
+    }
   });
 </script>
 

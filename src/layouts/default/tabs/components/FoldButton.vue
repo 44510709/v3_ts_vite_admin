@@ -23,20 +23,20 @@
       const getIsUnFold = computed(() => !unref(getShowMenu) && !unref(getShowHeader));
 
       const getIcon = computed(() =>
-        unref(getIsUnFold) ? 'codicon:screen-normal' : 'codicon:screen-full',
+        unref(getIsUnFold) ? 'codicon:screen-normal' : 'codicon:screen-full'
       );
 
       function handleFold() {
         const isUnFold = unref(getIsUnFold);
         setMenuSetting({
           show: isUnFold,
-          hidden: !isUnFold,
+          hidden: !isUnFold
         });
         setHeaderSetting({ show: isUnFold });
         triggerWindowResize();
       }
 
       return { prefixCls, getIcon, handleFold };
-    },
+    }
   });
 </script>

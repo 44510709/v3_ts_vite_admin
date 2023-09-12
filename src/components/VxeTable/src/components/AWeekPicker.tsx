@@ -3,7 +3,7 @@ import {
   createEditRender,
   createCellRender,
   createFormItemRender,
-  createExportMethod,
+  createExportMethod
 } from './common';
 
 export default {
@@ -14,5 +14,5 @@ export default {
   renderItemContent: createFormItemRender(),
   exportMethod: createExportMethod(getDatePickerCellValue, () => {
     return ['YYYY-WW周'];
-  }),
+  })
 };

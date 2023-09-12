@@ -15,7 +15,7 @@ export default {
       // Field name of the form data returned by the interface
       listField: 'items',
       // Total number of tables returned by the interface field name
-      totalField: 'total',
+      totalField: 'total'
     },
     // Number of pages that can be selected
     pageSizeOptions: ['10', '50', '80', '100'],
@@ -31,7 +31,7 @@ export default {
           // The sort field passed to the backend you
           field,
           // Sorting method passed to the background asc/desc
-          order,
+          order
         };
       } else {
         return {};
@@ -40,7 +40,7 @@ export default {
     // Custom general filter function
     defaultFilterFn: (data: Partial<Recordable<string[]>>) => {
       return data;
-    },
+    }
   },
   vxeTable: {
     table: {
@@ -49,20 +49,20 @@ export default {
       columnConfig: {
         resizable: true,
         isCurrent: true,
-        isHover: true,
+        isHover: true
       },
       rowConfig: {
         isCurrent: true,
-        isHover: true,
+        isHover: true
       },
       emptyRender: {
-        name: 'AEmpty',
+        name: 'AEmpty'
       },
       printConfig: {},
       exportConfig: {},
       customConfig: {
-        storage: true,
-      },
+        storage: true
+      }
     },
     grid: {
       toolbarConfig: {
@@ -71,27 +71,27 @@ export default {
         zoom: true,
         print: true,
         refresh: true,
-        custom: true,
+        custom: true
       },
       pagerConfig: {
         pageSizes: [20, 50, 100, 500],
         pageSize: 20,
-        autoHidden: true,
+        autoHidden: true
       },
       proxyConfig: {
         form: true,
         props: {
           result: 'items',
-          total: 'total',
-        },
+          total: 'total'
+        }
       },
-      zoomConfig: {},
-    },
+      zoomConfig: {}
+    }
   },
   // scrollbar setting
   scrollbar: {
     // Whether to use native scroll bar
     // After opening, the menu, modal, drawer will change the pop-up scroll bar to native
-    native: false,
-  },
+    native: false
+  }
 };

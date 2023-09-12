@@ -9,7 +9,7 @@ import {
   watch,
   reactive,
   Ref,
-  watchEffect,
+  watchEffect
 } from 'vue';
 import { useTimeoutFn } from '@vben/hooks';
 import { buildUUID } from '/@/utils/uuid';
@@ -38,13 +38,13 @@ export function useDataSource(
     setLoading,
     getFieldsValue,
     clearSelectedRowKeys,
-    tableData,
+    tableData
   }: ActionType,
-  emit: EmitType,
+  emit: EmitType
 ) {
   const searchState = reactive<SearchState>({
     sortInfo: {},
-    filterInfo: {},
+    filterInfo: {}
   });
   const dataSourceRef = ref<Recordable[]>([]);
   const rawDataSourceRef = ref<Recordable>({});
@@ -60,14 +60,14 @@ export function useDataSource(
       !api && dataSource && (dataSourceRef.value = dataSource);
     },
     {
-      immediate: true,
-    },
+      immediate: true
+    }
   );
 
   function handleTableChange(
     pagination: PaginationProps,
     filters: Partial<Recordable<string[]>>,
-    sorter: SorterResult,
+    sorter: SorterResult
   ) {
     const { clearSelectOnPageChange, sortFn, filterFn } = unref(propsRef);
     if (clearSelectOnPageChange) {
@@ -148,7 +148,7 @@ export function useDataSource(
 
   function updateTableDataRecord(
     rowKey: string | number,
-    record: Recordable,
+    record: Recordable
   ): Recordable | undefined {
     const row = findTableDataRecord(rowKey);
 
@@ -202,13 +202,13 @@ export function useDataSource(
       deleteRow(unref(propsRef).dataSource, key);
     }
     setPagination({
-      total: unref(propsRef).dataSource?.length,
+      total: unref(propsRef).dataSource?.length
     });
   }
 
   function insertTableDataRecord(
     record: Recordable | Recordable[],
-    index: number,
+    index: number
   ): Recordable[] | undefined {
     // if (!dataSourceRef.value || dataSourceRef.value.length == 0) return;
     index = index ?? dataSourceRef.value?.length;
@@ -263,7 +263,7 @@ export function useDataSource(
       beforeFetch,
       afterFetch,
       useSearchForm,
-      pagination,
+      pagination
     } = unref(propsRef);
     if (!api || !isFunction(api)) return;
     try {
@@ -271,7 +271,7 @@ export function useDataSource(
       const { pageField, sizeField, listField, totalField } = Object.assign(
         {},
         FETCH_SETTING,
-        fetchSetting,
+        fetchSetting
       );
       let pageParams: Recordable = {};
 
@@ -295,7 +295,7 @@ export function useDataSource(
         sortInfo,
         filterInfo,
         opt?.sortInfo ?? {},
-        opt?.filterInfo ?? {},
+        opt?.filterInfo ?? {}
       );
       if (beforeFetch && isFunction(beforeFetch)) {
         params = (await beforeFetch(params)) || params;
@@ -314,7 +314,7 @@ export function useDataSource(
         const currentTotalPage = Math.ceil(resultTotal / pageSize);
         if (current > currentTotalPage) {
           setPagination({
-            current: currentTotalPage,
+            current: currentTotalPage
           });
           return await fetch(opt);
         }
@@ -325,23 +325,23 @@ export function useDataSource(
       }
       dataSourceRef.value = resultItems;
       setPagination({
-        total: resultTotal || 0,
+        total: resultTotal || 0
       });
       if (opt && opt.page) {
         setPagination({
-          current: opt.page || 1,
+          current: opt.page || 1
         });
       }
       emit('fetch-success', {
         items: unref(resultItems),
-        total: resultTotal,
+        total: resultTotal
       });
       return resultItems;
     } catch (error) {
       emit('fetch-error', error);
       dataSourceRef.value = [];
       setPagination({
-        total: 0,
+        total: 0
       });
     } finally {
       setLoading(false);
@@ -384,6 +384,6 @@ export function useDataSource(
     deleteTableDataRecord,
     insertTableDataRecord,
     findTableDataRecord,
-    handleTableChange,
+    handleTableChange
   };
 }

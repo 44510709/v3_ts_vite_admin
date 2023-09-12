@@ -10,7 +10,7 @@
   export default defineComponent({
     name: 'DargBar',
     props: {
-      mobile: Boolean,
+      mobile: Boolean
     },
     setup(props) {
       const { getMiniWidthNumber, getCollapsed, getCanDrag } = useMenuSetting();
@@ -27,17 +27,17 @@
         return [
           prefixCls,
           {
-            [`${prefixCls}--hide`]: !unref(getCanDrag) || props.mobile,
-          },
+            [`${prefixCls}--hide`]: !unref(getCanDrag) || props.mobile
+          }
         ];
       });
 
       return {
         prefixCls,
         getDragBarStyle,
-        getClass,
+        getClass
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

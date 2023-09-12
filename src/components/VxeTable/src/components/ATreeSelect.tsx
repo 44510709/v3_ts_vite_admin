@@ -5,12 +5,12 @@ import {
   createCellRender,
   isEmptyValue,
   createFormItemRender,
-  createExportMethod,
+  createExportMethod
 } from './common';
 
 function getTreeSelectCellValue(
   renderOpts: VxeGlobalRendererHandles.RenderOptions,
-  params: VxeGlobalRendererHandles.RenderCellParams | VxeGlobalRendererHandles.ExportMethodParams,
+  params: VxeGlobalRendererHandles.RenderCellParams | VxeGlobalRendererHandles.ExportMethodParams
 ) {
   const { props = {} } = renderOpts;
   const { treeData, treeCheckable } = props;
@@ -19,7 +19,7 @@ function getTreeSelectCellValue(
   if (!isEmptyValue(cellValue)) {
     return XEUtils.map(treeCheckable ? cellValue : [cellValue], (value) => {
       const matchObj = XEUtils.findTree(treeData, (item: any) => item.value === value, {
-        children: 'children',
+        children: 'children'
       });
       return matchObj ? matchObj.item.title : value;
     }).join(', ');
@@ -31,5 +31,5 @@ export default {
   renderEdit: createEditRender(),
   renderCell: createCellRender(getTreeSelectCellValue),
   renderItemContent: createFormItemRender(),
-  exportMethod: createExportMethod(getTreeSelectCellValue),
+  exportMethod: createExportMethod(getTreeSelectCellValue)
 };

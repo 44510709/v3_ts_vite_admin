@@ -206,6 +206,6 @@ export function useTree(treeDataRef: Ref<TreeDataItem[]>, getFieldNames: Compute
     getAllKeys,
     getChildrenKeys,
     getEnabledKeys,
-    getSelectedNode,
+    getSelectedNode
   };
 }

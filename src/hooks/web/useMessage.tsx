@@ -62,7 +62,7 @@ function createConfirm(options: ModalOptionsEx): ConfirmOptions {
     centered: true,
     icon: getIcon(iconType),
     ...options,
-    content: renderContent(options),
+    content: renderContent(options)
   };
   return Modal.confirm(opt) as unknown as ConfirmOptions;
 }
@@ -71,7 +71,7 @@ const getBaseOptions = () => {
   const { t } = useI18n();
   return {
     okText: t('common.okText'),
-    centered: true,
+    centered: true
   };
 };
 
@@ -80,7 +80,7 @@ function createModalOptions(options: ModalOptionsPartial, icon: string): ModalOp
     ...getBaseOptions(),
     ...options,
     content: renderContent(options),
-    icon: getIcon(icon),
+    icon: getIcon(icon)
   };
 }
 
@@ -102,7 +102,7 @@ function createWarningModal(options: ModalOptionsPartial) {
 
 notification.config({
   placement: 'topRight',
-  duration: 3,
+  duration: 3
 });
 
 /**
@@ -116,6 +116,6 @@ export function useMessage() {
     createSuccessModal,
     createErrorModal,
     createInfoModal,
-    createWarningModal,
+    createWarningModal
   };
 }

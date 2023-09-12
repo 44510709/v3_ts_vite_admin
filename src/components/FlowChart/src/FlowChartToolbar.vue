@@ -28,7 +28,7 @@
     name: 'FlowChartToolbar',
     components: { Icon, Divider, Tooltip },
     props: {
-      prefixCls: String,
+      prefixCls: String
     },
     emits: ['view-data'],
     setup(_, { emit }) {
@@ -36,42 +36,42 @@
         {
           type: ToolbarTypeEnum.ZOOM_IN,
           icon: 'codicon:zoom-out',
-          tooltip: '缩小',
+          tooltip: '缩小'
         },
         {
           type: ToolbarTypeEnum.ZOOM_OUT,
           icon: 'codicon:zoom-in',
-          tooltip: '放大',
+          tooltip: '放大'
         },
         {
           type: ToolbarTypeEnum.RESET_ZOOM,
           icon: 'codicon:screen-normal',
-          tooltip: '重置比例',
+          tooltip: '重置比例'
         },
         { separate: true },
         {
           type: ToolbarTypeEnum.UNDO,
           icon: 'ion:arrow-undo-outline',
           tooltip: '后退',
-          disabled: true,
+          disabled: true
         },
         {
           type: ToolbarTypeEnum.REDO,
           icon: 'ion:arrow-redo-outline',
           tooltip: '前进',
-          disabled: true,
+          disabled: true
         },
         { separate: true },
         {
           type: ToolbarTypeEnum.SNAPSHOT,
           icon: 'ion:download-outline',
-          tooltip: '下载',
+          tooltip: '下载'
         },
         {
           type: ToolbarTypeEnum.VIEW_DATA,
           icon: 'carbon:document-view',
-          tooltip: '查看数据',
-        },
+          tooltip: '查看数据'
+        }
       ]);
 
       const { logicFlow } = useFlowChartContext();
@@ -129,7 +129,7 @@
         unref(logicFlow)?.off('history:change', onHistoryChange);
       });
       return { toolbarItemList, onControl };
-    },
+    }
   });
 </script>
 <style lang="less">

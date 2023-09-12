@@ -10,7 +10,7 @@ export const basicEmits = [
   'form-toggle-collapse',
   'toolbar-button-click',
   'toolbar-tool-click',
-  'zoom',
+  'zoom'
 
   //... 如有缺少在此处追加
   // xxx

@@ -62,16 +62,16 @@
       type: Array as PropType<('contextmenu' | 'click' | 'hover')[]>,
       default: () => {
         return ['contextmenu'];
-      },
+      }
     },
     dropMenuList: {
       type: Array as PropType<(DropMenu & Recordable<any>)[]>,
-      default: () => [],
+      default: () => []
     },
     selectedKeys: {
       type: Array as PropType<string[]>,
-      default: () => [],
-    },
+      default: () => []
+    }
   });
 
   const emit = defineEmits(['menuEvent']);

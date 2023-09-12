@@ -10,7 +10,7 @@ import type {
   GridMethods,
   TableMethods,
   TableEditMethods,
-  TableValidatorMethods,
+  TableValidatorMethods
 } from 'vxe-table';
 import { Grid as VxeGrid } from 'vxe-table';
 
@@ -58,7 +58,7 @@ export default defineComponent({
     const getBindValues = computed<BasicTableProps>(() => {
       const propsData: BasicTableProps = {
         ...attrs,
-        ...props,
+        ...props
       };
 
       return propsData;
@@ -72,7 +72,7 @@ export default defineComponent({
 
       return {
         ...omitProps,
-        ...getBindGridEvent,
+        ...getBindGridEvent
       };
     });
 
@@ -87,14 +87,14 @@ export default defineComponent({
      * @description: 重写Vxe-table 方法
      */
     const getBindGridEvent: VxeGridEventProps = {
-      ...emitEvents,
+      ...emitEvents
     };
 
     return {
       getWrapperClass,
       getBindGridValues,
       tableElRef,
-      ...gridExtendTableMethods,
+      ...gridExtendTableMethods
     };
   },
   render() {
@@ -112,5 +112,5 @@ export default defineComponent({
         </VxeGrid>
       </div>
     );
-  },
+  }
 });

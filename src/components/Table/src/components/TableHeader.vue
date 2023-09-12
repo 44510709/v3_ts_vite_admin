@@ -36,22 +36,22 @@
     components: {
       Divider,
       TableTitle,
-      TableSetting: TableSettingComponent,
+      TableSetting: TableSettingComponent
     },
     props: {
       title: {
-        type: [Function, String] as PropType<string | ((data) => string)>,
+        type: [Function, String] as PropType<string | ((data) => string)>
       },
       tableSetting: {
-        type: Object as PropType<TableSetting>,
+        type: Object as PropType<TableSetting>
       },
       showTableSetting: {
-        type: Boolean,
+        type: Boolean
       },
       titleHelpMessage: {
         type: [String, Array] as PropType<string | string[]>,
-        default: '',
-      },
+        default: ''
+      }
     },
     emits: ['columns-change'],
     setup(_, { emit }) {
@@ -60,7 +60,7 @@
         emit('columns-change', data);
       }
       return { prefixCls, handleColumnChange };
-    },
+    }
   });
 </script>
 <style lang="less">

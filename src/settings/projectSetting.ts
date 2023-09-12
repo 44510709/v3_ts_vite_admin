@@ -7,7 +7,7 @@ import {
   ThemeEnum,
   RouterTransitionEnum,
   SettingButtonPositionEnum,
-  SessionTimeoutProcessingEnum,
+  SessionTimeoutProcessingEnum
 } from '/@/enums/appEnum';
 import { SIDE_BAR_BG_COLOR_LIST, HEADER_PRESET_BG_COLOR_LIST } from './designSetting';
 
@@ -73,7 +73,7 @@ const setting: ProjectConfig = {
     // Whether to show the notification button
     showNotice: true,
     // Whether to display the menu search
-    showSearch: true,
+    showSearch: true
   },
 
   // Menu configuration
@@ -116,7 +116,7 @@ const setting: ProjectConfig = {
     // Module opening method ‘click’ |'hover'
     mixSideTrigger: MixSidebarTriggerEnum.CLICK,
     // Fixed expanded menu
-    mixSideFixed: false,
+    mixSideFixed: false
   },
 
   // Multi-label
@@ -131,7 +131,7 @@ const setting: ProjectConfig = {
     // Whether to show the refresh button
     showRedo: true,
     // Whether to show the collapse button
-    showFold: true,
+    showFold: true
   },
 
   // Transition Setting
@@ -148,7 +148,7 @@ const setting: ProjectConfig = {
     openPageLoading: true,
 
     // Whether to open the top progress bar
-    openNProgress: false,
+    openNProgress: false
   },
 
   // Whether to enable KeepAlive cache is best to close during development, otherwise the cache needs to be cleared every time
@@ -177,7 +177,7 @@ const setting: ProjectConfig = {
 
   // Whether to cancel the http request that has been sent but not responded when switching the interface.
   // If it is enabled, I want to overwrite a single interface. Can be set in a separate interface
-  removeAllHttpPending: false,
+  removeAllHttpPending: false
 };
 
 export default setting;

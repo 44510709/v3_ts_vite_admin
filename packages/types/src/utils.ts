@@ -54,5 +54,5 @@ export {
   type Nullable,
   type ReadonlyRecordable,
   type Recordable,
-  type TimeoutHandle,
+  type TimeoutHandle
 };

@@ -56,9 +56,9 @@
         GITHUB_URL,
         SITE_URL,
         openWindow,
-        footerRef,
+        footerRef
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

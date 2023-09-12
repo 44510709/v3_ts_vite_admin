@@ -5,8 +5,8 @@ const modules = import.meta.glob('./en/**/*.ts', { eager: true });
 export default {
   message: {
     ...genMessage(modules as Recordable<Recordable>, 'en'),
-    antdLocale,
+    antdLocale
   },
   dateLocale: null,
-  dateLocaleName: 'en',
+  dateLocaleName: 'en'
 };

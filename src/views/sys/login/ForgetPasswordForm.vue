@@ -51,7 +51,7 @@
   const formData = reactive({
     account: '',
     mobile: '',
-    sms: '',
+    sms: ''
   });
 
   const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD);

@@ -1,6 +1,6 @@
 <template>
   <div :class="prefixCls">
-    <span> {{ title }}</span>
+    <span>{{ title }}</span>
     <Select
       v-bind="getBindValue"
       :class="`${prefixCls}-select`"
@@ -24,24 +24,24 @@
     components: { Select },
     props: {
       event: {
-        type: Number as PropType<HandlerEnum>,
+        type: Number as PropType<HandlerEnum>
       },
       disabled: {
-        type: Boolean,
+        type: Boolean
       },
       title: {
-        type: String,
+        type: String
       },
       def: {
-        type: [String, Number] as PropType<string | number>,
+        type: [String, Number] as PropType<string | number>
       },
       initValue: {
-        type: [String, Number] as PropType<string | number>,
+        type: [String, Number] as PropType<string | number>
       },
       options: {
         type: Array as PropType<LabelValueOptions>,
-        default: () => [],
-      },
+        default: () => []
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('setting-select-item');
@@ -55,9 +55,9 @@
       return {
         prefixCls,
         handleChange,
-        getBindValue,
+        getBindValue
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

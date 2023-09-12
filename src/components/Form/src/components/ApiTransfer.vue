@@ -27,7 +27,7 @@
       value: { type: Array as PropType<Array<string>> },
       api: {
         type: Function as PropType<(arg) => Promise<TransferItem[]>>,
-        default: null,
+        default: null
       },
       params: { type: Object },
       dataSource: { type: Array as PropType<Array<TransferItem>> },
@@ -40,11 +40,11 @@
       showSearch: { type: Boolean, default: false },
       disabled: { type: Boolean, default: false },
       filterOption: {
-        type: Function as PropType<(inputValue: string, item: TransferItem) => boolean>,
+        type: Function as PropType<(inputValue: string, item: TransferItem) => boolean>
       },
       selectedKeys: { type: Array as PropType<Array<string>> },
       showSelectAll: { type: Boolean, default: false },
-      targetKeys: { type: Array as PropType<Array<string>> },
+      targetKeys: { type: Array as PropType<Array<string>> }
     },
     emits: ['options-change', 'change'],
     setup(props, { attrs, emit }) {
@@ -55,7 +55,7 @@
       const getAttrs = computed(() => {
         return {
           ...(!props.api ? { dataSource: unref(_dataSource) } : {}),
-          ...attrs,
+          ...attrs
         };
       });
       const getdataSource = computed(() => {
@@ -66,7 +66,7 @@
             prev.push({
               ...omit(next, [labelField, valueField]),
               title: next[labelField],
-              key: next[valueField],
+              key: next[valueField]
             });
           }
           return prev;
@@ -101,7 +101,7 @@
         () => {
           fetch();
         },
-        { deep: true },
+        { deep: true }
       );
 
       async function fetch() {
@@ -132,6 +132,6 @@
         emit('options-change', unref(getdataSource));
       }
       return { getTargetKeys, getdataSource, t, getAttrs, handleChange };
-    },
+    }
   });
 </script>

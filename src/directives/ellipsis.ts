@@ -13,13 +13,13 @@ const cssProperties: IOptions = {
   single: {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
+    whiteSpace: 'nowrap'
   },
   multiple: {
     display: '-webkit-box',
     overflow: 'hidden',
-    wordBreak: 'break-all',
-  },
+    wordBreak: 'break-all'
+  }
 };
 
 const Ellipsis: ObjectDirective = {
@@ -34,7 +34,7 @@ const Ellipsis: ObjectDirective = {
       el.style.webkitLineClamp = `${line}`;
       el.style.webkitBoxOrient = 'vertical';
     }
-  },
+  }
 };
 export function setupEllipsisDirective(app: App) {
   app.directive('ellipsis', Ellipsis);

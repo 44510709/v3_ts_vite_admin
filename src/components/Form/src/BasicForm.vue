@@ -78,7 +78,7 @@
         isAdvanced: true,
         hideAdvanceBtn: false,
         isLoad: false,
-        actionSpan: 6,
+        actionSpan: 6
       });
 
       const defaultValueRef = ref({});
@@ -98,8 +98,8 @@
         return [
           prefixCls,
           {
-            [`${prefixCls}--compact`]: unref(getProps).compact,
-          },
+            [`${prefixCls}--compact`]: unref(getProps).compact
+          }
         ];
       });
 
@@ -108,7 +108,7 @@
         const { baseRowStyle = {}, rowProps } = unref(getProps);
         return {
           style: baseRowStyle,
-          ...rowProps,
+          ...rowProps
         };
       });
 
@@ -117,14 +117,19 @@
       const getSchema = computed((): FormSchema[] => {
         const schemas: FormSchema[] = unref(schemaRef) || (unref(getProps).schemas as any);
         for (const schema of schemas) {
-          const { defaultValue, component, componentProps,isHandleDateDefaultValue = true } = schema;
+          const {
+            defaultValue,
+            component,
+            componentProps,
+            isHandleDateDefaultValue = true
+          } = schema;
           // handle date type
           if (isHandleDateDefaultValue && defaultValue && dateItemType.includes(component)) {
-              const valueFormat =componentProps ? componentProps['valueFormat'] : null;
+            const valueFormat = componentProps ? componentProps['valueFormat'] : null;
             if (!Array.isArray(defaultValue)) {
-              schema.defaultValue =  valueFormat
-                  ? dateUtil(defaultValue).format(valueFormat)
-                  : dateUtil(defaultValue);
+              schema.defaultValue = valueFormat
+                ? dateUtil(defaultValue).format(valueFormat)
+                : dateUtil(defaultValue);
             } else {
               const def: any[] = [];
               defaultValue.forEach((item) => {
@@ -136,7 +141,7 @@
         }
         if (unref(getProps).showAdvancedButton) {
           return cloneDeep(
-            schemas.filter((schema) => schema.component !== 'Divider') as FormSchema[],
+            schemas.filter((schema) => schema.component !== 'Divider') as FormSchema[]
           );
         } else {
           return cloneDeep(schemas as FormSchema[]);
@@ -149,21 +154,21 @@
         getProps,
         getSchema,
         formModel,
-        defaultValueRef,
+        defaultValueRef
       });
 
       const { handleFormValues, initDefault } = useFormValues({
         getProps,
         defaultValueRef,
         getSchema,
-        formModel,
+        formModel
       });
 
       useAutoFocus({
         getSchema,
         getProps,
         isInitedDefault: isInitedDefaultRef,
-        formElRef: formElRef as Ref<FormActionType>,
+        formElRef: formElRef as Ref<FormActionType>
       });
 
       const {
@@ -178,7 +183,7 @@
         appendSchemaByField,
         removeSchemaByField,
         resetFields,
-        scrollToField,
+        scrollToField
       } = useFormEvents({
         emit,
         getProps,
@@ -187,12 +192,12 @@
         defaultValueRef,
         formElRef: formElRef as Ref<FormActionType>,
         schemaRef: schemaRef as Ref<FormSchema[]>,
-        handleFormValues,
+        handleFormValues
       });
 
       createFormContext({
         resetAction: resetFields,
-        submitAction: handleSubmit,
+        submitAction: handleSubmit
       });
 
       watch(
@@ -203,15 +208,15 @@
           setFieldsValue(model);
         },
         {
-          immediate: true,
-        },
+          immediate: true
+        }
       );
 
       watch(
         () => unref(getProps).schemas,
         (schemas) => {
           resetSchema(schemas ?? []);
-        },
+        }
       );
 
       watch(
@@ -228,7 +233,7 @@
             initDefault();
             isInitedDefaultRef.value = true;
           }
-        },
+        }
       );
 
       watch(
@@ -236,7 +241,7 @@
         useDebounceFn(() => {
           unref(getProps).submitOnChange && handleSubmit();
         }, 300),
-        { deep: true },
+        { deep: true }
       );
 
       async function setProps(formProps: Partial<FormProps>): Promise<void> {
@@ -276,7 +281,7 @@
         validateFields,
         validate,
         submit: handleSubmit,
-        scrollToField: scrollToField,
+        scrollToField: scrollToField
       };
 
       onMounted(() => {
@@ -300,9 +305,9 @@
         getFormClass,
         getFormActionBindProps: computed(() => ({ ...getProps.value, ...advanceState })),
         fieldsIsAdvancedMap,
-        ...formActionType,
+        ...formActionType
       };
-    },
+    }
   });
 </script>
 <style lang="less">

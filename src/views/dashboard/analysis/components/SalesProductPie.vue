@@ -12,12 +12,12 @@
     loading: Boolean,
     width: {
       type: String as PropType<string>,
-      default: '100%',
+      default: '100%'
     },
     height: {
       type: String as PropType<string>,
-      default: '300px',
-    },
+      default: '300px'
+    }
   });
 
   const chartRef = ref<HTMLDivElement | null>(null);
@@ -31,7 +31,7 @@
       }
       setOptions({
         tooltip: {
-          trigger: 'item',
+          trigger: 'item'
         },
 
         series: [
@@ -45,7 +45,7 @@
               { value: 500, name: '电子产品' },
               { value: 310, name: '服装' },
               { value: 274, name: '化妆品' },
-              { value: 400, name: '家居' },
+              { value: 400, name: '家居' }
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -54,11 +54,11 @@
             animationEasing: 'exponentialInOut',
             animationDelay: function () {
               return Math.random() * 400;
-            },
-          },
-        ],
+            }
+          }
+        ]
       });
     },
-    { immediate: true },
+    { immediate: true }
   );
 </script>

@@ -34,7 +34,7 @@
     schemas: props.addFormSchemas,
     showActionButtonGroup: false,
     labelWidth: props.labelWidth || 80,
-    layout: props.layout || 'horizontal',
+    layout: props.layout || 'horizontal'
   });
 
   async function handleSubmit() {

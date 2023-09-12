@@ -27,7 +27,7 @@
 
           <template #avatar>
             <a-avatar v-if="item.avatar" class="avatar" :src="item.avatar" />
-            <span v-else> {{ item.avatar }}</span>
+            <span v-else>{{ item.avatar }}</span>
           </template>
 
           <template #description>
@@ -67,32 +67,32 @@
       [List.Item.name]: List.Item,
       AListItemMeta: List.Item.Meta,
       ATypographyParagraph: Typography.Paragraph,
-      [Tag.name]: Tag,
+      [Tag.name]: Tag
     },
     props: {
       list: {
         type: Array as PropType<ListItem[]>,
-        default: () => [],
+        default: () => []
       },
       pageSize: {
         type: [Boolean, Number] as PropType<Boolean | Number>,
-        default: 5,
+        default: 5
       },
       currentPage: {
         type: Number,
-        default: 1,
+        default: 1
       },
       titleRows: {
         type: Number,
-        default: 1,
+        default: 1
       },
       descRows: {
         type: Number,
-        default: 2,
+        default: 2
       },
       onTitleClick: {
-        type: Function as PropType<(Recordable) => void>,
-      },
+        type: Function as PropType<(Recordable) => void>
+      }
     },
     emits: ['update:currentPage'],
     setup(props, { emit }) {
@@ -108,7 +108,7 @@
         () => props.currentPage,
         (v) => {
           current.value = v;
-        },
+        }
       );
       const isTitleClickable = computed(() => !!props.onTitleClick);
       const getPagination = computed(() => {
@@ -122,7 +122,7 @@
             onChange(page) {
               current.value = page;
               emit('update:currentPage', page);
-            },
+            }
           };
         } else {
           return false;
@@ -134,7 +134,7 @@
       }
 
       return { prefixCls, getPagination, getData, handleTitleClick, isTitleClickable };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

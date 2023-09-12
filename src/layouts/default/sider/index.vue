@@ -34,12 +34,12 @@
 
       function handleClose() {
         setMenuSetting({
-          collapsed: true,
+          collapsed: true
         });
       }
 
       return { prefixCls, getIsMobile, getCollapsed, handleClose, getMenuWidth, getIsMixSidebar };
-    },
+    }
   });
 </script>
 <style lang="less">

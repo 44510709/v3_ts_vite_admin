@@ -51,15 +51,15 @@
     props: {
       actions: {
         type: Array as PropType<ActionItem[]>,
-        default: null,
+        default: null
       },
       dropDownActions: {
         type: Array as PropType<ActionItem[]>,
-        default: null,
+        default: null
       },
       divider: propTypes.bool.def(true),
       outside: propTypes.bool,
-      stopButtonPropagation: propTypes.bool.def(false),
+      stopButtonPropagation: propTypes.bool.def(false)
     },
     setup(props) {
       const { prefixCls } = useDesign('basic-table-action');
@@ -98,7 +98,7 @@
               ...(popConfirm || {}),
               onConfirm: popConfirm?.confirm,
               onCancel: popConfirm?.cancel,
-              enable: !!popConfirm,
+              enable: !!popConfirm
             };
           });
       });
@@ -115,7 +115,7 @@
             onConfirm: popConfirm?.confirm,
             onCancel: popConfirm?.cancel,
             text: label,
-            divider: index < list.length - 1 ? props.divider : false,
+            divider: index < list.length - 1 ? props.divider : false
           };
         });
       });
@@ -130,7 +130,7 @@
         return {
           getPopupContainer: () => unref((table as any)?.wrapRef) ?? document.body,
           placement: 'bottom',
-          ...(isString(data) ? { title: data } : data),
+          ...(isString(data) ? { title: data } : data)
         };
       }
 
@@ -144,7 +144,7 @@
       }
 
       return { prefixCls, getActions, getDropdownList, getAlign, onCellClick, getTooltip };
-    },
+    }
   });
 </script>
 <style lang="less">

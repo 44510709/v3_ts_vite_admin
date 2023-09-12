@@ -40,15 +40,15 @@
     name: 'ApiCascader',
     components: {
       LoadingOutlined,
-      [Cascader.name]: Cascader,
+      [Cascader.name]: Cascader
     },
     props: {
       value: {
-        type: Array,
+        type: Array
       },
       api: {
         type: Function as PropType<(arg?: Recordable<any>) => Promise<Option[]>>,
-        default: null,
+        default: null
       },
       numberToString: propTypes.bool,
       resultField: propTypes.string.def(''),
@@ -60,16 +60,16 @@
       // init fetch params
       initFetchParams: {
         type: Object as PropType<Recordable<any>>,
-        default: () => ({}),
+        default: () => ({})
       },
       // 是否有下级，默认是
       isLeaf: {
         type: Function as PropType<(arg: Recordable<any>) => boolean>,
-        default: null,
+        default: null
       },
       displayRenderArray: {
-        type: Array,
-      },
+        type: Array
+      }
     },
     emits: ['change', 'defaultChange'],
     setup(props, { emit }) {
@@ -88,7 +88,7 @@
           const opts = generatorOptions(data);
           options.value = opts;
         },
-        { deep: true },
+        { deep: true }
       );
 
       function generatorOptions(options: any[]): Option[] {
@@ -100,7 +100,7 @@
               ...omit(next, [labelField, valueField]),
               label: next[labelField],
               value: numberToString ? `${value}` : value,
-              isLeaf: isLeaf && typeof isLeaf === 'function' ? isLeaf(next) : false,
+              isLeaf: isLeaf && typeof isLeaf === 'function' ? isLeaf(next) : false
             };
             const children = Reflect.get(next, childrenField);
             if (children) {
@@ -141,7 +141,7 @@
         if (!api || !isFunction(api)) return;
         try {
           const res = await api({
-            [props.asyncFetchParamKey]: Reflect.get(targetOption, 'value'),
+            [props.asyncFetchParamKey]: Reflect.get(targetOption, 'value')
           });
           if (Array.isArray(res)) {
             const children = generatorOptions(res);
@@ -168,7 +168,7 @@
         () => {
           !unref(isFirstLoad) && initialFetch();
         },
-        { deep: true },
+        { deep: true }
       );
 
       function handleChange(keys, args) {
@@ -193,8 +193,8 @@
         t,
         handleChange,
         loadData,
-        handleRenderDisplay,
+        handleRenderDisplay
       };
-    },
+    }
   });
 </script>

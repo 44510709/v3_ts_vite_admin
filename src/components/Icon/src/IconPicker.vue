@@ -51,8 +51,8 @@
               />
             </div>
           </div>
-          <template v-else
-            ><div class="p-5"><a-empty /></div>
+          <template v-else>
+            <div class="p-5"><a-empty /></div>
           </template>
         </template>
 
@@ -108,7 +108,7 @@
     width: propTypes.string.def('100%'),
     pageSize: propTypes.number.def(140),
     copy: propTypes.bool.def(false),
-    mode: propTypes.oneOf<('svg' | 'iconify')[]>(['svg', 'iconify']).def('iconify'),
+    mode: propTypes.oneOf<('svg' | 'iconify')[]>(['svg', 'iconify']).def('iconify')
   });
 
   const emit = defineEmits(['change', 'update:value']);
@@ -138,7 +138,7 @@
 
   const { getPaginationList, getTotal, setCurrentPage } = usePagination(
     currentList,
-    props.pageSize,
+    props.pageSize
   );
 
   watchEffect(() => {
@@ -150,7 +150,7 @@
     (v) => {
       emit('update:value', v);
       return emit('change', v);
-    },
+    }
   );
 
   function handlePageChange(page: number) {

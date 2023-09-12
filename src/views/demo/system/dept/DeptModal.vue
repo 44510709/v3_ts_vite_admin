@@ -22,7 +22,7 @@
         labelWidth: 100,
         baseColProps: { span: 24 },
         schemas: formSchema,
-        showActionButtonGroup: false,
+        showActionButtonGroup: false
       });
 
       const [registerModal, { setModalProps, closeModal }] = useModalInner(async (data) => {
@@ -32,13 +32,13 @@
 
         if (unref(isUpdate)) {
           setFieldsValue({
-            ...data.record,
+            ...data.record
           });
         }
         const treeData = await getDeptList();
         updateSchema({
           field: 'parentDept',
-          componentProps: { treeData },
+          componentProps: { treeData }
         });
       });
 
@@ -58,6 +58,6 @@
       }
 
       return { registerModal, registerForm, getTitle, handleSubmit };
-    },
+    }
   });
 </script>

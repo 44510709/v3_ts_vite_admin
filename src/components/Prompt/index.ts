@@ -10,13 +10,13 @@ export function createPrompt(props: PromptProps) {
       label: props.label,
       required: props.required,
       inputType: props.inputType,
-      defaultValue: props.defaultValue,
-    }),
+      defaultValue: props.defaultValue
+    })
   });
   const DialogWrap = defineComponent({
     render() {
       return h(Dialog, { ...data } as any);
-    },
+    }
   });
 
   vm = createVNode(DialogWrap);
@@ -34,6 +34,6 @@ export function createPrompt(props: PromptProps) {
     close,
     get $el() {
       return vm?.el as HTMLElement;
-    },
+    }
   };
 }

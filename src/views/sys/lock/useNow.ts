@@ -13,7 +13,7 @@ export function useNow(immediate = true) {
     hour: '',
     minute: '',
     second: 0,
-    meridiem: '',
+    meridiem: ''
   });
 
   const update = () => {
@@ -55,6 +55,6 @@ export function useNow(immediate = true) {
   return {
     ...toRefs(state),
     start,
-    stop,
+    stop
   };
 }

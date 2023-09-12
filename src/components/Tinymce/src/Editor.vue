@@ -62,7 +62,7 @@
     watch,
     onDeactivated,
     onBeforeUnmount,
-    PropType,
+    PropType
   } from 'vue';
   import ImgUpload from './ImgUpload.vue';
   import { toolbar, plugins } from './tinymce';
@@ -77,37 +77,37 @@
   const tinymceProps = {
     options: {
       type: Object as PropType<Partial<RawEditorSettings>>,
-      default: () => ({}),
+      default: () => ({})
     },
     value: {
-      type: String,
+      type: String
     },
 
     toolbar: {
       type: Array as PropType<string[]>,
-      default: toolbar,
+      default: toolbar
     },
     plugins: {
       type: Array as PropType<string[]>,
-      default: plugins,
+      default: plugins
     },
     modelValue: {
-      type: String,
+      type: String
     },
     height: {
       type: [Number, String] as PropType<string | number>,
       required: false,
-      default: 400,
+      default: 400
     },
     width: {
       type: [Number, String] as PropType<string | number>,
       required: false,
-      default: 'auto',
+      default: 'auto'
     },
     showImageUpload: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   };
 
   export default defineComponent({
@@ -169,7 +169,7 @@
           setup: (editor: Editor) => {
             editorRef.value = editor;
             editor.on('init', (e) => initSetup(e));
-          },
+          }
         };
       });
 
@@ -191,7 +191,7 @@
             return;
           }
           editor.setMode(attrs.disabled ? 'readonly' : 'design');
-        },
+        }
       );
 
       onMountedOrActivated(() => {
@@ -265,7 +265,7 @@
           () => props.modelValue,
           (val: string, prevVal: string) => {
             setValue(editor, val, prevVal);
-          },
+          }
         );
 
         watch(
@@ -274,8 +274,8 @@
             setValue(editor, val, prevVal);
           },
           {
-            immediate: true,
-          },
+            immediate: true
+          }
         );
 
         editor.on(normalizedEvents ? normalizedEvents : 'change keyup undo redo', () => {
@@ -324,9 +324,9 @@
         handleDone,
         editorRef,
         fullscreen,
-        disabled,
+        disabled
       };
-    },
+    }
   });
 </script>
 

@@ -35,29 +35,29 @@
     components: {
       RadioGroup: Radio.Group,
       RadioButton: Radio.Button,
-      Radio,
+      Radio
     },
     props: {
       api: {
         type: Function as PropType<(arg?: any | string) => Promise<OptionsItem[]>>,
-        default: null,
+        default: null
       },
       params: {
         type: [Object, String] as PropType<any | string>,
-        default: () => ({}),
+        default: () => ({})
       },
       value: {
-        type: [String, Number, Boolean] as PropType<string | number | boolean>,
+        type: [String, Number, Boolean] as PropType<string | number | boolean>
       },
       isBtn: {
         type: [Boolean] as PropType<boolean>,
-        default: false,
+        default: false
       },
       numberToString: propTypes.bool,
       resultField: propTypes.string.def(''),
       labelField: propTypes.string.def('label'),
       valueField: propTypes.string.def('value'),
-      immediate: propTypes.bool.def(true),
+      immediate: propTypes.bool.def(true)
     },
     emits: ['options-change', 'change'],
     setup(props, { emit }) {
@@ -80,7 +80,7 @@
             prev.push({
               label: next[labelField],
               value: numberToString ? `${value}` : value,
-              ...omit(next, [labelField, valueField]),
+              ...omit(next, [labelField, valueField])
             });
           }
           return prev;
@@ -96,7 +96,7 @@
         () => {
           !unref(isFirstLoad) && fetch();
         },
-        { deep: true },
+        { deep: true }
       );
 
       async function fetch() {
@@ -131,6 +131,6 @@
       }
 
       return { state, getOptions, attrs, loading, t, handleClick, props };
-    },
+    }
   });
 </script>

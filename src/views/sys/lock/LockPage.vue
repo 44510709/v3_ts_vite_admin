@@ -21,7 +21,7 @@
         </span>
       </div>
       <div :class="`${prefixCls}__minute w-2/5 h-2/5 md:h-4/5 `">
-        <span> {{ minute }}</span>
+        <span>{{ minute }}</span>
       </div>
     </div>
     <transition name="fade-slide">
@@ -70,7 +70,8 @@
 
     <div class="absolute bottom-5 w-full text-gray-300 xl:text-xl 2xl:text-3xl text-center enter-y">
       <div class="text-5xl mb-4 enter-x" v-show="!showDate">
-        {{ hour }}:{{ minute }} <span class="text-3xl">{{ meridiem }}</span>
+        {{ hour }}:{{ minute }}
+        <span class="text-3xl">{{ meridiem }}</span>
       </div>
       <div class="text-2xl">{{ year }}/{{ month }}/{{ day }} {{ week }}</div>
     </div>

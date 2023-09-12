@@ -41,7 +41,7 @@
       const appStore = useAppStore();
 
       const isBackPermissionMode = computed(
-        () => appStore.getProjectConfig.permissionMode === PermissionModeEnum.BACK,
+        () => appStore.getProjectConfig.permissionMode === PermissionModeEnum.BACK
       );
 
       async function switchToken(userId: number) {
@@ -58,9 +58,9 @@
         RoleEnum,
         refreshMenu,
         switchToken,
-        isBackPermissionMode,
+        isBackPermissionMode
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

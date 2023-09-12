@@ -22,8 +22,8 @@
             :actions="[
               {
                 label: t('sys.errorLog.tableActionDesc'),
-                onClick: handleDetail.bind(null, record),
-              },
+                onClick: handleDetail.bind(null, record)
+              }
             ]"
           />
         </template>
@@ -41,7 +41,6 @@
   import { useMessage } from '/@/hooks/web/useMessage';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { useErrorLogStore } from '/@/store/modules/errorLog';
-  import { fireErrorApi } from '/@/api/demo/error';
   import { getColumns } from './data';
   import { cloneDeep } from 'lodash-es';
 
@@ -56,9 +55,9 @@
     actionColumn: {
       width: 80,
       title: 'Action',
-      dataIndex: 'action',
+      dataIndex: 'action'
       // slots: { customRender: 'action' },
-    },
+    }
   });
   const [registerModal, { openModal }] = useModal();
 
@@ -70,8 +69,8 @@
       });
     },
     {
-      immediate: true,
-    },
+      immediate: true
+    }
   );
   const { createMessage } = useMessage();
   if (import.meta.env.DEV) {
@@ -89,9 +88,5 @@
 
   function fireResourceError() {
     imgList.value.push(`${new Date().getTime()}.png`);
-  }
-
-  async function fireAjaxError() {
-    await fireErrorApi();
   }
 </script>

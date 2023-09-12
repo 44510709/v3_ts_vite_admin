@@ -16,7 +16,7 @@
     watch,
     onMounted,
     nextTick,
-    onUnmounted,
+    onUnmounted
   } from 'vue';
   import { useWindowSizeFn } from '@vben/hooks';
   import { type AnyFunction } from '@vben/types';
@@ -34,7 +34,7 @@
     footerOffset: { type: Number, default: 0 },
     visible: { type: Boolean },
     fullScreen: { type: Boolean },
-    loadingTip: { type: String },
+    loadingTip: { type: String }
   };
 
   export default defineComponent({
@@ -62,18 +62,18 @@
         },
         {
           attributes: true,
-          subtree: true,
-        },
+          subtree: true
+        }
       );
 
       createModalContext({
-        redoModalHeight: setModalHeight,
+        redoModalHeight: setModalHeight
       });
 
       const spinStyle = computed((): CSSProperties => {
         return {
           minHeight: `${props.minHeight}px`,
-          [props.fullScreen ? 'height' : 'maxHeight']: `${unref(realHeightRef)}px`,
+          [props.fullScreen ? 'height' : 'maxHeight']: `${unref(realHeightRef)}px`
         };
       });
 
@@ -90,7 +90,7 @@
           } else {
             minRealHeightRef.value = realHeightRef.value;
           }
-        },
+        }
       );
 
       onMounted(() => {
@@ -165,6 +165,6 @@
       }
 
       return { wrapperRef, spinRef, spinStyle, scrollTop, setModalHeight };
-    },
+    }
   });
 </script>

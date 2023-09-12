@@ -40,7 +40,7 @@
     modal: true,
     guides: true,
     movable: true,
-    rotatable: true,
+    rotatable: true
   };
 
   const props = {
@@ -51,10 +51,10 @@
     height: { type: [String, Number], default: '360px' },
     crossorigin: {
       type: String as PropType<'' | 'anonymous' | 'use-credentials' | undefined>,
-      default: undefined,
+      default: undefined
     },
     imageStyle: { type: Object as PropType<CSSProperties>, default: () => ({}) },
-    options: { type: Object as PropType<Options>, default: () => ({}) },
+    options: { type: Object as PropType<Options>, default: () => ({}) }
   };
 
   export default defineComponent({
@@ -73,7 +73,7 @@
         return {
           height: props.height,
           maxWidth: '100%',
-          ...props.imageStyle,
+          ...props.imageStyle
         };
       });
 
@@ -82,8 +82,8 @@
           prefixCls,
           attrs.class,
           {
-            [`${prefixCls}--circled`]: props.circled,
-          },
+            [`${prefixCls}--circled`]: props.circled
+          }
         ];
       });
 
@@ -118,7 +118,7 @@
           cropmove() {
             debounceRealTimeCroppered();
           },
-          ...props.options,
+          ...props.options
         });
       }
 
@@ -143,7 +143,7 @@
           fileReader.onloadend = (e) => {
             emit('cropend', {
               imgBase64: e.target?.result ?? '',
-              imgInfo,
+              imgInfo
             });
           };
           fileReader.onerror = () => {
@@ -171,7 +171,7 @@
       }
 
       return { getClass, imgElRef, getWrapperStyle, getImageStyle, isReady, croppered };
-    },
+    }
   });
 </script>
 <style lang="less">

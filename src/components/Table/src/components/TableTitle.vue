@@ -14,14 +14,14 @@
     components: { BasicTitle },
     props: {
       title: {
-        type: [Function, String] as PropType<string | ((data) => string)>,
+        type: [Function, String] as PropType<string | ((data) => string)>
       },
       getSelectRows: {
-        type: Function as PropType<() => any[]>,
+        type: Function as PropType<() => any[]>
       },
       helpMessage: {
-        type: [String, Array] as PropType<string | string[]>,
-      },
+        type: [String, Array] as PropType<string | string[]>
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('basic-table-title');
@@ -32,14 +32,14 @@
 
         if (isFunction(title)) {
           tit = title({
-            selectRows: getSelectRows(),
+            selectRows: getSelectRows()
           });
         }
         return tit;
       });
 
       return { getTitle, prefixCls };
-    },
+    }
   });
 </script>
 <style lang="less">

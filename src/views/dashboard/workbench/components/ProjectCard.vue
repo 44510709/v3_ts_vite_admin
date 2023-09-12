@@ -27,6 +27,6 @@
     components: { Card, CardGrid, Icon },
     setup() {
       return { items: groupItems };
-    },
+    }
   });
 </script>

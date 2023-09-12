@@ -29,15 +29,15 @@
     components: { Table },
     props: {
       summaryFunc: {
-        type: Function as PropType<Fn>,
+        type: Function as PropType<Fn>
       },
       summaryData: {
-        type: Array as PropType<Recordable[]>,
+        type: Array as PropType<Recordable[]>
       },
       scroll: {
-        type: Object as PropType<Recordable>,
+        type: Object as PropType<Recordable>
       },
-      rowKey: propTypes.string.def('key'),
+      rowKey: propTypes.string.def('key')
     },
     setup(props) {
       const table = useTableContext();
@@ -83,12 +83,12 @@
             key: 'selectionKey',
             align: 'center',
             ...(isFixed ? { fixed: 'left' } : {}),
-            customRender: ({ record }) => record[SUMMARY_ROW_KEY],
+            customRender: ({ record }) => record[SUMMARY_ROW_KEY]
           });
         }
         return columns;
       });
       return { getColumns, getDataSource };
-    },
+    }
   });
 </script>

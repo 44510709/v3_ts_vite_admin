@@ -13,12 +13,12 @@ interface LockState {
 export const useLockStore = defineStore({
   id: 'app-lock',
   state: (): LockState => ({
-    lockInfo: Persistent.getLocal(LOCK_INFO_KEY),
+    lockInfo: Persistent.getLocal(LOCK_INFO_KEY)
   }),
   getters: {
     getLockInfo(state): Nullable<LockInfo> {
       return state.lockInfo;
-    },
+    }
   },
   actions: {
     setLockInfo(info: LockInfo) {
@@ -43,7 +43,7 @@ export const useLockStore = defineStore({
             username,
             password: password!,
             goHome: false,
-            mode: 'none',
+            mode: 'none'
           });
           if (res) {
             this.resetLockInfo();
@@ -54,6 +54,6 @@ export const useLockStore = defineStore({
         }
       };
       return await tryLogin();
-    },
-  },
+    }
+  }
 });

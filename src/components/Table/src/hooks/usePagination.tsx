@@ -33,10 +33,10 @@ export function usePagination(refProps: ComputedRef<BasicTableProps>) {
       if (!isBoolean(pagination) && pagination) {
         configRef.value = {
           ...unref(configRef),
-          ...(pagination ?? {}),
+          ...(pagination ?? {})
         };
       }
-    },
+    }
   );
 
   const getPaginationInfo = computed((): PaginationProps | boolean => {
@@ -57,7 +57,7 @@ export function usePagination(refProps: ComputedRef<BasicTableProps>) {
       itemRender: itemRender,
       showQuickJumper: true,
       ...(isBoolean(pagination) ? {} : pagination),
-      ...unref(configRef),
+      ...unref(configRef)
     };
   });
 
@@ -65,7 +65,7 @@ export function usePagination(refProps: ComputedRef<BasicTableProps>) {
     const paginationInfo = unref(getPaginationInfo);
     configRef.value = {
       ...(!isBoolean(paginationInfo) ? paginationInfo : {}),
-      ...info,
+      ...info
     };
   }
 

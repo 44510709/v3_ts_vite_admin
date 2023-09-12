@@ -15,7 +15,7 @@
           nextTick(() => {
             modalFn?.redoModalHeight?.();
           });
-        },
+        }
       );
       return () => {
         const { columns, actionColumn, dataSource } = props;
@@ -27,7 +27,7 @@
                 const { width = 0, dataIndex } = item;
                 const style: CSSProperties = {
                   width: `${width}px`,
-                  minWidth: `${width}px`,
+                  minWidth: `${width}px`
                 };
                 return <col style={width ? style : {}} key={dataIndex} />;
               })}
@@ -66,7 +66,7 @@
           </table>
         );
       };
-    },
+    }
   });
 </script>
 <style lang="less">

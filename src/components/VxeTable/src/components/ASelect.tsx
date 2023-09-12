@@ -8,7 +8,7 @@ import {
   createProps,
   isEmptyValue,
   createExportMethod,
-  createFormItemRender,
+  createFormItemRender
 } from './common';
 
 function renderOptions(options: any[], optionProps: VxeGlobalRendererHandles.RenderOptionProps) {
@@ -20,11 +20,11 @@ function renderOptions(options: any[], optionProps: VxeGlobalRendererHandles.Ren
       {
         key: oIndex,
         value: item[valueProp],
-        disabled: item.disabled,
+        disabled: item.disabled
       },
       {
-        default: () => cellText(item[labelProp]),
-      },
+        default: () => cellText(item[labelProp])
+      }
     );
   });
 }
@@ -32,7 +32,7 @@ function renderOptions(options: any[], optionProps: VxeGlobalRendererHandles.Ren
 function createEditRender() {
   return function (
     renderOpts: VxeColumnPropTypes.EditRender,
-    params: VxeGlobalRendererHandles.RenderEditParams,
+    params: VxeGlobalRendererHandles.RenderEditParams
   ) {
     const { options = [], optionGroups, optionProps = {}, optionGroupProps = {} } = renderOpts;
     const { row, column, $table } = params;
@@ -49,7 +49,7 @@ function createEditRender() {
       () => {
         // 处理 change 事件相关逻辑
         $table.updateStatus(params);
-      },
+      }
     );
     if (optionGroups) {
       const groupOptions = optionGroupProps.options || 'options';
@@ -60,7 +60,7 @@ function createEditRender() {
           {
             ...attrs,
             ...props,
-            ...ons,
+            ...ons
           },
           {
             default: () => {
@@ -68,19 +68,19 @@ function createEditRender() {
                 return h(
                   resolveComponent('a-select-opt-group') as ComponentOptions,
                   {
-                    key: gIndex,
+                    key: gIndex
                   },
                   {
                     label: () => {
                       return h('span', {}, group[groupLabel]);
                     },
-                    default: () => renderOptions(group[groupOptions], optionProps),
-                  },
+                    default: () => renderOptions(group[groupOptions], optionProps)
+                  }
                 );
               });
-            },
-          },
-        ),
+            }
+          }
+        )
       ];
     }
     return [
@@ -89,26 +89,26 @@ function createEditRender() {
         {
           ...props,
           ...attrs,
-          ...ons,
+          ...ons
         },
         {
-          default: () => renderOptions(options, optionProps),
-        },
-      ),
+          default: () => renderOptions(options, optionProps)
+        }
+      )
     ];
   };
 }
 
 function getSelectCellValue(
   renderOpts: VxeGlobalRendererHandles.RenderCellOptions,
-  params: VxeGlobalRendererHandles.RenderCellParams,
+  params: VxeGlobalRendererHandles.RenderCellParams
 ) {
   const {
     options = [],
     optionGroups,
     props = {},
     optionProps = {},
-    optionGroupProps = {},
+    optionGroupProps = {}
   } = renderOpts;
   const { row, column } = params;
   const labelProp = optionProps.label || 'label';
@@ -124,7 +124,7 @@ function getSelectCellValue(
             for (let index = 0; index < optionGroups.length; index++) {
               selectItem = XEUtils.find(
                 optionGroups[index][groupOptions],
-                (item) => item[valueProp] === value,
+                (item) => item[valueProp] === value
               );
               if (selectItem) {
                 break;
@@ -135,7 +135,7 @@ function getSelectCellValue(
         : (value) => {
             const selectItem = XEUtils.find(options, (item) => item[valueProp] === value);
             return selectItem ? selectItem[labelProp] : value;
-          },
+          }
     ).join(', ');
   }
   return '';
@@ -144,7 +144,7 @@ function getSelectCellValue(
 function createFilterRender() {
   return function (
     renderOpts: VxeColumnPropTypes.FilterRender,
-    params: VxeGlobalRendererHandles.RenderFilterParams,
+    params: VxeGlobalRendererHandles.RenderFilterParams
   ) {
     const { options = [], optionGroups, optionProps = {}, optionGroupProps = {} } = renderOpts;
     const groupOptions = optionGroupProps.options || 'options';
@@ -156,7 +156,7 @@ function createFilterRender() {
       h(
         'div',
         {
-          class: 'vxe-table--filter-antd-wrapper',
+          class: 'vxe-table--filter-antd-wrapper'
         },
         optionGroups
           ? column.filters.map((option, oIndex) => {
@@ -184,10 +184,10 @@ function createFilterRender() {
                         props.mode === 'multiple'
                           ? option.data && option.data.length > 0
                           : !XEUtils.eqNull(option.data),
-                        option,
+                        option
                       );
-                    },
-                  ),
+                    }
+                  )
                 },
                 {
                   default: () => {
@@ -195,18 +195,18 @@ function createFilterRender() {
                       return h(
                         resolveComponent('a-select-opt-group') as ComponentOptions,
                         {
-                          key: gIndex,
+                          key: gIndex
                         },
                         {
                           label: () => {
                             return h('span', {}, group[groupLabel]);
                           },
-                          default: () => renderOptions(group[groupOptions], optionProps),
-                        },
+                          default: () => renderOptions(group[groupOptions], optionProps)
+                        }
                       );
                     });
-                  },
-                },
+                  }
+                }
               );
             })
           : column.filters.map((option, oIndex) => {
@@ -233,17 +233,17 @@ function createFilterRender() {
                         props.mode === 'multiple'
                           ? option.data && option.data.length > 0
                           : !XEUtils.eqNull(option.data),
-                        option,
+                        option
                       );
-                    },
-                  ),
+                    }
+                  )
                 },
                 {
-                  default: () => renderOptions(options, optionProps),
-                },
+                  default: () => renderOptions(options, optionProps)
+                }
               );
-            }),
-      ),
+            })
+      )
     ];
   };
 }
@@ -267,5 +267,5 @@ export default {
     return cellValue == data;
   },
   renderItemContent: createFormItemRender(),
-  exportMethod: createExportMethod(getSelectCellValue),
+  exportMethod: createExportMethod(getSelectCellValue)
 };

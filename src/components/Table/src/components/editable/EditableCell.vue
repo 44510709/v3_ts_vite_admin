@@ -21,23 +21,23 @@
     name: 'EditableCell',
     components: { FormOutlined, CloseOutlined, CheckOutlined, CellComponent, Spin },
     directives: {
-      clickOutside,
+      clickOutside
     },
     props: {
       value: {
         type: [String, Number, Boolean, Object] as PropType<
           string | number | boolean | Record<string, any>
         >,
-        default: '',
+        default: ''
       },
       record: {
-        type: Object as any,
+        type: Object as any
       },
       column: {
         type: Object as PropType<BasicColumn>,
-        default: () => ({}),
+        default: () => ({})
       },
-      index: propTypes.number,
+      index: propTypes.number
     },
     setup(props) {
       const table = useTableContext();
@@ -96,7 +96,7 @@
           ...apiSelectProps,
           ...compProps,
           [valueField]: value,
-          disabled: unref(getDisable),
+          disabled: unref(getDisable)
         } as any;
       });
       function upEditDynamicDisabled(record, column, value) {
@@ -143,7 +143,7 @@
           return {};
         }
         return {
-          width: 'calc(100% - 48px)',
+          width: 'calc(100% - 48px)'
         };
       });
 
@@ -198,7 +198,7 @@
         table.emit?.('edit-change', {
           column: props.column,
           value: unref(currentValueRef),
-          record: toRaw(props.record),
+          record: toRaw(props.record)
         });
         handleSubmitRule();
       }
@@ -261,7 +261,7 @@
                 record: pick(record, keys),
                 index,
                 key: dataKey as string,
-                value,
+                value
               });
             } catch (e) {
               result = false;
@@ -300,7 +300,7 @@
           record,
           index,
           key: dataIndex || key,
-          value: unref(currentValueRef),
+          value: unref(currentValueRef)
         });
       }
 
@@ -325,7 +325,7 @@
           listOptions = listOptions.map((item) => {
             return {
               label: item[title],
-              value: item[value],
+              value: item[value]
             };
           });
           optionsRef.value = listOptions;
@@ -390,7 +390,7 @@
         getValues,
         handleEnter,
         handleSubmitClick,
-        spinning,
+        spinning
       };
     },
     render() {
@@ -407,7 +407,7 @@
                     text: this.value,
                     record: this.record as Recordable,
                     column: this.column,
-                    index: this.index,
+                    index: this.index
                   })
                 : this.getValues ?? '\u00A0'}
             </div>
@@ -443,7 +443,7 @@
           )}
         </div>
       );
-    },
+    }
   });
 </script>
 <style lang="less">

@@ -11,7 +11,7 @@
 
   const props = defineProps({
     value: { type: String },
-    class: { type: String },
+    class: { type: String }
   });
   const viewerRef = ref(null);
   const vditorPreviewRef = ref(null) as Ref<VditorPreview | null>;
@@ -23,12 +23,12 @@
       mode: getTheme(getDarkMode.value, 'content'),
       theme: {
         // 设置内容主题
-        current: getTheme(getDarkMode.value, 'content'),
+        current: getTheme(getDarkMode.value, 'content')
       },
       hljs: {
         // 设置代码块主题
-        style: getTheme(getDarkMode.value, 'code'),
-      },
+        style: getTheme(getDarkMode.value, 'code')
+      }
     });
   }
   watch(
@@ -37,14 +37,14 @@
       VditorPreview.setContentTheme(getTheme(val, 'content'));
       VditorPreview.setCodeTheme(getTheme(val, 'code'));
       init();
-    },
+    }
   );
 
   watch(
     () => props.value,
     (v, oldValue) => {
       v !== oldValue && init();
-    },
+    }
   );
 
   function destroy() {

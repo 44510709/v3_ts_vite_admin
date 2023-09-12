@@ -6,7 +6,7 @@
     TreeItem,
     KeyType,
     CheckKeys,
-    TreeActionType,
+    TreeActionType
   } from './types/tree';
 
   import {
@@ -18,7 +18,7 @@
     watchEffect,
     toRaw,
     watch,
-    onMounted,
+    onMounted
   } from 'vue';
   import TreeHeader from './components/TreeHeader.vue';
   import { Tree, Spin, Empty } from 'ant-design-vue';
@@ -46,13 +46,13 @@
         checkStrictly: props.checkStrictly,
         expandedKeys: props.expandedKeys || [],
         selectedKeys: props.selectedKeys || [],
-        checkedKeys: props.checkedKeys || [],
+        checkedKeys: props.checkedKeys || []
       });
 
       const searchState = reactive({
         startSearch: false,
         searchText: '',
-        searchData: [] as TreeItem[],
+        searchData: [] as TreeItem[]
       });
 
       const treeDataRef = ref<TreeItem[]>([]);
@@ -65,7 +65,7 @@
           children: 'children',
           title: 'title',
           key: 'key',
-          ...fieldNames,
+          ...fieldNames
         };
       });
 
@@ -104,13 +104,13 @@
             emit('update:value', rawVal);
             emit('check', rawVal, e);
           },
-          onRightClick: handleRightClick,
+          onRightClick: handleRightClick
         };
         return omit(propsData, 'treeData', 'class');
       });
 
       const getTreeData = computed((): TreeItem[] =>
-        searchState.startSearch ? searchState.searchData : unref(treeDataRef),
+        searchState.startSearch ? searchState.searchData : unref(treeDataRef)
       );
 
       const getNotFound = computed((): boolean => {
@@ -126,7 +126,7 @@
         getAllKeys,
         getChildrenKeys,
         getEnabledKeys,
-        getSelectedNode,
+        getSelectedNode
       } = useTree(treeDataRef, getFieldNames);
 
       function getIcon(params: TreeItem, icon?: string) {
@@ -200,8 +200,8 @@
           }
         },
         {
-          immediate: true,
-        },
+          immediate: true
+        }
       );
 
       watch(
@@ -210,7 +210,7 @@
           if (val) {
             handleSearch(searchState.searchText);
           }
-        },
+        }
       );
 
       function handleSearch(searchValue: string) {
@@ -237,7 +237,7 @@
             }
             return result;
           },
-          unref(getFieldNames),
+          unref(getFieldNames)
         );
 
         if (expandOnSearch) {
@@ -302,7 +302,7 @@
         () => {
           state.checkedKeys = toRaw(props.value || []);
         },
-        { immediate: true },
+        { immediate: true }
       );
 
       watch(
@@ -311,7 +311,7 @@
           const v = toRaw(state.checkedKeys);
           emit('update:value', v);
           emit('change', v);
-        },
+        }
       );
 
       watchEffect(() => {
@@ -340,7 +340,7 @@
         },
         getSearchValue: () => {
           return searchState.searchText;
-        },
+        }
       };
 
       function renderAction(node: TreeItem) {
@@ -372,7 +372,7 @@
           const {
             title: titleField,
             key: keyField,
-            children: childrenField,
+            children: childrenField
           } = unref(getFieldNames);
 
           const icon = getIcon(item, item.icon);
@@ -454,6 +454,6 @@
           </div>
         );
       };
-    },
+    }
   });
 </script>

@@ -20,7 +20,7 @@
       value: propTypes.oneOfType([propTypes.number, propTypes.instanceOf(Date), propTypes.string])
         .isRequired,
       step: propTypes.number.def(60),
-      mode: propTypes.oneOf(['date', 'datetime', 'relative']).def('relative'),
+      mode: propTypes.oneOf(['date', 'datetime', 'relative']).def('relative')
     },
     setup(props) {
       const date = ref('');
@@ -34,7 +34,7 @@
         () => {
           setTime();
         },
-        { immediate: true },
+        { immediate: true }
       );
 
       function getTime() {
@@ -103,6 +103,6 @@
       }
 
       return { date };
-    },
+    }
   });
 </script>

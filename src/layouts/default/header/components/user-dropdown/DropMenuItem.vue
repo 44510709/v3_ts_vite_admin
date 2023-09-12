@@ -21,12 +21,12 @@
       // eslint-disable-next-line
       key: propTypes.string,
       text: propTypes.string,
-      icon: propTypes.string,
+      icon: propTypes.string
     },
     setup(props) {
       const instance = getCurrentInstance();
       const itemKey = computed(() => props.key || instance?.vnode?.props?.key);
       return { itemKey };
-    },
+    }
   });
 </script>

@@ -153,7 +153,7 @@ export const gridComponentMethodKeys: (
   // vxe-table-validator
   'clearValidate',
   'fullValidate',
-  'validate',
+  'validate'
 
   //... 如有缺少在此处追加
   // xxx

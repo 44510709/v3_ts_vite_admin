@@ -32,15 +32,18 @@ export function useLockPage() {
     }
     clear();
 
-    timeId = setTimeout(() => {
-      lockPage();
-    }, lockTime * 60 * 1000);
+    timeId = setTimeout(
+      () => {
+        lockPage();
+      },
+      lockTime * 60 * 1000
+    );
   }
 
   function lockPage(): void {
     lockStore.setLockInfo({
       isLock: true,
-      pwd: undefined,
+      pwd: undefined
     });
   }
 

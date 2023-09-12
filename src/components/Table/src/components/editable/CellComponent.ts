@@ -19,9 +19,9 @@ export const CellComponent: FunctionalComponent = (
     rule = true,
     ruleMessage,
     popoverVisible,
-    getPopupContainer,
+    getPopupContainer
   }: ComponentProps,
-  { attrs },
+  { attrs }
 ) => {
   const Comp = componentMap.get(component) as typeof defineComponent;
 
@@ -34,11 +34,11 @@ export const CellComponent: FunctionalComponent = (
     {
       overlayClassName: 'edit-cell-rule-popover',
       visible: !!popoverVisible,
-      ...(getPopupContainer ? { getPopupContainer } : {}),
+      ...(getPopupContainer ? { getPopupContainer } : {})
     },
     {
       default: () => DefaultComp,
-      content: () => ruleMessage,
-    },
+      content: () => ruleMessage
+    }
   );
 };

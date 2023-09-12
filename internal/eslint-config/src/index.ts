@@ -2,7 +2,7 @@ export default {
   env: {
     browser: true,
     node: true,
-    es6: true,
+    es6: true
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -11,18 +11,18 @@ export default {
     sourceType: 'module',
     jsxPragma: 'React',
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     project: './tsconfig.*?.json',
     createDefaultProgram: false,
-    extraFileExtensions: ['.vue'],
+    extraFileExtensions: ['.vue']
   },
   plugins: ['vue', '@typescript-eslint', 'import'],
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:prettier/recommended'
   ],
   rules: {
     'no-unused-vars': 'off',
@@ -38,8 +38,8 @@ export default {
       'error',
       {
         argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
+        varsIgnorePattern: '^_'
+      }
     ],
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
@@ -69,13 +69,13 @@ export default {
         html: {
           void: 'always',
           normal: 'never',
-          component: 'always',
+          component: 'always'
         },
         svg: 'always',
-        math: 'always',
-      },
+        math: 'always'
+      }
     ],
-    'vue/multi-word-component-names': 'off',
+    'vue/multi-word-component-names': 'off'
     // 'sort-imports': [
     //   'error',
     //   {
@@ -87,5 +87,5 @@ export default {
     //   },
     // ],
   },
-  globals: { defineOptions: 'readonly' },
+  globals: { defineOptions: 'readonly' }
 };

@@ -3,7 +3,7 @@ import type {
   ModalMethods,
   ModalProps,
   ReturnMethods,
-  UseModalInnerReturnType,
+  UseModalInnerReturnType
 } from '../typing';
 import {
   ref,
@@ -14,7 +14,7 @@ import {
   watchEffect,
   nextTick,
   toRaw,
-  computed,
+  computed
 } from 'vue';
 import { isProdMode } from '/@/utils/env';
 import { isFunction } from '/@/utils/is';
@@ -77,7 +77,7 @@ export function useModal(): UseModalReturnType {
 
     openModal: <T = any>(visible = true, data?: T, openOnSet = true): void => {
       getInstance()?.setModalProps({
-        visible: visible,
+        visible: visible
       });
 
       if (!data) return;
@@ -95,7 +95,7 @@ export function useModal(): UseModalReturnType {
 
     closeModal: () => {
       getInstance()?.setModalProps({ visible: false });
-    },
+    }
   };
   return [register, methods];
 }
@@ -157,7 +157,7 @@ export const useModalInner = (callbackFn?: Fn): UseModalInnerReturnType => {
       redoModalHeight: () => {
         const callRedo = getInstance()?.redoModalHeight;
         callRedo && callRedo();
-      },
-    },
+      }
+    }
   ];
 };

@@ -4,13 +4,13 @@ import {
   createCellRender,
   createEditRender,
   createExportMethod,
-  createFormItemRender,
+  createFormItemRender
 } from './common';
 
 export function getDatePickerCellValue(
   renderOpts: VxeGlobalRendererHandles.RenderOptions,
   params: VxeGlobalRendererHandles.RenderCellParams | VxeGlobalRendererHandles.ExportMethodParams,
-  defaultFormat: string,
+  defaultFormat: string
 ) {
   const { props = {} } = renderOpts;
   const { row, column } = params;
@@ -29,5 +29,5 @@ export default {
   renderItemContent: createFormItemRender(),
   exportMethod: createExportMethod(getDatePickerCellValue, () => {
     return ['YYYY-MM-DD'];
-  }),
+  })
 };

@@ -11,17 +11,17 @@ function createEmptyRender() {
       h(
         'div',
         {
-          class: 'flex items-center justify-center',
+          class: 'flex items-center justify-center'
         },
         h(Component, {
           ...attrs,
-          ...props,
-        }),
-      ),
+          ...props
+        })
+      )
     ];
   };
 }
 
 export default {
-  renderEmpty: createEmptyRender(),
+  renderEmpty: createEmptyRender()
 };

@@ -35,28 +35,28 @@
     {
       label: '版本',
       field: 'version',
-      render: commonTagRender('blue'),
+      render: commonTagRender('blue')
     },
     {
       label: '最后编译时间',
       field: 'lastBuildTime',
-      render: commonTagRender('blue'),
+      render: commonTagRender('blue')
     },
     {
       label: '文档地址',
       field: 'doc',
-      render: commonLinkRender('文档地址'),
+      render: commonLinkRender('文档地址')
     },
     {
       label: '预览地址',
       field: 'preview',
-      render: commonLinkRender('预览地址'),
+      render: commonLinkRender('预览地址')
     },
     {
       label: 'Github',
       field: 'github',
-      render: commonLinkRender('Github'),
-    },
+      render: commonLinkRender('Github')
+    }
   ];
 
   const infoData = {
@@ -64,7 +64,7 @@
     lastBuildTime,
     doc: DOC_URL,
     preview: SITE_URL,
-    github: GITHUB_URL,
+    github: GITHUB_URL
   };
 
   Object.keys(dependencies).forEach((key) => {
@@ -79,20 +79,20 @@
     title: '生产环境依赖',
     data: dependencies,
     schema: schema,
-    column: 3,
+    column: 3
   });
 
   const [registerDev] = useDescription({
     title: '开发环境依赖',
     data: devDependencies,
     schema: devSchema,
-    column: 3,
+    column: 3
   });
 
   const [infoRegister] = useDescription({
     title: '项目信息',
     data: infoData,
     schema: infoSchema,
-    column: 2,
+    column: 2
   });
 </script>

@@ -4,20 +4,20 @@ import { warn } from '/@/utils/log';
 
 export function useTableScrollTo(
   tableElRef: Ref<ComponentRef>,
-  getDataSourceRef: ComputedRef<Recordable[]>,
+  getDataSourceRef: ComputedRef<Recordable[]>
 ) {
   let bodyEl: HTMLElement | null;
 
   async function findTargetRowToScroll(targetRowData: Recordable) {
     const { id } = targetRowData;
     const targetRowEl: HTMLElement | null | undefined = bodyEl?.querySelector(
-      `[data-row-key="${id}"]`,
+      `[data-row-key="${id}"]`
     );
     //Add a delay to get new dataSource
     await nextTick();
     bodyEl?.scrollTo({
       top: targetRowEl?.offsetTop ?? 0,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   }
 

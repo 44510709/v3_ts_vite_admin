@@ -30,9 +30,9 @@
     props: {
       name: {
         type: [String, Number] as PropType<string | number>,
-        required: true,
+        required: true
       },
-      disabled: propTypes.bool,
+      disabled: propTypes.bool
     },
     setup(props, { slots }) {
       const instance = getCurrentInstance();
@@ -52,8 +52,8 @@
           {
             [`${prefixCls}-item-active`]: unref(active),
             [`${prefixCls}-item-selected`]: unref(active),
-            [`${prefixCls}-item-disabled`]: !!props.disabled,
-          },
+            [`${prefixCls}-item-disabled`]: !!props.disabled
+          }
         ];
       });
 
@@ -78,7 +78,7 @@
         rootMenuEmitter.emit('on-update-opened', {
           opend: false,
           parent: instance?.parent,
-          uidList: uidList,
+          uidList: uidList
         });
       }
       watch(
@@ -98,10 +98,10 @@
             active.value = false;
           }
         },
-        { immediate: true },
+        { immediate: true }
       );
 
       return { getClass, prefixCls, getItemStyle, getCollapse, handleClickItem, showTooptip };
-    },
+    }
   });
 </script>

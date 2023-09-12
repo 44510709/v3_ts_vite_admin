@@ -15,7 +15,7 @@ import {
   TimePicker,
   TreeSelect,
   Rate,
-  Empty,
+  Empty
 } from 'ant-design-vue';
 import { Button } from '/@/components/Button';
 

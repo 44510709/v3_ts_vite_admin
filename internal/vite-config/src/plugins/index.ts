@@ -38,8 +38,8 @@ async function createPlugins({ isBuild, root, enableMock, compress, enableAnalyz
     // rollup-plugin-gzip
     vitePlugins.push(
       configCompressPlugin({
-        compress,
-      }),
+        compress
+      })
     );
   }
 

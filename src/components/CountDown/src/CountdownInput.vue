@@ -20,8 +20,8 @@
     count: { type: Number, default: 60 },
     sendCodeApi: {
       type: Function as PropType<() => Promise<boolean>>,
-      default: null,
-    },
+      default: null
+    }
   };
 
   export default defineComponent({
@@ -34,7 +34,7 @@
       const [state] = useRuleFormItem(props);
 
       return { prefixCls, state };
-    },
+    }
   });
 </script>
 <style lang="less">

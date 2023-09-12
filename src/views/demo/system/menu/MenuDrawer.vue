@@ -29,7 +29,7 @@
         labelWidth: 100,
         schemas: formSchema,
         showActionButtonGroup: false,
-        baseColProps: { lg: 12, md: 24 },
+        baseColProps: { lg: 12, md: 24 }
       });
 
       const [registerDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (data) => {
@@ -39,13 +39,13 @@
 
         if (unref(isUpdate)) {
           setFieldsValue({
-            ...data.record,
+            ...data.record
           });
         }
         const treeData = await getMenuList();
         updateSchema({
           field: 'parentMenu',
-          componentProps: { treeData },
+          componentProps: { treeData }
         });
       });
 
@@ -65,6 +65,6 @@
       }
 
       return { registerDrawer, registerForm, getTitle, handleSubmit };
-    },
+    }
   });
 </script>

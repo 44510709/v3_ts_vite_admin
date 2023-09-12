@@ -31,7 +31,7 @@
     props: {
       value: propTypes.string,
       showInput: propTypes.bool.def(true),
-      disabled: propTypes.bool,
+      disabled: propTypes.bool
     },
     emits: ['score-change', 'change'],
     setup(props, { emit }) {
@@ -59,16 +59,16 @@
         () => unref(innerValueRef),
         (val) => {
           emit('change', val);
-        },
+        }
       );
 
       return {
         getPasswordStrength,
         handleChange,
         prefixCls,
-        innerValueRef,
+        innerValueRef
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>
@@ -108,7 +108,9 @@
         position: absolute;
         width: 0;
         height: inherit;
-        transition: width 0.5s ease-in-out, background 0.25s;
+        transition:
+          width 0.5s ease-in-out,
+          background 0.25s;
         border-radius: inherit;
         background-color: transparent;
 

@@ -36,7 +36,7 @@ export interface FormActionType {
   appendSchemaByField: (
     schema: FormSchema | FormSchema[],
     prefixField: string | undefined,
-    first?: boolean | undefined,
+    first?: boolean | undefined
   ) => Promise<void>;
   validateFields: (nameList?: NamePath[]) => Promise<any>;
   validate: (nameList?: NamePath[] | false) => Promise<any>;
@@ -199,13 +199,13 @@ export interface FormSchema {
   // Render the content in the form-item tag
   render?: (
     renderCallbackParams: RenderCallbackParams,
-    opts: RenderOpts,
+    opts: RenderOpts
   ) => VNode | VNode[] | string;
 
   // Rendering col content requires outer wrapper form-item
   renderColContent?: (
     renderCallbackParams: RenderCallbackParams,
-    opts: RenderOpts,
+    opts: RenderOpts
   ) => VNode | VNode[] | string;
 
   renderComponentContent?:

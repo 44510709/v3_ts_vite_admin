@@ -23,37 +23,37 @@ export function getColumns(): BasicColumn[] {
             ? 'red'
             : 'purple';
         return <Tag color={color}>{() => text}</Tag>;
-      },
+      }
     },
     {
       dataIndex: 'url',
       title: 'URL',
-      width: 200,
+      width: 200
     },
     {
       dataIndex: 'time',
       title: t('sys.errorLog.tableColumnDate'),
-      width: 160,
+      width: 160
     },
     {
       dataIndex: 'file',
       title: t('sys.errorLog.tableColumnFile'),
-      width: 200,
+      width: 200
     },
     {
       dataIndex: 'name',
       title: 'Name',
-      width: 200,
+      width: 200
     },
     {
       dataIndex: 'message',
       title: t('sys.errorLog.tableColumnMsg'),
-      width: 300,
+      width: 300
     },
     {
       dataIndex: 'stack',
-      title: t('sys.errorLog.tableColumnStackMsg'),
-    },
+      title: t('sys.errorLog.tableColumnStackMsg')
+    }
   ];
 }
 
@@ -61,7 +61,7 @@ export function getDescSchema(): any {
   return getColumns().map((column) => {
     return {
       field: column.dataIndex!,
-      label: column.title,
+      label: column.title
     };
   });
 }

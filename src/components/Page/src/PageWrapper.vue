@@ -42,7 +42,7 @@
     ref,
     unref,
     useAttrs,
-    useSlots,
+    useSlots
   } from 'vue';
 
   import PageFooter from './PageFooter.vue';
@@ -56,7 +56,7 @@
 
   defineOptions({
     name: 'PageWrapper',
-    inheritAttrs: false,
+    inheritAttrs: false
   });
 
   const props = defineProps({
@@ -65,13 +65,13 @@
     ghost: propTypes.bool,
     content: propTypes.string,
     contentStyle: {
-      type: Object as PropType<CSSProperties>,
+      type: Object as PropType<CSSProperties>
     },
     contentBackground: propTypes.bool,
     contentFullHeight: propTypes.bool.def(false),
     contentClass: propTypes.string,
     fixedHeight: propTypes.bool,
-    upwardSpace: propTypes.oneOfType([propTypes.number, propTypes.string]).def(0),
+    upwardSpace: propTypes.oneOfType([propTypes.number, propTypes.string]).def(0)
   });
 
   const attrs = useAttrs();
@@ -85,7 +85,7 @@
 
   provide(
     PageWrapperFixedHeightKey,
-    computed(() => props.fixedHeight),
+    computed(() => props.fixedHeight)
   );
 
   const getIsContentFullHeight = computed(() => {
@@ -98,7 +98,7 @@
     wrapperRef,
     [headerRef, footerRef],
     [contentRef],
-    getUpwardSpace,
+    getUpwardSpace
   );
   setCompensation({ useLayoutFooter: true, elements: [footerRef] });
 
@@ -106,14 +106,14 @@
     return [
       prefixCls,
       {
-        [`${prefixCls}--dense`]: props.dense,
+        [`${prefixCls}--dense`]: props.dense
       },
-      attrs.class ?? {},
+      attrs.class ?? {}
     ];
   });
 
   const getShowHeader = computed(
-    () => props.content || slots?.headerContent || props.title || getHeaderSlots.value.length,
+    () => props.content || slots?.headerContent || props.title || getHeaderSlots.value.length
   );
 
   const getShowFooter = computed(() => slots?.leftFooter || slots?.rightFooter);
@@ -132,7 +132,7 @@
     return {
       ...contentStyle,
       minHeight: height,
-      ...(fixedHeight ? { height } : {}),
+      ...(fixedHeight ? { height } : {})
     };
   });
 
@@ -142,8 +142,8 @@
       `${prefixCls}-content`,
       contentClass,
       {
-        [`${prefixCls}-content-bg`]: contentBackground,
-      },
+        [`${prefixCls}-content-bg`]: contentBackground
+      }
     ];
   });
 
@@ -154,8 +154,8 @@
     },
     {
       flush: 'post',
-      immediate: true,
-    },
+      immediate: true
+    }
   );
 </script>
 <style lang="less">

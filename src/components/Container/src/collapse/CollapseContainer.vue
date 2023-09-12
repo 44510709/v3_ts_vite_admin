@@ -20,7 +20,7 @@
      */
     helpMessage: {
       type: [Array, String] as PropType<string[] | string>,
-      default: '',
+      default: ''
     },
     /**
      * Whether to trigger window.resize when expanding and contracting,
@@ -30,7 +30,7 @@
     /**
      * Delayed loading time
      */
-    lazyTime: { type: Number, default: 0 },
+    lazyTime: { type: Number, default: 0 }
   };
 
   export type CollapseContainerProps = ExtractPropTypes<typeof collapseContainerProps>;
@@ -64,7 +64,7 @@
             show={show.value}
             v-slots={{
               title: slots.title,
-              action: slots.action,
+              action: slots.action
             }}
           />
 
@@ -83,7 +83,7 @@
           {slots.footer && <div class={`${prefixCls}__footer`}>{slots.footer()}</div>}
         </div>
       );
-    },
+    }
   });
 </script>
 

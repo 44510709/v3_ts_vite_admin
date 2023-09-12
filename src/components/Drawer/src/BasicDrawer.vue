@@ -41,7 +41,7 @@
     unref,
     nextTick,
     toRaw,
-    getCurrentInstance,
+    getCurrentInstance
   } from 'vue';
   import { Drawer } from 'ant-design-vue';
   import { useI18n } from '/@/hooks/web/useI18n';
@@ -69,7 +69,7 @@
 
       const drawerInstance: DrawerInstance = {
         setDrawerProps: setDrawerProps as any,
-        emitVisible: undefined,
+        emitVisible: undefined
       };
 
       const instance = getCurrentInstance();
@@ -85,7 +85,7 @@
           placement: 'right',
           ...unref(attrs),
           ...unref(getMergeProps),
-          visible: unref(visibleRef),
+          visible: unref(visibleRef)
         };
         opt.title = undefined;
         const { isDetail, width, wrapClassName, getContainer } = opt;
@@ -107,7 +107,7 @@
       const getBindValues = computed((): DrawerProps => {
         return {
           ...attrs,
-          ...unref(getProps),
+          ...unref(getProps)
         };
       });
 
@@ -126,7 +126,7 @@
         const footerHeight = unref(getFooterHeight);
         return {
           position: 'relative',
-          height: `calc(100% - ${footerHeight})`,
+          height: `calc(100% - ${footerHeight})`
         };
       });
 
@@ -139,7 +139,7 @@
         (newVal, oldVal) => {
           if (newVal !== oldVal) visibleRef.value = newVal;
         },
-        { deep: true },
+        { deep: true }
       );
 
       watch(
@@ -149,7 +149,7 @@
             emit('visible-change', visible);
             instance && drawerInstance.emitVisible?.(visible, instance.uid);
           });
-        },
+        }
       );
 
       // Cancel event
@@ -187,9 +187,9 @@
         getLoading,
         getBindValues,
         getFooterHeight,
-        handleOk,
+        handleOk
       };
-    },
+    }
   });
 </script>
 <style lang="less">

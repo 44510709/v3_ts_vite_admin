@@ -3,7 +3,7 @@ import { UploadApiResult } from '/@/api/sys/model/uploadModel';
 export enum UploadResultStatus {
   SUCCESS = 'success',
   ERROR = 'error',
-  UPLOADING = 'uploading',
+  UPLOADING = 'uploading'
 }
 
 export interface FileItem {

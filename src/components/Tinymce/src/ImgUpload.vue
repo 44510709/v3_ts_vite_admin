@@ -27,12 +27,12 @@
     components: { Upload },
     props: {
       fullscreen: {
-        type: Boolean,
+        type: Boolean
       },
       disabled: {
         type: Boolean,
-        default: false,
-      },
+        default: false
+      }
     },
     emits: ['uploading', 'done', 'error'],
     setup(props, { emit }) {
@@ -45,7 +45,7 @@
       const getButtonProps = computed(() => {
         const { disabled } = props;
         return {
-          disabled,
+          disabled
         };
       });
 
@@ -74,9 +74,9 @@
         handleChange,
         uploadUrl,
         t,
-        getButtonProps,
+        getButtonProps
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

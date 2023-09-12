@@ -4,17 +4,17 @@ import { createDefaultRender, createEditRender, createFormItemRender } from './c
 export default {
   renderDefault: createDefaultRender({}, (_, params) => {
     return {
-      params: XEUtils.get(params, 'row'),
+      params: XEUtils.get(params, 'row')
     };
   }),
   renderEdit: createEditRender({}, (_, params) => {
     return {
-      params: XEUtils.get(params, 'row'),
+      params: XEUtils.get(params, 'row')
     };
   }),
   renderItemContent: createFormItemRender({}, (_, params) => {
     return {
-      params: XEUtils.get(params, 'row'),
+      params: XEUtils.get(params, 'row')
     };
-  }),
+  })
 };

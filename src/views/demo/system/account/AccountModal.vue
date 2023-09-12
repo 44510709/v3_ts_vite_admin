@@ -24,8 +24,8 @@
         schemas: accountFormSchema,
         showActionButtonGroup: false,
         actionColOptions: {
-          span: 23,
-        },
+          span: 23
+        }
       });
 
       const [registerModal, { setModalProps, closeModal }] = useModalInner(async (data) => {
@@ -36,7 +36,7 @@
         if (unref(isUpdate)) {
           rowId.value = data.record.id;
           setFieldsValue({
-            ...data.record,
+            ...data.record
           });
         }
 
@@ -44,12 +44,12 @@
         updateSchema([
           {
             field: 'pwd',
-            show: !unref(isUpdate),
+            show: !unref(isUpdate)
           },
           {
             field: 'dept',
-            componentProps: { treeData },
-          },
+            componentProps: { treeData }
+          }
         ]);
       });
 
@@ -69,6 +69,6 @@
       }
 
       return { registerModal, registerForm, getTitle, handleSubmit };
-    },
+    }
   });
 </script>

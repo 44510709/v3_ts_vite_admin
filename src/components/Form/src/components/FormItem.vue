@@ -13,7 +13,7 @@
   import {
     createPlaceholderMessage,
     NO_AUTO_LINK_COMPONENTS,
-    setComponentRuleType,
+    setComponentRuleType
   } from '../helper';
   import { cloneDeep, upperFirst } from 'lodash-es';
   import { useItemLabelWidth } from '../hooks/useLabelWidth';
@@ -25,33 +25,33 @@
     props: {
       schema: {
         type: Object as PropType<FormSchema>,
-        default: () => ({}),
+        default: () => ({})
       },
       formProps: {
         type: Object as PropType<FormProps>,
-        default: () => ({}),
+        default: () => ({})
       },
       allDefaultValues: {
         type: Object as PropType<Recordable<any>>,
-        default: () => ({}),
+        default: () => ({})
       },
       formModel: {
         type: Object as PropType<Recordable<any>>,
-        default: () => ({}),
+        default: () => ({})
       },
       setFormModel: {
         type: Function as PropType<(key: string, value: any, schema: FormSchema) => void>,
-        default: null,
+        default: null
       },
       tableAction: {
-        type: Object as PropType<TableActionType>,
+        type: Object as PropType<TableActionType>
       },
       formActionType: {
-        type: Object as PropType<FormActionType>,
+        type: Object as PropType<FormActionType>
       },
       isAdvanced: {
-        type: Boolean,
-      },
+        type: Boolean
+      }
     },
     setup(props, { slots }) {
       const { t } = useI18n();
@@ -72,9 +72,9 @@
           values: {
             ...mergeDynamicData,
             ...allDefaultValues,
-            ...formModel,
+            ...formModel
           } as Recordable<any>,
-          schema: schema,
+          schema: schema
         };
       });
 
@@ -89,9 +89,9 @@
             { type: 'horizontal' },
             {
               orientation: 'left',
-              plain: true,
+              plain: true
             },
-            componentProps,
+            componentProps
           );
         }
         return componentProps as Recordable<any>;
@@ -146,7 +146,7 @@
           rulesMessageJoinLabel,
           label,
           dynamicRules,
-          required,
+          required
         } = props.schema;
 
         if (isFunction(dynamicRules)) {
@@ -207,7 +207,7 @@
         }
 
         const requiredRuleIndex: number = rules.findIndex(
-          (rule) => Reflect.has(rule, 'required') && !Reflect.has(rule, 'validator'),
+          (rule) => Reflect.has(rule, 'required') && !Reflect.has(rule, 'validator')
         );
 
         if (requiredRuleIndex !== -1) {
@@ -247,7 +247,7 @@
           component,
           field,
           changeEvent = 'change',
-          valueField,
+          valueField
         } = props.schema;
 
         const isCheck = component && ['Switch', 'Checkbox'].includes(component);
@@ -263,7 +263,7 @@
             const target = e ? e.target : null;
             const value = target ? (isCheck ? target.checked : target.value) : e;
             props.setFormModel(field, value, props.schema);
-          },
+          }
         };
         const Comp = componentMap.get(component) as ReturnType<typeof defineComponent>;
 
@@ -273,7 +273,7 @@
           getPopupContainer: (trigger: Element) => trigger.parentNode,
           size,
           ...unref(getComponentsProps),
-          disabled: unref(getDisable),
+          disabled: unref(getDisable)
         };
 
         const isCreatePlaceholder = !propsData.disabled && autoSetPlaceHolder;
@@ -286,13 +286,13 @@
         propsData.formValues = unref(getValues);
 
         const bindValue: Recordable<any> = {
-          [valueField || (isCheck ? 'checked' : 'value')]: props.formModel[field],
+          [valueField || (isCheck ? 'checked' : 'value')]: props.formModel[field]
         };
 
         const compAttr: Recordable<any> = {
           ...propsData,
           ...on,
-          ...bindValue,
+          ...bindValue
         };
 
         if (!renderComponentContent) {
@@ -301,7 +301,7 @@
         const compSlot = isFunction(renderComponentContent)
           ? { ...renderComponentContent(unref(getValues), { disabled: unref(getDisable) }) }
           : {
-              default: () => renderComponentContent,
+              default: () => renderComponentContent
             };
         return <Comp {...compAttr}>{compSlot}</Comp>;
       }
@@ -357,7 +357,7 @@
             props.schema &&
               (props.schema.itemProps! = {
                 autoLink: false,
-                ...props.schema.itemProps,
+                ...props.schema.itemProps
               });
           }
 
@@ -409,6 +409,6 @@
           )
         );
       };
-    },
+    }
   });
 </script>

@@ -23,7 +23,7 @@ export default function ({
   getProps,
   getSchema,
   formModel,
-  defaultValueRef,
+  defaultValueRef
 }: UseAdvancedContext) {
   const vm = getCurrentInstance();
 
@@ -59,7 +59,7 @@ export default function ({
         debounceUpdateAdvanced();
       }
     },
-    { immediate: true },
+    { immediate: true }
   );
 
   function getAdvanced(itemCol: Partial<ColEx>, itemColSum = 0, isLastAction = false) {
@@ -134,15 +134,15 @@ export default function ({
           field: schema.field,
           values: {
             ...unref(defaultValueRef),
-            ...formModel,
-          },
+            ...formModel
+          }
         });
       }
 
       if (isShow && (colProps || baseColProps)) {
         const { itemColSum: sum, isAdvanced } = getAdvanced(
           { ...baseColProps, ...colProps },
-          itemColSum,
+          itemColSum
         );
 
         itemColSum = sum || 0;

@@ -55,12 +55,12 @@
             field: 'password',
             label: t('layout.header.lockScreenPassword'),
             colProps: {
-              span: 24,
+              span: 24
             },
             component: 'InputPassword',
-            required: true,
-          },
-        ],
+            required: true
+          }
+        ]
       });
 
       async function handleLock() {
@@ -70,7 +70,7 @@
 
         lockStore.setLockInfo({
           isLock: true,
-          pwd: password,
+          pwd: password
         });
         await resetFields();
       }
@@ -87,9 +87,9 @@
         register,
         registerForm,
         handleLock,
-        avatar,
+        avatar
       };
-    },
+    }
   });
 </script>
 <style lang="less">

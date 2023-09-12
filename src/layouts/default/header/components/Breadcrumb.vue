@@ -40,7 +40,7 @@
     name: 'LayoutBreadcrumb',
     components: { Icon, [Breadcrumb.name]: Breadcrumb },
     props: {
-      theme: propTypes.oneOf(['dark', 'light']),
+      theme: propTypes.oneOf(['dark', 'light'])
     },
     setup() {
       const routes = ref<RouteLocationMatched[]>([]);
@@ -73,7 +73,7 @@
         if (currentRoute.value.meta?.currentActiveMenu) {
           breadcrumbList.push({
             ...currentRoute.value,
-            name: currentRoute.value.meta?.title || currentRoute.value.name,
+            name: currentRoute.value.meta?.title || currentRoute.value.name
           } as unknown as RouteLocationMatched);
         }
         routes.value = breadcrumbList;
@@ -85,7 +85,7 @@
           if (parent.includes(item.path)) {
             metched.push({
               ...item,
-              name: item.meta?.title || item.name,
+              name: item.meta?.title || item.name
             });
           }
           if (item.children?.length) {
@@ -146,7 +146,7 @@
       }
 
       return { routes, t, prefixCls, getIcon, getShowBreadCrumbIcon, handleClick, hasRedirect };
-    },
+    }
   });
 </script>
 <style lang="less">

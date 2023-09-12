@@ -20,7 +20,7 @@
   import { useLayoutHeight } from '/@/layouts/default/content/useContentViewHeight';
 
   defineProps({
-    frameSrc: propTypes.string.def(''),
+    frameSrc: propTypes.string.def('')
   });
 
   const loading = ref(true);
@@ -34,7 +34,7 @@
 
   const getWrapStyle = computed((): CSSProperties => {
     return {
-      height: `${unref(heightRef)}px`,
+      height: `${unref(heightRef)}px`
     };
   });
 

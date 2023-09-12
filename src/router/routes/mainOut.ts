@@ -14,9 +14,9 @@ export const mainOutRoutes: AppRouteModule[] = [
     component: () => import('/@/views/demo/main-out/index.vue'),
     meta: {
       title: 'MainOut',
-      ignoreAuth: true,
-    },
-  },
+      ignoreAuth: true
+    }
+  }
 ];
 
 export const mainOutRouteNames = mainOutRoutes.map((item) => item.name);

@@ -11,7 +11,7 @@
     computed,
     watch,
     onBeforeUnmount,
-    onDeactivated,
+    onDeactivated
   } from 'vue';
   import Vditor from 'vditor';
   import 'vditor/dist/index.css';
@@ -27,7 +27,7 @@
     inheritAttrs: false,
     props: {
       height: { type: Number, default: 360 },
-      value: { type: String, default: '' },
+      value: { type: String, default: '' }
     },
     emits: ['change', 'get', 'update:value'],
     setup(props, { attrs, emit }) {
@@ -53,8 +53,8 @@
         },
         {
           immediate: true,
-          flush: 'post',
-        },
+          flush: 'post'
+        }
       );
 
       watch(
@@ -64,7 +64,7 @@
             instance.getVditor()?.setValue(v);
           }
           valueRef.value = v;
-        },
+        }
       );
 
       const getCurrentLang = computed((): 'zh_CN' | 'en_US' | 'ja_JP' | 'ko_KR' => {
@@ -94,18 +94,18 @@
           lang: unref(getCurrentLang),
           mode: 'sv',
           fullscreen: {
-            index: 520,
+            index: 520
           },
           preview: {
             theme: {
               // 设置内容主题
-              current: getTheme(getDarkMode.value, 'content'),
+              current: getTheme(getDarkMode.value, 'content')
             },
             hljs: {
               // 设置代码块主题
-              style: getTheme(getDarkMode.value, 'code'),
+              style: getTheme(getDarkMode.value, 'code')
             },
-            actions: [],
+            actions: []
           },
           input: (v) => {
             valueRef.value = v;
@@ -126,13 +126,13 @@
           },
           ...bindValue,
           cache: {
-            enable: false,
-          },
+            enable: false
+          }
         });
       }
 
       const instance = {
-        getVditor: (): Vditor => vditorRef.value!,
+        getVditor: (): Vditor => vditorRef.value!
       };
 
       function destroy() {
@@ -153,8 +153,8 @@
       onDeactivated(destroy);
       return {
         wrapRef,
-        ...instance,
+        ...instance
       };
-    },
+    }
   });
 </script>

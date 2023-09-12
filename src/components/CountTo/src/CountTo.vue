@@ -18,7 +18,7 @@
       default: 0,
       validator(value: number) {
         return value >= 0;
-      },
+      }
     },
     prefix: { type: String, default: '' },
     suffix: { type: String, default: '' },
@@ -35,7 +35,7 @@
     /**
      * Digital animation
      */
-    transition: { type: String, default: 'linear' },
+    transition: { type: String, default: 'linear' }
   };
 
   export default defineComponent({
@@ -79,7 +79,7 @@
           duration: props.duration,
           onFinished: () => emit('onFinished'),
           onStarted: () => emit('onStarted'),
-          ...(props.useEasing ? { transition: TransitionPresets[props.transition] } : {}),
+          ...(props.useEasing ? { transition: TransitionPresets[props.transition] } : {})
         });
       }
 
@@ -105,6 +105,6 @@
       }
 
       return { value, start, reset };
-    },
+    }
   });
 </script>

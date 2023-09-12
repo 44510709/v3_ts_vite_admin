@@ -15,8 +15,8 @@
     count: { type: Number, default: 60 },
     beforeStartFunc: {
       type: Function as PropType<() => Promise<boolean>>,
-      default: null,
-    },
+      default: null
+    }
   };
 
   export default defineComponent({
@@ -57,6 +57,6 @@
         }
       }
       return { handleStart, currentCount, loading, getButtonText, isStart };
-    },
+    }
   });
 </script>

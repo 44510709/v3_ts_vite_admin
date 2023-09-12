@@ -54,7 +54,7 @@ export function useMenuSetting() {
   const getTopMenuAlign = computed(() => appStore.getMenuSetting.topMenuAlign);
 
   const getCloseMixSidebarOnChange = computed(
-    () => appStore.getMenuSetting.closeMixSidebarOnChange,
+    () => appStore.getMenuSetting.closeMixSidebarOnChange
   );
 
   const getIsSidebarType = computed(() => unref(getMenuType) === MenuTypeEnum.SIDEBAR);
@@ -128,7 +128,7 @@ export function useMenuSetting() {
 
   function toggleCollapsed() {
     setMenuSetting({
-      collapsed: !unref(getCollapsed),
+      collapsed: !unref(getCollapsed)
     });
   }
   return {
@@ -163,6 +163,6 @@ export function useMenuSetting() {
     getCloseMixSidebarOnChange,
     getMixSideTrigger,
     getMixSideFixed,
-    mixSideHasChildren,
+    mixSideHasChildren
   };
 }

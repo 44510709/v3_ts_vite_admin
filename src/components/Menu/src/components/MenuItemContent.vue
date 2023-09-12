@@ -16,7 +16,7 @@
   export default defineComponent({
     name: 'MenuItemContent',
     components: {
-      Icon,
+      Icon
     },
     props: contentProps,
     setup(props) {
@@ -27,8 +27,8 @@
       return {
         prefixCls,
         getI18nName,
-        getIcon,
+        getIcon
       };
-    },
+    }
   });
 </script>

@@ -57,9 +57,9 @@
         listData,
         count,
         onNoticeClick,
-        numberStyle: {},
+        numberStyle: {}
       };
-    },
+    }
   });
 </script>
 <style lang="less">

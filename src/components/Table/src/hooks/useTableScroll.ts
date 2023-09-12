@@ -13,7 +13,7 @@ export function useTableScroll(
   rowSelectionRef: ComputedRef<TableRowSelection | null>,
   getDataSourceRef: ComputedRef<Recordable[]>,
   wrapRef: Ref<HTMLElement | null>,
-  formRef: Ref<ComponentRef>,
+  formRef: Ref<ComponentRef>
 ) {
   const tableHeightRef: Ref<Nullable<number | string>> = ref(167);
   const modalFn = useModalContext();
@@ -32,8 +32,8 @@ export function useTableScroll(
       debounceRedoHeight();
     },
     {
-      flush: 'post',
-    },
+      flush: 'post'
+    }
   );
 
   function redoHeight() {
@@ -92,8 +92,8 @@ export function useTableScroll(
   }
 
   function caclFooterHeight(tableEl: Element): number {
-  const { pagination } = unref(propsRef);
-   let footerHeight = 0;
+    const { pagination } = unref(propsRef);
+    let footerHeight = 0;
     if (!isBoolean(pagination)) {
       if (!footerEl) {
         footerEl = tableEl.querySelector('.ant-table-footer') as HTMLElement;
@@ -113,7 +113,7 @@ export function useTableScroll(
     return headerHeight;
   }
 
-   function calcBottomAndPaddingHeight(tableEl: Element, headEl: Element) {
+  function calcBottomAndPaddingHeight(tableEl: Element, headEl: Element) {
     const { pagination, isCanResizeParent, useSearchForm } = unref(propsRef);
     // Table height from bottom height-custom offset
     let paddingHeight = 30;
@@ -145,10 +145,10 @@ export function useTableScroll(
       // Table height from bottom
       bottomIncludeBody = getViewportOffset(headEl).bottomIncludeBody;
     }
-     
+
     return {
       paddingHeight,
-      bottomIncludeBody,
+      bottomIncludeBody
     };
   }
 
@@ -168,7 +168,7 @@ export function useTableScroll(
     }
 
     handleScrollBar(bodyEl, tableEl);
-    
+
     bodyEl!.style.height = 'unset';
 
     if (!unref(getCanResize) || !unref(tableData) || tableData.length === 0) return;
@@ -179,12 +179,12 @@ export function useTableScroll(
     const headEl = tableEl.querySelector('.ant-table-thead ');
 
     if (!headEl) return;
-    
+
     const paginationHeight = caclPaginationHeight(tableEl);
     const footerHeight = caclFooterHeight(tableEl);
     const headerHeight = calcHeaderHeight(headEl);
     const { paddingHeight, bottomIncludeBody } = calcBottomAndPaddingHeight(tableEl, headEl);
-    
+
     let height =
       bottomIncludeBody -
       (resizeHeightOffset || 0) -
@@ -237,7 +237,7 @@ export function useTableScroll(
       x: unref(getScrollX),
       y: canResize ? tableHeight : null,
       scrollToFirstRowOnChange: false,
-      ...scroll,
+      ...scroll
     };
   });
 

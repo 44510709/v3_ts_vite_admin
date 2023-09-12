@@ -2,7 +2,7 @@ import type { BasicColumn, ActionItem } from '/@/components/Table';
 import { FileItem, PreviewFileItem, UploadResultStatus } from './typing';
 import {
   // checkImgType,
-  isImgTypeByName,
+  isImgTypeByName
 } from './helper';
 import { Progress, Tag } from 'ant-design-vue';
 import TableAction from '/@/components/Table/src/components/TableAction.vue';
@@ -21,7 +21,7 @@ export function createTableColumns(): BasicColumn[] {
       customRender: ({ record }) => {
         const { thumbUrl } = (record as FileItem) || {};
         return thumbUrl && <ThumbUrl fileUrl={thumbUrl} />;
-      },
+      }
     },
     {
       dataIndex: 'name',
@@ -45,7 +45,7 @@ export function createTableColumns(): BasicColumn[] {
             <Progress percent={percent} size="small" status={status} />
           </span>
         );
-      },
+      }
     },
     {
       dataIndex: 'size',
@@ -53,7 +53,7 @@ export function createTableColumns(): BasicColumn[] {
       width: 100,
       customRender: ({ text = 0 }) => {
         return text && (text / 1024).toFixed(2) + 'KB';
-      },
+      }
     },
     // {
     //   dataIndex: 'type',
@@ -74,8 +74,8 @@ export function createTableColumns(): BasicColumn[] {
         }
 
         return text;
-      },
-    },
+      }
+    }
   ];
 }
 export function createActionColumn(handleRemove: Function): BasicColumn {
@@ -89,8 +89,8 @@ export function createActionColumn(handleRemove: Function): BasicColumn {
         {
           label: t('component.upload.del'),
           color: 'error',
-          onClick: handleRemove.bind(null, record),
-        },
+          onClick: handleRemove.bind(null, record)
+        }
       ];
       // if (checkImgType(record)) {
       //   actions.unshift({
@@ -99,7 +99,7 @@ export function createActionColumn(handleRemove: Function): BasicColumn {
       //   });
       // }
       return <TableAction actions={actions} outside={true} />;
-    },
+    }
   };
 }
 // 文件预览列表
@@ -112,19 +112,19 @@ export function createPreviewColumns(): BasicColumn[] {
       customRender: ({ record }) => {
         const { url } = (record as PreviewFileItem) || {};
         return isImgTypeByName(url) && <ThumbUrl fileUrl={url} />;
-      },
+      }
     },
     {
       dataIndex: 'name',
       title: t('component.upload.fileName'),
-      align: 'left',
-    },
+      align: 'left'
+    }
   ];
 }
 
 export function createPreviewActionColumn({
   handleRemove,
-  handleDownload,
+  handleDownload
 }: {
   handleRemove: Fn;
   handleDownload: Fn;
@@ -139,15 +139,15 @@ export function createPreviewActionColumn({
         {
           label: t('component.upload.del'),
           color: 'error',
-          onClick: handleRemove.bind(null, record),
+          onClick: handleRemove.bind(null, record)
         },
         {
           label: t('component.upload.download'),
-          onClick: handleDownload.bind(null, record),
-        },
+          onClick: handleDownload.bind(null, record)
+        }
       ];
 
       return <TableAction actions={actions} outside={true} />;
-    },
+    }
   };
 }

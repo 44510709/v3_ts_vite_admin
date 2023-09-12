@@ -35,8 +35,8 @@
               :class="[
                 `${prefixCls}-list__item`,
                 {
-                  [`${prefixCls}-list__item--active`]: activeIndex === index,
-                },
+                  [`${prefixCls}-list__item--active`]: activeIndex === index
+                }
               ]"
             >
               <div :class="`${prefixCls}-list__item-icon`">
@@ -71,7 +71,7 @@
   import { useAppInject } from '/@/hooks/web/useAppInject';
 
   const props = defineProps({
-    visible: { type: Boolean },
+    visible: { type: Boolean }
   });
 
   const emit = defineEmits(['close']);
@@ -93,8 +93,8 @@
     return [
       prefixCls,
       {
-        [`${prefixCls}--mobile`]: unref(getIsMobile),
-      },
+        [`${prefixCls}--mobile`]: unref(getIsMobile)
+      }
     ];
   });
 
@@ -105,7 +105,7 @@
         nextTick(() => {
           unref(inputRef)?.focus();
         });
-    },
+    }
   );
 
   function handleClose() {

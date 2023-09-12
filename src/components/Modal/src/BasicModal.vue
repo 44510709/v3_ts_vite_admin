@@ -60,7 +60,7 @@
     watchEffect,
     toRef,
     getCurrentInstance,
-    nextTick,
+    nextTick
   } from 'vue';
   import Modal from './components/Modal';
   import ModalWrapper from './components/ModalWrapper.vue';
@@ -97,7 +97,7 @@
               (unref(modalWrapperRef) as any).setModalHeight();
             }
           });
-        },
+        }
       };
 
       const instance = getCurrentInstance();
@@ -109,14 +109,14 @@
       const getMergeProps = computed((): Recordable => {
         return {
           ...props,
-          ...(unref(propsRef) as any),
+          ...(unref(propsRef) as any)
         };
       });
 
       const { handleFullScreen, getWrapClassName, fullScreenRef } = useFullScreen({
         modalWrapperRef,
         extHeightRef,
-        wrapClassName: toRef(getMergeProps.value, 'wrapClassName'),
+        wrapClassName: toRef(getMergeProps.value, 'wrapClassName')
       });
 
       // modal component does not need title and origin buttons
@@ -126,11 +126,11 @@
           visible: unref(visibleRef),
           okButtonProps: undefined,
           cancelButtonProps: undefined,
-          title: undefined,
+          title: undefined
         };
         return {
           ...opt,
-          wrapClassName: unref(getWrapClassName),
+          wrapClassName: unref(getWrapClassName)
         };
       });
 
@@ -138,7 +138,7 @@
         const attr = {
           ...attrs,
           ...unref(getMergeProps),
-          visible: unref(visibleRef),
+          visible: unref(visibleRef)
         };
         attr['wrapClassName'] = `${attr?.['wrapClassName'] || ''} ${unref(getWrapClassName)}`;
 
@@ -171,8 +171,8 @@
           });
         },
         {
-          immediate: false,
-        },
+          immediate: false
+        }
       );
 
       // 取消事件
@@ -236,8 +236,8 @@
         handleExtHeight,
         handleHeightChange,
         handleTitleDbClick,
-        getWrapperHeight,
+        getWrapperHeight
       };
-    },
+    }
   });
 </script>

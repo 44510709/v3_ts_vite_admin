@@ -30,7 +30,7 @@
     components: {
       BasicMenuItem,
       SubMenu: Menu.SubMenu,
-      MenuItemContent,
+      MenuItemContent
     },
     props: itemProps,
     setup(props) {
@@ -48,8 +48,8 @@
       return {
         prefixCls,
         menuHasChildren,
-        getShowMenu,
+        getShowMenu
       };
-    },
+    }
   });
 </script>

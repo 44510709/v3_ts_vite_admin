@@ -25,8 +25,8 @@ export const RootRoute: AppRouteRecordRaw = {
   name: 'Root',
   redirect: PageEnum.BASE_HOME,
   meta: {
-    title: 'Root',
-  },
+    title: 'Root'
+  }
 };
 
 export const LoginRoute: AppRouteRecordRaw = {
@@ -34,8 +34,8 @@ export const LoginRoute: AppRouteRecordRaw = {
   name: 'Login',
   component: () => import('/@/views/sys/login/Login.vue'),
   meta: {
-    title: t('routes.basic.login'),
-  },
+    title: t('routes.basic.login')
+  }
 };
 
 // Basic routing without permission
@@ -45,5 +45,5 @@ export const basicRoutes = [
   RootRoute,
   ...mainOutRoutes,
   REDIRECT_ROUTE,
-  PAGE_NOT_FOUND_ROUTE,
+  PAGE_NOT_FOUND_ROUTE
 ];

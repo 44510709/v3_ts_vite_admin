@@ -23,7 +23,7 @@
         toOrigin: false,
         startTime: 0,
         endTime: 0,
-        draged: false,
+        draged: false
       });
       const { t } = useI18n();
 
@@ -37,7 +37,7 @@
             emit('change', isPassing);
             emit('update:value', isPassing);
           }
-        },
+        }
       );
 
       const getImgWrapStyleRef = computed(() => {
@@ -45,7 +45,7 @@
         return {
           width: `${imgWidth}px`,
           height: `${imgWidth}px`,
-          ...imgWrapStyle,
+          ...imgWrapStyle
         };
       });
 
@@ -65,7 +65,7 @@
         const { imgWidth, height, maxDegree } = props;
         const { moveX } = data;
         const currentRotate = Math.ceil(
-          (moveX / (imgWidth! - parseInt(height as string))) * maxDegree! * unref(getFactorRef),
+          (moveX / (imgWidth! - parseInt(height as string))) * maxDegree! * unref(getFactorRef)
         );
         state.currentRotate = currentRotate;
         state.imgStyle = hackCss('transform', `rotateZ(${state.randomRotate - currentRotate}deg)`);
@@ -162,7 +162,7 @@
           </div>
         );
       };
-    },
+    }
   });
 </script>
 <style lang="less">

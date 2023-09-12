@@ -51,7 +51,7 @@ function handleClearEvent(
   params:
     | VxeGlobalInterceptorHandles.InterceptorClearFilterParams
     | VxeGlobalInterceptorHandles.InterceptorClearActivedParams
-    | VxeGlobalInterceptorHandles.InterceptorClearAreasParams,
+    | VxeGlobalInterceptorHandles.InterceptorClearAreasParams
 ) {
   const { $event } = params;
   const bodyElem = document.body;
@@ -98,13 +98,13 @@ export const VXETablePluginAntd = {
       AApiTreeSelect,
       AEmpty,
       AInputSearch,
-      AYearPicker,
+      AYearPicker
     });
 
     interceptor.add('event.clearFilter', handleClearEvent);
     interceptor.add('event.clearActived', handleClearEvent);
     interceptor.add('event.clearAreas', handleClearEvent);
-  },
+  }
 };
 
 if (typeof window !== 'undefined' && window.VXETable && window.VXETable.use) {

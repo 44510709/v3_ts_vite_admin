@@ -38,7 +38,7 @@
     labelWidth: 90,
     baseColProps: { span: 24 },
     schemas: formSchema,
-    showActionButtonGroup: false,
+    showActionButtonGroup: false
   });
 
   const [registerDrawer, { setDrawerProps, closeDrawer }] = useDrawerInner(async (data) => {
@@ -52,7 +52,7 @@
 
     if (unref(isUpdate)) {
       setFieldsValue({
-        ...data.record,
+        ...data.record
       });
     }
   });

@@ -22,10 +22,10 @@
       validator(value: any) {
         // 这个值必须匹配下列字符串中的一个
         return Object.values(MODE).includes(value);
-      },
+      }
     },
     readonly: { type: Boolean },
-    autoFormat: { type: Boolean, default: true },
+    autoFormat: { type: Boolean, default: true }
   });
 
   const emit = defineEmits(['change', 'update:value', 'format-error']);

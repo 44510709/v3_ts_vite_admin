@@ -12,12 +12,12 @@
               {
                 icon: 'clarity:info-standard-line',
                 tooltip: '查看用户详情',
-                onClick: handleView.bind(null, record),
+                onClick: handleView.bind(null, record)
               },
               {
                 icon: 'clarity:note-edit-line',
                 tooltip: '编辑用户资料',
-                onClick: handleEdit.bind(null, record),
+                onClick: handleEdit.bind(null, record)
               },
               {
                 icon: 'ant-design:delete-outlined',
@@ -26,9 +26,9 @@
                 popConfirm: {
                   title: '是否确认删除',
                   placement: 'left',
-                  confirm: handleDelete.bind(null, record),
-                },
-              },
+                  confirm: handleDelete.bind(null, record)
+                }
+              }
             ]"
           />
         </template>
@@ -66,7 +66,7 @@
         formConfig: {
           labelWidth: 120,
           schemas: searchFormSchema,
-          autoSubmitOnEnter: true,
+          autoSubmitOnEnter: true
         },
         useSearchForm: true,
         showTableSetting: true,
@@ -78,14 +78,14 @@
         actionColumn: {
           width: 120,
           title: '操作',
-          dataIndex: 'action',
+          dataIndex: 'action'
           // slots: { customRender: 'action' },
-        },
+        }
       });
 
       function handleCreate() {
         openModal(true, {
-          isUpdate: false,
+          isUpdate: false
         });
       }
 
@@ -93,7 +93,7 @@
         console.log(record);
         openModal(true, {
           record,
-          isUpdate: true,
+          isUpdate: true
         });
       }
 
@@ -130,8 +130,8 @@
         handleSuccess,
         handleSelect,
         handleView,
-        searchInfo,
+        searchInfo
       };
-    },
+    }
   });
 </script>

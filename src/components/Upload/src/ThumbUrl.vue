@@ -12,8 +12,8 @@
     components: { Image },
     props: {
       fileUrl: propTypes.string.def(''),
-      fileName: propTypes.string.def(''),
-    },
+      fileName: propTypes.string.def('')
+    }
   });
 </script>
 <style lang="less">

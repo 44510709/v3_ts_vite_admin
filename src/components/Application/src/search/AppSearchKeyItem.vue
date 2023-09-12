@@ -7,6 +7,6 @@
   import Icon from '@/components/Icon/Icon.vue';
 
   defineProps({
-    icon: String,
+    icon: String
   });
 </script>

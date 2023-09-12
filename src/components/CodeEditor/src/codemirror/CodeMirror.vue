@@ -11,7 +11,7 @@
     watchEffect,
     watch,
     unref,
-    nextTick,
+    nextTick
   } from 'vue';
   import type { Nullable } from '@vben/types';
   import { useWindowSizeFn } from '@vben/hooks';
@@ -35,10 +35,10 @@
       validator(value: any) {
         // 这个值必须匹配下列字符串中的一个
         return Object.values(MODE).includes(value);
-      },
+      }
     },
     value: { type: String, default: '' },
-    readonly: { type: Boolean, default: false },
+    readonly: { type: Boolean, default: false }
   });
 
   const emit = defineEmits(['change']);
@@ -58,7 +58,7 @@
         editor?.setValue(value ? value : '');
       }
     },
-    { flush: 'post' },
+    { flush: 'post' }
   );
 
   watchEffect(() => {
@@ -71,14 +71,14 @@
       setTheme();
     },
     {
-      immediate: true,
-    },
+      immediate: true
+    }
   );
 
   function setTheme() {
     unref(editor)?.setOption(
       'theme',
-      appStore.getDarkMode === 'light' ? 'idea' : 'material-palenight',
+      appStore.getDarkMode === 'light' ? 'idea' : 'material-palenight'
     );
   }
 
@@ -91,7 +91,7 @@
       autoCloseBrackets: true,
       autoCloseTags: true,
       foldGutter: true,
-      gutters: ['CodeMirror-linenumbers'],
+      gutters: ['CodeMirror-linenumbers']
     };
 
     editor = CodeMirror(el.value!, {
@@ -102,7 +102,7 @@
       theme: 'material-palenight',
       lineWrapping: true,
       lineNumbers: true,
-      ...addonOptions,
+      ...addonOptions
     });
     editor?.setValue(props.value);
     setTheme();

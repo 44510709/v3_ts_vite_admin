@@ -25,7 +25,7 @@
     components: { Tooltip, FullscreenExitOutlined, FullscreenOutlined, CloseOutlined },
     props: {
       canFullscreen: { type: Boolean, default: true },
-      fullScreen: { type: Boolean },
+      fullScreen: { type: Boolean }
     },
     emits: ['cancel', 'fullscreen'],
     setup(props, { emit }) {
@@ -37,8 +37,8 @@
           prefixCls,
           `${prefixCls}--custom`,
           {
-            [`${prefixCls}--can-full`]: props.canFullscreen,
-          },
+            [`${prefixCls}--can-full`]: props.canFullscreen
+          }
         ];
       });
 
@@ -57,9 +57,9 @@
         getClass,
         prefixCls,
         handleCancel,
-        handleFullScreen,
+        handleFullScreen
       };
-    },
+    }
   });
 </script>
 <style lang="less">

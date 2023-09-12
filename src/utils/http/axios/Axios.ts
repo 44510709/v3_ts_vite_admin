@@ -3,7 +3,7 @@ import type {
   AxiosInstance,
   AxiosResponse,
   AxiosError,
-  InternalAxiosRequestConfig,
+  InternalAxiosRequestConfig
 } from 'axios';
 import type { RequestOptions, Result, UploadFileParams } from '/#/axios';
 import type { CreateAxiosOptions } from './axiosTransform';
@@ -72,7 +72,7 @@ export class VAxios {
     // const transform = this.getTransform();
     const {
       axiosInstance,
-      options: { transform },
+      options: { transform }
     } = this;
     if (!transform) {
       return;
@@ -81,7 +81,7 @@ export class VAxios {
       requestInterceptors,
       requestInterceptorsCatch,
       responseInterceptors,
-      responseInterceptorsCatch,
+      responseInterceptorsCatch
     } = transform;
 
     const axiosCanceler = new AxiosCanceler();
@@ -156,8 +156,8 @@ export class VAxios {
       headers: {
         'Content-type': ContentTypeEnum.FORM_DATA,
         // @ts-ignore
-        ignoreCancelToken: true,
-      },
+        ignoreCancelToken: true
+      }
     });
   }
 
@@ -176,7 +176,7 @@ export class VAxios {
 
     return {
       ...config,
-      data: qs.stringify(config.data, { arrayFormat: 'brackets' }),
+      data: qs.stringify(config.data, { arrayFormat: 'brackets' })
     };
   }
 

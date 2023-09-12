@@ -17,13 +17,13 @@
     name: 'TableHeaderCell',
     components: {
       EditTableHeaderCell,
-      BasicHelp,
+      BasicHelp
     },
     props: {
       column: {
         type: Object as PropType<BasicColumn>,
-        default: () => ({}),
-      },
+        default: () => ({})
+      }
     },
     setup(props) {
       const { prefixCls } = useDesign('basic-table-header-cell');
@@ -33,7 +33,7 @@
       const getHelpMessage = computed(() => props.column?.helpMessage);
 
       return { prefixCls, getIsEdit, getTitle, getHelpMessage };
-    },
+    }
   });
 </script>
 <style lang="less">

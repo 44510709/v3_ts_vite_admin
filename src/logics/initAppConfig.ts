@@ -32,7 +32,7 @@ export function initAppConfigStore() {
     grayMode,
 
     headerSetting: { bgColor: headerBgColor } = {},
-    menuSetting: { bgColor } = {},
+    menuSetting: { bgColor } = {}
   } = projCfg;
   try {
     grayMode && updateGrayMode(grayMode);

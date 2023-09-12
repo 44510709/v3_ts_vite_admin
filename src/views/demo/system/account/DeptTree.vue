@@ -38,6 +38,6 @@
         fetch();
       });
       return { treeData, handleSelect };
-    },
+    }
   });
 </script>

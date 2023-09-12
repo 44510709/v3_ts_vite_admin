@@ -9,7 +9,7 @@ export enum ToolbarEnum {
   EXPAND_ALL,
   UN_EXPAND_ALL,
   CHECK_STRICTLY,
-  CHECK_UN_STRICTLY,
+  CHECK_UN_STRICTLY
 }
 
 export const treeEmits = [
@@ -18,7 +18,7 @@ export const treeEmits = [
   'update:value',
   'change',
   'check',
-  'update:searchValue',
+  'update:searchValue'
 ];
 
 export interface TreeState {
@@ -42,87 +42,87 @@ export type CheckKeys =
 
 export const treeProps = buildProps({
   value: {
-    type: [Object, Array] as PropType<KeyType[] | CheckKeys>,
+    type: [Object, Array] as PropType<KeyType[] | CheckKeys>
   },
 
   renderIcon: {
-    type: Function as PropType<(params: Recordable) => string>,
+    type: Function as PropType<(params: Recordable) => string>
   },
 
   helpMessage: {
     type: [String, Array] as PropType<string | string[]>,
-    default: '',
+    default: ''
   },
 
   title: {
     type: String,
-    default: '',
+    default: ''
   },
   toolbar: Boolean,
   search: Boolean,
   searchValue: {
     type: String,
-    default: '',
+    default: ''
   },
   checkStrictly: Boolean,
   clickRowToExpand: {
     type: Boolean,
-    default: false,
+    default: false
   },
   checkable: Boolean,
   defaultExpandLevel: {
     type: [String, Number] as PropType<string | number>,
-    default: '',
+    default: ''
   },
   defaultExpandAll: Boolean,
 
   fieldNames: {
-    type: Object as PropType<FieldNames>,
+    type: Object as PropType<FieldNames>
   },
 
   treeData: {
-    type: Array as PropType<TreeDataItem[]>,
+    type: Array as PropType<TreeDataItem[]>
   },
 
   actionList: {
     type: Array as PropType<TreeActionItem[]>,
-    default: () => [],
+    default: () => []
   },
 
   expandedKeys: {
     type: Array as PropType<KeyType[]>,
-    default: () => [],
+    default: () => []
   },
 
   selectedKeys: {
     type: Array as PropType<KeyType[]>,
-    default: () => [],
+    default: () => []
   },
 
   checkedKeys: {
     type: [Array, Object] as PropType<CheckKeys>,
-    default: () => [],
+    default: () => []
   },
 
   beforeRightClick: {
     type: Function as PropType<(...arg: any) => Promise<ContextMenuItem[] | ContextMenuOptions>>,
-    default: undefined,
+    default: undefined
   },
 
   rightMenuList: {
-    type: Array as PropType<ContextMenuItem[]>,
+    type: Array as PropType<ContextMenuItem[]>
   },
   // 自定义数据过滤判断方法(注: 不是整个过滤方法，而是内置过滤的判断方法，用于增强原本仅能通过title进行过滤的方式)
   filterFn: {
     type: Function as PropType<
       (searchValue: any, node: TreeItem, fieldNames: FieldNames) => boolean
     >,
-    default: undefined,
+    default: undefined
   },
   // 高亮搜索值，仅高亮具体匹配值（通过title）值为true时使用默认色值，值为#xxx时使用此值替代且高亮开启
   highlight: {
     type: [Boolean, String] as PropType<Boolean | String>,
-    default: false,
+    default: false
   },
   // 搜索完成时自动展开结果
   expandOnSearch: Boolean,
@@ -132,9 +132,9 @@ export const treeProps = buildProps({
   selectedOnSearch: Boolean,
   loading: {
     type: Boolean,
-    default: false,
+    default: false
   },
-  treeWrapperClassName: String,
+  treeWrapperClassName: String
 });
 
 export type TreeProps = ExtractPropTypes<typeof treeProps>;
@@ -190,6 +190,6 @@ export interface TreeActionType {
   getSelectedNode: (
     key: KeyType,
     treeList?: TreeItem[],
-    selectNode?: TreeItem | null,
+    selectNode?: TreeItem | null
   ) => TreeItem | null;
 }

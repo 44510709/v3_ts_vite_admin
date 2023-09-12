@@ -10,8 +10,8 @@
     canExpan: Boolean,
     helpMessage: {
       type: [Array, String] as PropType<string[] | string>,
-      default: '',
-    },
+      default: ''
+    }
   };
 
   export type CollapseHeaderProps = ExtractPropTypes<typeof collapseHeaderProps>;
@@ -39,6 +39,6 @@
           </div>
         </div>
       );
-    },
+    }
   });
 </script>

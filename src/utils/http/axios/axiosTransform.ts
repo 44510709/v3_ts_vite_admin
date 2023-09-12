@@ -5,7 +5,7 @@ import type {
   AxiosInstance,
   AxiosRequestConfig,
   AxiosResponse,
-  InternalAxiosRequestConfig,
+  InternalAxiosRequestConfig
 } from 'axios';
 import type { RequestOptions, Result } from '/#/axios';
 
@@ -37,7 +37,7 @@ export abstract class AxiosTransform {
    */
   requestInterceptors?: (
     config: InternalAxiosRequestConfig,
-    options: CreateAxiosOptions,
+    options: CreateAxiosOptions
   ) => InternalAxiosRequestConfig;
 
   /**

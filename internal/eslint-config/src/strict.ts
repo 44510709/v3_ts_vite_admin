@@ -11,8 +11,8 @@ export default {
         'ts-expect-error': 'allow-with-description',
         'ts-ignore': 'allow-with-description',
         'ts-nocheck': 'allow-with-description',
-        'ts-check': false,
-      },
+        'ts-check': false
+      }
     ],
 
     /**
@@ -28,9 +28,9 @@ export default {
         overrides: {
           return: { after: true },
           throw: { after: true },
-          case: { after: true },
-        },
-      },
+          case: { after: true }
+        }
+      }
     ],
 
     /**
@@ -41,8 +41,8 @@ export default {
     '@typescript-eslint/no-empty-function': [
       'error',
       {
-        allow: ['arrowFunctions', 'functions', 'methods'],
-      },
+        allow: ['arrowFunctions', 'functions', 'methods']
+      }
     ],
 
     /**
@@ -52,6 +52,6 @@ export default {
     '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
 
     'vue/attributes-order': 'error',
-    'vue/require-default-prop': 'error',
-  },
+    'vue/require-default-prop': 'error'
+  }
 };

@@ -62,8 +62,8 @@
                       `${prefixCls}__fixed-left`,
                       {
                         active: item.fixed === 'left',
-                        disabled: !checkedList.includes(item.value),
-                      },
+                        disabled: !checkedList.includes(item.value)
+                      }
                     ]"
                     @click="handleColumnFixed(item, 'left')"
                   />
@@ -83,8 +83,8 @@
                       `${prefixCls}__fixed-right`,
                       {
                         active: item.fixed === 'right',
-                        disabled: !checkedList.includes(item.value),
-                      },
+                        disabled: !checkedList.includes(item.value)
+                      }
                     ]"
                     @click="handleColumnFixed(item, 'right')"
                   />
@@ -108,7 +108,7 @@
     watchEffect,
     nextTick,
     unref,
-    computed,
+    computed
   } from 'vue';
   import { Tooltip, Popover, Checkbox, Divider } from 'ant-design-vue';
   import type { CheckboxChangeEvent } from 'ant-design-vue/lib/checkbox/interface';
@@ -149,7 +149,7 @@
       DragOutlined,
       ScrollContainer,
       Divider,
-      Icon,
+      Icon
     },
     emits: ['columns-change'],
 
@@ -174,7 +174,7 @@
       const state = reactive<State>({
         checkAll: true,
         checkedList: [],
-        defaultCheckList: [],
+        defaultCheckList: []
       });
       /** 缓存初始化props */
       let cacheTableProps: Partial<BasicTableProps<any>> = {};
@@ -215,7 +215,7 @@
           ret.push({
             label: (item.title as string) || (item.customTitle as string),
             value: (item.dataIndex || item.title) as string,
-            ...item,
+            ...item
           });
         });
         return ret;
@@ -259,7 +259,7 @@
       function onCheckAllChange(e: CheckboxChangeEvent) {
         const checkList = plainSortOptions.value.map((item) => item.value);
         plainSortOptions.value.forEach(
-          (item) => ((item as BasicColumn).defaultHidden = !e.target.checked),
+          (item) => ((item as BasicColumn).defaultHidden = !e.target.checked)
         );
         if (e.target.checked) {
           state.checkedList = checkList;
@@ -301,7 +301,7 @@
         checkSelect.value = !!cacheTableProps.rowSelection;
         table.setProps({
           showIndexColumn: checkIndex.value,
-          rowSelection: checkSelect.value ? defaultRowSelection : undefined,
+          rowSelection: checkSelect.value ? defaultRowSelection : undefined
         });
         sortable.sort(sortableOrder);
       }
@@ -338,7 +338,7 @@
 
               plainSortOptions.value = columns;
               setColumns(columns.filter((item) => state.checkedList.includes(item.value)));
-            },
+            }
           });
           // 记录原始order 序列
           sortableOrder = sortable.toArray();
@@ -351,7 +351,7 @@
         isSetPropsFromThis = true;
         isSetColumnsFromThis = true;
         table.setProps({
-          showIndexColumn: e.target.checked,
+          showIndexColumn: e.target.checked
         });
       }
 
@@ -360,7 +360,7 @@
         isSetPropsFromThis = true;
         isSetColumnsFromThis = true;
         table.setProps({
-          rowSelection: e.target.checked ? defaultRowSelection : undefined,
+          rowSelection: e.target.checked ? defaultRowSelection : undefined
         });
       }
 
@@ -368,7 +368,7 @@
         if (!state.checkedList.includes(item.dataIndex as string)) return;
 
         const columns = getColumns().filter((c: BasicColumn) =>
-          state.checkedList.includes(c.dataIndex as string),
+          state.checkedList.includes(c.dataIndex as string)
         ) as BasicColumn[];
         const isFixed = item.fixed === fixed ? false : fixed;
         const index = columns.findIndex((col) => col.dataIndex === item.dataIndex);
@@ -393,7 +393,7 @@
           const visible =
             columns.findIndex(
               (c: BasicColumn | string) =>
-                c === col.value || (typeof c !== 'string' && c.dataIndex === col.value),
+                c === col.value || (typeof c !== 'string' && c.dataIndex === col.value)
             ) !== -1;
           return { dataIndex: col.value, fixed: col.fixed, visible };
         });
@@ -432,9 +432,9 @@
         handleSelectCheckChange,
         defaultRowSelection,
         handleColumnFixed,
-        getPopupContainer,
+        getPopupContainer
       };
-    },
+    }
   });
 </script>
 <style lang="less">

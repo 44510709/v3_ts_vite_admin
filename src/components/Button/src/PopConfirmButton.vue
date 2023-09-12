@@ -14,8 +14,8 @@
      */
     enable: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   };
 
   export default defineComponent({
@@ -31,9 +31,9 @@
         return Object.assign(
           {
             okText: t('common.okText'),
-            cancelText: t('common.cancelText'),
+            cancelText: t('common.cancelText')
           },
-          { ...props, ...unref(attrs) },
+          { ...props, ...unref(attrs) }
         );
       });
 
@@ -49,6 +49,6 @@
         }
         return h(Popconfirm, bindValues, { default: () => Button });
       };
-    },
+    }
   });
 </script>

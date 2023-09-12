@@ -16,7 +16,7 @@
     watch,
     nextTick,
     getCurrentInstance,
-    provide,
+    provide
   } from 'vue';
 
   import { useDesign } from '/@/hooks/web/useDesign';
@@ -31,7 +31,7 @@
       activeName: propTypes.oneOfType([propTypes.string, propTypes.number]),
       openNames: {
         type: Array as PropType<string[]>,
-        default: () => [],
+        default: () => []
       },
       accordion: propTypes.bool.def(true),
       width: propTypes.string.def('100%'),
@@ -40,8 +40,8 @@
       collapse: propTypes.bool.def(true),
       activeSubMenuNames: {
         type: Array as PropType<(string | number)[]>,
-        default: () => [],
-      },
+        default: () => []
+      }
     },
     emits: ['select', 'open-change'],
     setup(props, { emit }) {
@@ -57,7 +57,7 @@
 
       createSimpleRootMenuContext({
         rootMenuEmitter: rootMenuEmitter,
-        activeName: currentActiveName,
+        activeName: currentActiveName
       });
 
       const getClass = computed(() => {
@@ -67,8 +67,8 @@
           `${prefixCls}-${theme}`,
           `${prefixCls}-vertical`,
           {
-            [`${prefixCls}-collapse`]: props.collapse,
-          },
+            [`${prefixCls}-collapse`]: props.collapse
+          }
         ];
       });
 
@@ -88,7 +88,7 @@
           nextTick(() => {
             updateOpened();
           });
-        },
+        }
       );
 
       function updateOpened() {
@@ -125,7 +125,7 @@
         isRemoveAllPopup,
         sliceIndex,
         level: 0,
-        props: props as any,
+        props: props as any
       });
 
       onMounted(() => {
@@ -151,7 +151,7 @@
       });
 
       return { getClass, openedNames };
-    },
+    }
   });
 </script>
 <style lang="less">

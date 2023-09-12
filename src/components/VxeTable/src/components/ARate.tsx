@@ -3,7 +3,7 @@ import {
   createDefaultRender,
   createFilterRender,
   createDefaultFilterRender,
-  createFormItemRender,
+  createFormItemRender
 } from './common';
 
 export default {
@@ -11,5 +11,5 @@ export default {
   renderEdit: createEditRender(),
   renderFilter: createFilterRender(),
   defaultFilterMethod: createDefaultFilterRender(),
-  renderItemContent: createFormItemRender(),
+  renderItemContent: createFormItemRender()
 };

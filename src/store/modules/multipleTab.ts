@@ -31,7 +31,7 @@ const getToTarget = (tabItem: RouteLocationNormalized) => {
   return {
     params: params || {},
     path,
-    query: query || {},
+    query: query || {}
   };
 };
 
@@ -45,7 +45,7 @@ export const useMultipleTabStore = defineStore({
     // multiple tab list
     tabList: cacheTab ? Persistent.getLocal(MULTIPLE_TABS_KEY) || [] : [],
     // Index of the last moved tab
-    lastDragEndIndex: 0,
+    lastDragEndIndex: 0
   }),
   getters: {
     getTabList(state): RouteLocationNormalized[] {
@@ -56,7 +56,7 @@ export const useMultipleTabStore = defineStore({
     },
     getLastDragEndIndex(state): number {
       return state.lastDragEndIndex;
-    },
+    }
   },
   actions: {
     /**
@@ -351,8 +351,8 @@ export const useMultipleTabStore = defineStore({
         findTab.path = fullPath;
         await this.updateCacheTab();
       }
-    },
-  },
+    }
+  }
 });
 
 // Need to be used outside the setup

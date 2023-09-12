@@ -57,7 +57,7 @@ export const usePermissionStore = defineStore({
     backMenuList: [],
     // menu List
     // 菜单列表
-    frontMenuList: [],
+    frontMenuList: []
   }),
   getters: {
     getPermCodeList(state): string[] | number[] {
@@ -74,7 +74,7 @@ export const usePermissionStore = defineStore({
     },
     getIsDynamicAddedRoute(state): boolean {
       return state.isDynamicAddedRoute;
-    },
+    }
   },
   actions: {
     setPermCodeList(codeList: string[]) {
@@ -212,7 +212,7 @@ export const usePermissionStore = defineStore({
 
           createMessage.loading({
             content: t('sys.app.menuLoading'),
-            duration: 1,
+            duration: 1
           });
 
           // !Simulate to obtain permission codes from the background,
@@ -239,8 +239,8 @@ export const usePermissionStore = defineStore({
       routes.push(ERROR_LOG_ROUTE);
       patchHomeAffix(routes);
       return routes;
-    },
-  },
+    }
+  }
 });
 
 // Need to be used outside the setup

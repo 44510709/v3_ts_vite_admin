@@ -70,7 +70,7 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref, emit: A
         ret.push({
           name: parent?.name ? `${parent.name} > ${name}` : name,
           path,
-          icon,
+          icon
         });
       }
       if (!meta?.hideChildrenInMenu && Array.isArray(children) && children.length) {
@@ -128,7 +128,7 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref, emit: A
     const { start } = useScrollTo({
       el: wrapEl,
       duration: 100,
-      to: scrollHeight - wrapHeight,
+      to: scrollHeight - wrapHeight
     });
     start();
   }

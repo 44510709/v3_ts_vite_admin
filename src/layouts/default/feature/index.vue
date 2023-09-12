@@ -18,7 +18,7 @@
       BackTop,
       LayoutLockPage: createAsyncComponent(() => import('/@/views/sys/lock/index.vue')),
       SettingDrawer: createAsyncComponent(() => import('/@/layouts/default/setting/index.vue')),
-      SessionTimeoutLogin,
+      SessionTimeoutLogin
     },
     setup() {
       const { getUseOpenBackTop, getShowSettingButton, getSettingButtonPosition, getFullContent } =
@@ -46,9 +46,9 @@
         getUseOpenBackTop,
         getIsFixedSettingDrawer,
         prefixCls,
-        getIsSessionTimeout,
+        getIsSessionTimeout
       };
-    },
+    }
   });
 </script>
 

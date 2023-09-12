@@ -10,17 +10,18 @@
         :pagination="paginationProp"
       >
         <template #header>
-          <div class="flex justify-end space-x-2"
-            ><slot name="header"></slot>
+          <div class="flex justify-end space-x-2">
+            <slot name="header"></slot>
             <Tooltip>
               <template #title>
-                <div class="w-50">每行显示数量</div
-                ><Slider
+                <div class="w-50">每行显示数量</div>
+                <Slider
                   id="slider"
                   v-bind="sliderProp"
                   v-model:value="grid"
                   @change="sliderChange"
-              /></template>
+                />
+              </template>
               <Button><TableOutlined /></Button>
             </Tooltip>
             <Tooltip @click="fetch">
@@ -49,9 +50,9 @@
                       event: '1',
                       popConfirm: {
                         title: '是否确认删除',
-                        confirm: handleDelete.bind(null, item.id),
-                      },
-                    },
+                        confirm: handleDelete.bind(null, item.id)
+                      }
+                    }
                   ]"
                   popconfirm
                 >
@@ -81,7 +82,7 @@
     EditOutlined,
     EllipsisOutlined,
     RedoOutlined,
-    TableOutlined,
+    TableOutlined
   } from '@ant-design/icons-vue';
   import { List, Card, Image, Typography, Tooltip, Slider, Avatar } from 'ant-design-vue';
   import { Dropdown } from '/@/components/Dropdown';
@@ -101,7 +102,7 @@
     // 请求API的参数
     params: propTypes.object.def({}),
     //api
-    api: propTypes.func,
+    api: propTypes.func
   });
   //暴露内部方法
   const emit = defineEmits(['getMethod', 'delete']);
@@ -121,7 +122,7 @@
     baseColProps: { span: 6 },
     actionColOptions: { span: 24 },
     autoSubmitOnEnter: true,
-    submitFunc: handleSubmit,
+    submitFunc: handleSubmit
   });
   //表单提交
   async function handleSubmit() {
@@ -159,7 +160,7 @@
     total,
     showTotal: (total) => `总 ${total} 条`,
     onChange: pageChange,
-    onShowSizeChange: pageSizeChange,
+    onShowSizeChange: pageSizeChange
   });
 
   function pageChange(p, pz) {

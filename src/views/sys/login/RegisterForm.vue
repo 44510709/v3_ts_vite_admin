@@ -88,7 +88,7 @@
     confirmPassword: '',
     mobile: '',
     sms: '',
-    policy: false,
+    policy: false
   });
 
   const { getFormRules } = useFormRules(formData);

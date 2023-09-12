@@ -9,7 +9,7 @@ import {
   isString,
   isDef,
   isNullOrUnDef,
-  isEmpty,
+  isEmpty
 } from '/@/utils/is';
 import { deepMerge } from '/@/utils';
 import { dateItemType, handleInputNumberValue, defaultValueComponents } from '../helper';
@@ -76,7 +76,7 @@ export function useFormEvents({
   defaultValueRef,
   formElRef,
   schemaRef,
-  handleFormValues,
+  handleFormValues
 }: UseFormActionContext) {
   async function resetFields(): Promise<void> {
     const { resetFunc, submitOnReset } = unref(getProps);
@@ -215,7 +215,7 @@ export function useFormEvents({
   async function appendSchemaByField(
     schema: FormSchema | FormSchema[],
     prefixField?: string,
-    first = false,
+    first = false
   ) {
     const schemaList: FormSchema[] = cloneDeep(unref(getSchema));
     const addSchemaIds: string[] = Array.isArray(schema)
@@ -246,12 +246,12 @@ export function useFormEvents({
     }
 
     const hasField = updateData.every(
-      (item) => item.component === 'Divider' || (Reflect.has(item, 'field') && item.field),
+      (item) => item.component === 'Divider' || (Reflect.has(item, 'field') && item.field)
     );
 
     if (!hasField) {
       error(
-        'All children of the form Schema array that need to be updated must contain the `field` field',
+        'All children of the form Schema array that need to be updated must contain the `field` field'
       );
       return;
     }
@@ -268,12 +268,12 @@ export function useFormEvents({
     }
 
     const hasField = updateData.every(
-      (item) => item.component === 'Divider' || (Reflect.has(item, 'field') && item.field),
+      (item) => item.component === 'Divider' || (Reflect.has(item, 'field') && item.field)
     );
 
     if (!hasField) {
       error(
-        'All children of the form Schema array that need to be updated must contain the `field` field',
+        'All children of the form Schema array that need to be updated must contain the `field` field'
       );
       return;
     }
@@ -397,14 +397,14 @@ export function useFormEvents({
     removeSchemaByField,
     resetFields,
     setFieldsValue,
-    scrollToField,
+    scrollToField
   };
 }
 
 function getDefaultValue(
   schema: FormSchema | undefined,
   defaultValueRef: UseFormActionContext['defaultValueRef'],
-  key: string,
+  key: string
 ) {
   let defaultValue = cloneDeep(defaultValueRef.value[key]);
   const isInput = checkIsInput(schema);

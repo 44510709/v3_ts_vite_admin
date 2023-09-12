@@ -37,6 +37,11 @@
     "test:gzip": "npx http-server dist --cors --gzip -c-1",
     "type:check": "vue-tsc --noEmit --skipLibCheck"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
@@ -65,6 +70,9 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
@@ -150,8 +158,5 @@
   "engines": {
     "node": ">=16.15.1",
     "pnpm": ">=8.1.0"
-  },
-  "resolutions": {
-    "bin-wrapper": "npm:bin-wrapper-china"
   }
 }

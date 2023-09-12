@@ -12,7 +12,7 @@ const accountList = (() => {
       role: '@first',
       createTime: '@datetime',
       remark: '@cword(10,20)',
-      'status|1': ['0', '1'],
+      'status|1': ['0', '1']
     });
   }
   return result;
@@ -29,7 +29,7 @@ const roleList = (() => {
       createTime: '@datetime',
       remark: '@cword(10,20)',
       menu: [['0', '1', '2'], ['0', '1'], ['0', '2'], ['2']][index],
-      'status|1': ['0', '1'],
+      'status|1': ['0', '1']
     });
   }
   return result;
@@ -56,11 +56,11 @@ const deptList = (() => {
             remark: '@cword(10,20)',
             'status|1': ['0', '1'],
             parentDept: `${index}`,
-            children: undefined,
+            children: undefined
           });
         }
         return children;
-      })(),
+      })()
     });
   }
   return result;
@@ -92,7 +92,7 @@ const menuList = (() => {
               '/dashboard/welcome/index',
               '/dashboard/analysis/index',
               '/dashboard/workbench/index',
-              '/dashboard/test/index',
+              '/dashboard/test/index'
             ][j],
             orderNo: j + 1,
             createTime: '@datetime',
@@ -114,21 +114,21 @@ const menuList = (() => {
                     '/dashboard/welcome/index',
                     '/dashboard/analysis/index',
                     '/dashboard/workbench/index',
-                    '/dashboard/test/index',
+                    '/dashboard/test/index'
                   ][j],
                   orderNo: j + 1,
                   createTime: '@datetime',
                   'status|1': ['0', '1'],
                   parentMenu: `${index}-${j}`,
-                  children: undefined,
+                  children: undefined
                 });
               }
               return children;
-            })(),
+            })()
           });
         }
         return children;
-      })(),
+      })()
     });
   }
   return result;
@@ -142,7 +142,7 @@ export default [
     response: ({ query }) => {
       const { page = 1, pageSize = 20 } = query;
       return resultPageSuccess(page, pageSize, accountList);
-    },
+    }
   },
   {
     url: '/basic-api/system/getRoleListByPage',
@@ -151,7 +151,7 @@ export default [
     response: ({ query }) => {
       const { page = 1, pageSize = 20 } = query;
       return resultPageSuccess(page, pageSize, roleList);
-    },
+    }
   },
   {
     url: '/basic-api/system/setRoleStatus',
@@ -160,7 +160,7 @@ export default [
     response: ({ query }) => {
       const { id, status } = query;
       return resultSuccess({ id, status });
-    },
+    }
   },
   {
     url: '/basic-api/system/getAllRoleList',
@@ -168,7 +168,7 @@ export default [
     method: 'get',
     response: () => {
       return resultSuccess(roleList);
-    },
+    }
   },
   {
     url: '/basic-api/system/getDeptList',
@@ -176,7 +176,7 @@ export default [
     method: 'get',
     response: () => {
       return resultSuccess(deptList);
-    },
+    }
   },
   {
     url: '/basic-api/system/getMenuList',
@@ -184,7 +184,7 @@ export default [
     method: 'get',
     response: () => {
       return resultSuccess(menuList);
-    },
+    }
   },
   {
     url: '/basic-api/system/accountExist',
@@ -197,6 +197,6 @@ export default [
       } else {
         return resultSuccess(`${account} can use`);
       }
-    },
-  },
+    }
+  }
 ] as MockMethod[];

@@ -9,7 +9,7 @@
     computed,
     ref,
     unref,
-    toRefs,
+    toRefs
   } from 'vue';
   import { get } from 'lodash-es';
   import { Descriptions } from 'ant-design-vue';
@@ -25,24 +25,24 @@
     size: {
       type: String,
       validator: (v) => ['small', 'default', 'middle', undefined].includes(v),
-      default: 'small',
+      default: 'small'
     },
     bordered: { type: Boolean, default: true },
     column: {
       type: [Number, Object],
       default: () => {
         return { xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 };
-      },
+      }
     },
     collapseOptions: {
       type: Object as PropType<CollapseContainerOptions>,
-      default: null,
+      default: null
     },
     schema: {
       type: Array as PropType<DescItem[]>,
-      default: () => [],
+      default: () => []
     },
-    data: { type: Object },
+    data: { type: Object }
   };
 
   export default defineComponent({
@@ -59,14 +59,14 @@
       const getMergeProps = computed(() => {
         return {
           ...props,
-          ...(unref(propsRef) as any),
+          ...(unref(propsRef) as any)
         } as DescriptionProps;
       });
 
       const getProps = computed(() => {
         const opt = {
           ...unref(getMergeProps),
-          title: undefined,
+          title: undefined
         };
         return opt as DescriptionProps;
       });
@@ -83,7 +83,7 @@
         return {
           // Cannot be expanded by default
           canExpand: false,
-          ...unref(getProps).collapseOptions,
+          ...unref(getProps).collapseOptions
         };
       });
 
@@ -98,7 +98,7 @@
         // Keep the last setDrawerProps
         propsRef.value = {
           ...(unref(propsRef) as Record<string, any>),
-          ...descProps,
+          ...descProps
         } as Record<string, any>;
       }
 
@@ -110,7 +110,7 @@
 
         const labelStyles: CSSProperties = {
           ...labelStyle,
-          minWidth: `${labelMinWidth}px `,
+          minWidth: `${labelMinWidth}px `
         };
         return <div style={labelStyles}>{label}</div>;
       }
@@ -146,7 +146,7 @@
                     return getContent();
                   }
                   const style: CSSProperties = {
-                    minWidth: `${width}px`,
+                    minWidth: `${width}px`
                   };
                   return <div style={style}>{getContent()}</div>;
                 }}
@@ -178,18 +178,18 @@
           <CollapseContainer title={title} canExpan={canExpand} helpMessage={helpMessage}>
             {{
               default: () => content,
-              action: () => getSlot(slots, 'action'),
+              action: () => getSlot(slots, 'action')
             }}
           </CollapseContainer>
         );
       };
 
       const methods: DescInstance = {
-        setDescProps,
+        setDescProps
       };
 
       emit('register', methods);
       return () => (unref(useWrapper) ? renderContainer() : renderDesc());
-    },
+    }
   });
 </script>

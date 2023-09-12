@@ -17,7 +17,7 @@
     name: 'RedoSetting',
     components: {
       RedoOutlined,
-      Tooltip,
+      Tooltip
     },
     setup() {
       const table = useTableContext();
@@ -28,6 +28,6 @@
       }
 
       return { redo, t };
-    },
+    }
   });
 </script>

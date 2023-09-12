@@ -12,6 +12,6 @@
   export default defineComponent({
     name: 'EditTableHeaderIcon',
     components: { FormOutlined },
-    props: { title: { type: String, default: '' } },
+    props: { title: { type: String, default: '' } }
   });
 </script>

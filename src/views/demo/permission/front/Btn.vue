@@ -8,7 +8,8 @@
     <CurrentPermissionMode />
 
     <p>
-      当前角色: <a> {{ userStore.getRoleList }} </a>
+      当前角色:
+      <a>{{ userStore.getRoleList }}</a>
     </p>
     <Alert class="mt-4" type="info" message="点击后请查看按钮变化" show-icon />
 
@@ -25,15 +26,15 @@
     </div>
     <Divider>组件方式判断权限(有需要可以自行全局注册)</Divider>
     <Authority :value="RoleEnum.SUPER">
-      <a-button type="primary" class="mx-4"> 拥有super角色权限可见 </a-button>
+      <a-button type="primary" class="mx-4">拥有super角色权限可见</a-button>
     </Authority>
 
     <Authority :value="RoleEnum.TEST">
-      <a-button color="success" class="mx-4"> 拥有test角色权限可见 </a-button>
+      <a-button color="success" class="mx-4">拥有test角色权限可见</a-button>
     </Authority>
 
     <Authority :value="[RoleEnum.TEST, RoleEnum.SUPER]">
-      <a-button color="error" class="mx-4"> 拥有[test,super]角色权限可见 </a-button>
+      <a-button color="error" class="mx-4">拥有[test,super]角色权限可见</a-button>
     </Authority>
 
     <Divider>函数方式方式判断权限(适用于函数内部过滤)</Divider>
@@ -50,9 +51,9 @@
     </a-button>
 
     <Divider>指令方式方式判断权限(该方式不能动态修改权限.)</Divider>
-    <a-button v-auth="RoleEnum.SUPER" type="primary" class="mx-4"> 拥有super角色权限可见 </a-button>
+    <a-button v-auth="RoleEnum.SUPER" type="primary" class="mx-4">拥有super角色权限可见</a-button>
 
-    <a-button v-auth="RoleEnum.TEST" color="success" class="mx-4"> 拥有test角色权限可见 </a-button>
+    <a-button v-auth="RoleEnum.TEST" color="success" class="mx-4">拥有test角色权限可见</a-button>
 
     <a-button v-auth="[RoleEnum.TEST, RoleEnum.SUPER]" color="error" class="mx-4">
       拥有[test,super]角色权限可见
@@ -81,9 +82,9 @@
         isSuper: computed(() => userStore.getRoleList.includes(RoleEnum.SUPER)),
         isTest: computed(() => userStore.getRoleList.includes(RoleEnum.TEST)),
         changeRole,
-        hasPermission,
+        hasPermission
       };
-    },
+    }
   });
 </script>
 <style lang="less" scoped>

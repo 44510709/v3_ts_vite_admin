@@ -38,7 +38,7 @@
       Tooltip,
       Dropdown,
       Menu,
-      MenuItem: Menu.Item,
+      MenuItem: Menu.Item
     },
     setup() {
       const table = useTableContext();
@@ -49,7 +49,7 @@
       function handleTitleClick({ key }: { key: SizeType }) {
         selectedKeysRef.value = [key];
         table.setProps({
-          size: key,
+          size: key
         });
       }
 
@@ -57,8 +57,8 @@
         handleTitleClick,
         selectedKeysRef,
         getPopupContainer,
-        t,
+        t
       };
-    },
+    }
   });
 </script>

@@ -17,7 +17,7 @@ function useRefs<T = HTMLElement>(): {
 
   return {
     refs,
-    setRefs,
+    setRefs
   };
 }
 

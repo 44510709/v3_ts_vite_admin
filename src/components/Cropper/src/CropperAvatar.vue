@@ -38,7 +38,7 @@
     ref,
     watchEffect,
     watch,
-    PropType,
+    PropType
   } from 'vue';
   import CropperModal from './CropperModal.vue';
   import { useDesign } from '/@/hooks/web/useDesign';
@@ -55,7 +55,7 @@
     btnProps: { type: Object as PropType<ButtonProps> },
     btnText: { type: String, default: '' },
     uploadApi: { type: Function as PropType<({ file: Blob, name: string }) => Promise<void>> },
-    size: { type: Number, default: 5 },
+    size: { type: Number, default: 5 }
   };
 
   export default defineComponent({
@@ -79,7 +79,7 @@
       const getStyle = computed((): CSSProperties => ({ width: unref(getWidth) }));
 
       const getImageWrapperStyle = computed(
-        (): CSSProperties => ({ width: unref(getWidth), height: unref(getWidth) }),
+        (): CSSProperties => ({ width: unref(getWidth), height: unref(getWidth) })
       );
 
       watchEffect(() => {
@@ -90,7 +90,7 @@
         () => sourceValue.value,
         (v: string) => {
           emit('update:value', v);
-        },
+        }
       );
 
       function handleUploadSuccess({ source, data }) {
@@ -111,9 +111,9 @@
         getClass,
         getImageWrapperStyle,
         getStyle,
-        handleUploadSuccess,
+        handleUploadSuccess
       };
-    },
+    }
   });
 </script>
 

@@ -48,7 +48,7 @@ export function renderEditCell(column: BasicColumn) {
       value,
       record,
       column,
-      index,
+      index
     });
   };
 }

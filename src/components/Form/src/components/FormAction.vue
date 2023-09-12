@@ -58,7 +58,7 @@
       FormItem: Form.Item,
       Button,
       BasicArrow,
-      [Col.name]: Col,
+      [Col.name]: Col
     },
     props: {
       showActionButtonGroup: propTypes.bool.def(true),
@@ -67,19 +67,19 @@
       showAdvancedButton: propTypes.bool.def(true),
       resetButtonOptions: {
         type: Object as PropType<ButtonOptions>,
-        default: () => ({}),
+        default: () => ({})
       },
       submitButtonOptions: {
         type: Object as PropType<ButtonOptions>,
-        default: () => ({}),
+        default: () => ({})
       },
       actionColOptions: {
         type: Object as PropType<Partial<ColEx>>,
-        default: () => ({}),
+        default: () => ({})
       },
       actionSpan: propTypes.number.def(6),
       isAdvanced: propTypes.bool,
-      hideAdvanceBtn: propTypes.bool,
+      hideAdvanceBtn: propTypes.bool
     },
     emits: ['toggle-advanced'],
     setup(props, { emit }) {
@@ -95,7 +95,7 @@
           style: { textAlign: 'right' },
           span: showAdvancedButton ? 6 : 4,
           ...advancedSpanObj,
-          ...actionColOptions,
+          ...actionColOptions
         };
         return actionColOpt;
       });
@@ -103,18 +103,18 @@
       const getResetBtnOptions = computed((): ButtonOptions => {
         return Object.assign(
           {
-            text: t('common.resetText'),
+            text: t('common.resetText')
           },
-          props.resetButtonOptions,
+          props.resetButtonOptions
         );
       });
 
       const getSubmitBtnOptions = computed(() => {
         return Object.assign(
           {
-            text: t('common.queryText'),
+            text: t('common.queryText')
           },
-          props.submitButtonOptions,
+          props.submitButtonOptions
         );
       });
 
@@ -128,8 +128,8 @@
         getResetBtnOptions,
         getSubmitBtnOptions,
         toggleAdvanced,
-        ...useFormContext(),
+        ...useFormContext()
       };
-    },
+    }
   });
 </script>

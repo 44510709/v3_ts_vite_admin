@@ -11,7 +11,7 @@ import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
 
 export function useECharts(
   elRef: Ref<HTMLDivElement>,
-  theme: 'light' | 'dark' | 'default' = 'default',
+  theme: 'light' | 'dark' | 'default' = 'default'
 ) {
   const { getDarkMode: getSysDarkMode } = useRootSetting();
   const { getCollapsed } = useMenuSetting();
@@ -32,7 +32,7 @@ export function useECharts(
     }
     return {
       backgroundColor: 'transparent',
-      ...cacheOptions.value,
+      ...cacheOptions.value
     } as EChartsOption;
   });
 
@@ -46,7 +46,7 @@ export function useECharts(
     const { removeEvent } = useEventListener({
       el: window,
       name: 'resize',
-      listener: resizeFn,
+      listener: resizeFn
     });
     removeResizeFn = removeEvent;
     const { widthRef, screenEnum } = useBreakpoint();
@@ -86,8 +86,8 @@ export function useECharts(
     chartInstance?.resize({
       animation: {
         duration: 300,
-        easing: 'quadraticIn',
-      },
+        easing: 'quadraticIn'
+      }
     });
   }
 
@@ -99,7 +99,7 @@ export function useECharts(
         initCharts(theme as 'default');
         setOptions(cacheOptions.value);
       }
-    },
+    }
   );
 
   watch(getCollapsed, (_) => {
@@ -126,6 +126,6 @@ export function useECharts(
     setOptions,
     resize,
     echarts,
-    getInstance,
+    getInstance
   };
 }

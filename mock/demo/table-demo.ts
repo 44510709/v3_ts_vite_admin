@@ -36,7 +36,7 @@ const demoList = (() => {
       date: `@date('yyyy-MM-dd')`,
       time: `@time('HH:mm')`,
       'no|100000-10000000': 100000,
-      'status|1': ['normal', 'enable', 'disable'],
+      'status|1': ['normal', 'enable', 'disable']
     });
   }
   return result;
@@ -50,6 +50,6 @@ export default [
     response: ({ query }) => {
       const { page = 1, pageSize = 20 } = query;
       return resultPageSuccess(page, pageSize, demoList);
-    },
-  },
+    }
+  }
 ] as MockMethod[];

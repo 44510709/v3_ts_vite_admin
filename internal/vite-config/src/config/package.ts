@@ -21,17 +21,17 @@ function definePackageConfig(defineOptions: DefineOptions = {}) {
         lib: {
           entry: 'src/index.ts',
           formats: ['es'],
-          fileName: () => 'index.mjs',
+          fileName: () => 'index.mjs'
         },
         rollupOptions: {
-          external: [...Object.keys(dependencies), ...Object.keys(peerDependencies)],
-        },
+          external: [...Object.keys(dependencies), ...Object.keys(peerDependencies)]
+        }
       },
       plugins: [
         dts({
-          logLevel: 'error',
-        }),
-      ],
+          logLevel: 'error'
+        })
+      ]
     };
     const mergedConfig = mergeConfig(commonConfig(mode), packageConfig);
 

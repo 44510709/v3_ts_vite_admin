@@ -23,7 +23,7 @@
     nextTick,
     unref,
     computed,
-    CSSProperties,
+    CSSProperties
   } from 'vue';
   import SvgIcon from './src/SvgIcon.vue';
   import Iconify from '@purge-icons/generated';
@@ -42,10 +42,10 @@
       // icon size
       size: {
         type: [String, Number] as PropType<string | number>,
-        default: 16,
+        default: 16
       },
       spin: propTypes.bool.def(false),
-      prefix: propTypes.string.def(''),
+      prefix: propTypes.string.def('')
     },
     setup(props) {
       const elRef = ref(null);
@@ -87,7 +87,7 @@
         return {
           fontSize: `${fs}px`,
           color: color,
-          display: 'inline-flex',
+          display: 'inline-flex'
         };
       });
 
@@ -96,7 +96,7 @@
       onMounted(update);
 
       return { elRef, getWrapStyle, isSvgIcon, getSvgIcon };
-    },
+    }
   });
 </script>
 <style lang="less">

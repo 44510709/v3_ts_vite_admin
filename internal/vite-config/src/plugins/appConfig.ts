@@ -10,7 +10,7 @@ const PLUGIN_NAME = 'app-config';
 
 async function createAppConfigPlugin({
   root,
-  isBuild,
+  isBuild
 }: {
   root: string;
   isBuild: boolean;
@@ -19,7 +19,7 @@ async function createAppConfigPlugin({
   let source: string;
   if (!isBuild) {
     return {
-      name: PLUGIN_NAME,
+      name: PLUGIN_NAME
     };
   }
   const { version = '' } = await readPackageJSON(root);
@@ -45,10 +45,10 @@ async function createAppConfigPlugin({
           {
             tag: 'script',
             attrs: {
-              src: appConfigSrc,
-            },
-          },
-        ],
+              src: appConfigSrc
+            }
+          }
+        ]
       };
     },
     async generateBundle() {
@@ -56,16 +56,16 @@ async function createAppConfigPlugin({
         this.emitFile({
           type: 'asset',
           fileName: GLOBAL_CONFIG_FILE_NAME,
-          source,
+          source
         });
 
         console.log(colors.cyan(`✨configuration file is build successfully!`));
       } catch (error) {
         console.log(
-          colors.red('configuration file configuration file failed to package:\n' + error),
+          colors.red('configuration file configuration file failed to package:\n' + error)
         );
       }
-    },
+    }
   };
 }
 

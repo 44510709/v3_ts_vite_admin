@@ -28,7 +28,7 @@
     /**
      * Cancel padding/margin for inline
      */
-    inset: { type: Boolean },
+    inset: { type: Boolean }
   });
 
   const { prefixCls } = useDesign('basic-arrow');
@@ -42,8 +42,8 @@
         [`${prefixCls}--active`]: expand,
         up,
         inset,
-        down,
-      },
+        down
+      }
     ];
   });
 </script>

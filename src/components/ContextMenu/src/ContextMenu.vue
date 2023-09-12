@@ -17,15 +17,15 @@
       type: Object as PropType<Axis>,
       default() {
         return { x: 0, y: 0 };
-      },
+      }
     },
     items: {
       // The most important list, if not, will not be displayed
       type: Array as PropType<ContextMenuItem[]>,
       default() {
         return [];
-      },
-    },
+      }
+    }
   };
 
   const ItemContent: FunctionalComponent<ItemContentProps> = (props) => {
@@ -64,7 +64,7 @@
           width: `${width}px`,
           left: `${left + 1}px`,
           top: `${top + 1}px`,
-          zIndex: 9999,
+          zIndex: 9999
         };
       });
 
@@ -96,7 +96,7 @@
           const contentProps = {
             item,
             handler: handleAction,
-            showIcon: props.showIcon,
+            showIcon: props.showIcon
           };
 
           if (!children || children.length === 0) {
@@ -115,7 +115,7 @@
             <Menu.SubMenu key={label} disabled={disabled} popupClassName={`${prefixCls}__popup`}>
               {{
                 title: () => <ItemContent {...contentProps} />,
-                default: () => renderMenuItem(children),
+                default: () => renderMenuItem(children)
               }}
             </Menu.SubMenu>
           );
@@ -134,7 +134,7 @@
           </div>
         );
       };
-    },
+    }
   });
 </script>
 <style lang="less">
@@ -179,7 +179,9 @@
     border-radius: 0.25rem;
     background-clip: padding-box;
     background-color: @component-background;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 10%),
+    box-shadow:
+      0 2px 2px 0 rgb(0 0 0 / 14%),
+      0 3px 1px -2px rgb(0 0 0 / 10%),
       0 1px 5px 0 rgb(0 0 0 / 6%);
     list-style: none;
     user-select: none;

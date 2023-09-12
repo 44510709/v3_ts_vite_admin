@@ -2,7 +2,7 @@ import {
   AsyncComponentLoader,
   Component,
   ComponentPublicInstance,
-  defineAsyncComponent,
+  defineAsyncComponent
   // FunctionalComponent, CSSProperties
 } from 'vue';
 import { Spin } from 'ant-design-vue';
@@ -33,7 +33,7 @@ interface Options {
 export function createAsyncComponent<
   T extends Component = {
     new (): ComponentPublicInstance;
-  },
+  }
 >(loader: AsyncComponentLoader<T>, options: Options = {}) {
   const { size = 'small', delay = 100, timeout = 30000, loading = false, retry = true } = options;
   return defineAsyncComponent({
@@ -65,6 +65,6 @@ export function createAsyncComponent<
             // one of them must be called for the error handling to continue.
             fail();
           }
-        },
+        }
   });
 }

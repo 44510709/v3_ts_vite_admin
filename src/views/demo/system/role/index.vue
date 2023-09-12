@@ -2,7 +2,7 @@
   <div>
     <BasicTable @register="registerTable">
       <template #toolbar>
-        <a-button type="primary" @click="handleCreate"> 新增角色 </a-button>
+        <a-button type="primary" @click="handleCreate">新增角色</a-button>
       </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'action'">
@@ -10,7 +10,7 @@
             :actions="[
               {
                 icon: 'clarity:note-edit-line',
-                onClick: handleEdit.bind(null, record),
+                onClick: handleEdit.bind(null, record)
               },
               {
                 icon: 'ant-design:delete-outlined',
@@ -18,9 +18,9 @@
                 popConfirm: {
                   title: '是否确认删除',
                   placement: 'left',
-                  confirm: handleDelete.bind(null, record),
-                },
-              },
+                  confirm: handleDelete.bind(null, record)
+                }
+              }
             ]"
           />
         </template>
@@ -51,7 +51,7 @@
         columns,
         formConfig: {
           labelWidth: 120,
-          schemas: searchFormSchema,
+          schemas: searchFormSchema
         },
         useSearchForm: true,
         showTableSetting: true,
@@ -62,20 +62,20 @@
           title: '操作',
           dataIndex: 'action',
           // slots: { customRender: 'action' },
-          fixed: undefined,
-        },
+          fixed: undefined
+        }
       });
 
       function handleCreate() {
         openDrawer(true, {
-          isUpdate: false,
+          isUpdate: false
         });
       }
 
       function handleEdit(record: Recordable) {
         openDrawer(true, {
           record,
-          isUpdate: true,
+          isUpdate: true
         });
       }
 
@@ -93,8 +93,8 @@
         handleCreate,
         handleEdit,
         handleDelete,
-        handleSuccess,
+        handleSuccess
       };
-    },
+    }
   });
 </script>
